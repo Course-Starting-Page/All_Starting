@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Gen AI: Python Developer Career Accelerator</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --orange:#E87A2E;--orange-dark:#D06A20;--orange-light:#F5943E;
+  --orange-glow:rgba(232,122,46,0.12);--orange-glow2:rgba(232,122,46,0.06);
+  --navy:#2B2D42;--navy-dark:#1A1B2E;
+  --bg:#F3EDE7;--bg-card:#FFFFFF;--bg-light:#F9F5F0;
+  --text-primary:#2B2D42;--text-secondary:#6B6D7B;--text-muted:#9597A6;
+  --border:#E5DDD4;
+  --green:#4CAF50;--green-light:#E8F5E9;
+  --blue:#008DD2;--blue-light:rgba(0,141,210,0.1);
+  --week2:#E8A040;--week3:#66BB6A;--week4:#4CAF50;
+  --shadow-sm:0 2px 8px rgba(43,45,66,0.06);
+  --shadow-md:0 8px 24px rgba(43,45,66,0.08);
+  --shadow-lg:0 16px 48px rgba(43,45,66,0.12);
+  --radius:16px;--radius-sm:10px;--radius-xs:8px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-sm)}
+.nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nav-logo-img{width:38px;height:38px;object-fit:contain}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.2}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);line-height:1.1}
+.nav-logo-name span{color:var(--orange)}
+.nav-logo-sub{font-size:.6rem;color:var(--text-muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-link{font-size:.82rem;font-weight:600;color:var(--text-secondary);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--orange)}
+.btn-enroll{background:var(--orange);color:#fff;border:none;padding:.55rem 1.4rem;border-radius:9px;font-size:.84rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}.btn-enroll:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,122,46,0.3)}
+
+/* ── HERO ── */
+.hero{padding:5rem 2rem 3rem;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--bg) 0%,var(--bg-light) 100%)}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,122,46,0.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(0,141,210,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem 1rem;border-radius:50px;background:var(--orange-glow);color:var(--orange);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.2rem;animation:fadeUp .6s ease both}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.1rem);line-height:1.12;color:var(--navy);margin-bottom:1.1rem;animation:fadeUp .6s ease .1s both}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-sub{font-size:.98rem;color:var(--text-secondary);line-height:1.72;margin-bottom:2rem;max-width:500px;animation:fadeUp .6s ease .2s both}
+.hero-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;animation:fadeUp .6s ease .25s both}
+.hero-pill{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:50px;background:var(--bg-card);border:1px solid var(--border);font-size:.73rem;font-weight:600;color:var(--text-secondary)}
+.hero-pill svg{width:13px;height:13px;color:var(--orange)}
+.hero-cta{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;animation:fadeUp .6s ease .3s both}
+.btn-primary{background:var(--orange);color:#fff;border:none;padding:.8rem 2rem;border-radius:11px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,122,46,0.35)}
+.btn-secondary{background:transparent;color:var(--navy);border:2px solid var(--border);padding:.78rem 1.8rem;border-radius:11px;font-size:.92rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}.btn-secondary:hover{border-color:var(--orange);color:var(--orange)}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;animation:fadeUp .8s ease .15s both}
+.hero-visual-card{background:var(--bg-card);border-radius:20px;padding:1.5rem;box-shadow:var(--shadow-lg);border:1px solid var(--border);position:relative;width:100%}
+.hero-visual-avatar{display:flex;justify-content:center;margin-bottom:1.2rem}
+.hero-visual-avatar img,.hero-visual-avatar .avatar-svg{width:120px;height:120px;object-fit:contain;border-radius:50%;background:linear-gradient(135deg,var(--orange-glow),var(--bg-light));padding:8px}
+.hero-metrics{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.hero-metric{text-align:center;padding:.85rem;border-radius:var(--radius-xs);background:var(--bg-light);border:1px solid var(--border)}
+.hero-metric-num{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--orange);line-height:1}
+.hero-metric-label{font-size:.67rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-top:.2rem}
+.hero-transform-badge{position:absolute;top:-14px;right:20px;background:var(--navy-dark);color:#fff;padding:.35rem .8rem;border-radius:50px;font-size:.68rem;font-weight:700;letter-spacing:.04em;white-space:nowrap;box-shadow:0 4px 12px rgba(27,27,46,0.3)}
+
+/* ── SECTIONS ── */
+section{padding:5rem 2rem}
+.container{max-width:1180px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-eyebrow{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:.6rem}
+.section-eyebrow::before,.section-eyebrow::after{content:'';width:20px;height:1.5px;background:var(--orange);border-radius:2px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--navy);margin-bottom:.6rem;line-height:1.2}
+.section-sub{font-size:.92rem;color:var(--text-secondary);line-height:1.7;max-width:560px;margin:0 auto}
+
+/* ── WHY SECTION ── */
+#why{background:var(--navy-dark);color:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.why-card{padding:2rem;border-radius:var(--radius);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);transition:all .3s;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-light));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.why-card:hover::before{transform:scaleX(1)}
+.why-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px)}
+.why-icon{width:48px;height:48px;border-radius:12px;background:var(--orange-glow);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;font-size:1.4rem}
+.why-card h3{font-size:.98rem;font-weight:700;margin-bottom:.5rem;color:#fff}
+.why-card p{font-size:.82rem;color:rgba(255,255,255,0.6);line-height:1.65}
+#why .section-eyebrow{color:var(--orange-light)}
+#why .section-eyebrow::before,#why .section-eyebrow::after{background:var(--orange-light)}
+#why .section-title{color:#fff}
+#why .section-sub{color:rgba(255,255,255,0.65)}
+
+/* ── JOURNEY / PROGRESS ── */
+#journey{background:var(--bg-light)}
+.journey-timeline{position:relative;margin-top:1rem}
+.journey-connector{position:absolute;left:50%;transform:translateX(-50%);top:60px;bottom:60px;width:3px;background:linear-gradient(180deg,var(--orange),var(--week2),var(--week3),var(--week4));border-radius:2px;z-index:0}
+.journey-week{display:grid;grid-template-columns:1fr 80px 1fr;gap:1.5rem;align-items:start;margin-bottom:3rem;position:relative;z-index:1}
+.journey-week:nth-child(even) .week-card-wrap{order:3}.journey-week:nth-child(even) .week-node{order:2}.journey-week:nth-child(even) .week-detail{order:1;text-align:right}
+.week-node{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding-top:.4rem}
+.week-num-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:700;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.18);border:3px solid var(--bg-light);position:relative;z-index:2}
+.w1 .week-num-circle{background:linear-gradient(135deg,var(--orange),var(--orange-light))}
+.w2 .week-num-circle{background:linear-gradient(135deg,#E8A040,#F0C060)}
+.w3 .week-num-circle{background:linear-gradient(135deg,#66BB6A,#81C784)}
+.w4 .week-num-circle{background:linear-gradient(135deg,var(--green),#66BB6A)}
+.week-label-small{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted)}
+.week-card-wrap{display:flex;align-items:flex-start}
+.week-card{background:var(--bg-card);border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow-md);border:1px solid var(--border);width:100%;transition:all .35s;cursor:pointer}
+.week-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+.week-card-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.week-tag{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .65rem;border-radius:5px}
+.w1 .week-tag{background:var(--orange-glow);color:var(--orange)}
+.w2 .week-tag{background:rgba(232,160,64,0.12);color:#C08830}
+.w3 .week-tag{background:rgba(102,187,106,0.12);color:#388E3C}
+.w4 .week-tag{background:rgba(76,175,80,0.12);color:#2E7D32}
+.week-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:.3rem}
+.week-card .focus{font-size:.76rem;font-weight:600;font-style:italic;margin-bottom:.7rem}
+.w1 .focus{color:var(--orange)}.w2 .focus{color:#C08830}.w3 .focus{color:#388E3C}.w4 .focus{color:#2E7D32}
+.week-card p{font-size:.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:1rem}
+.week-skills{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem}
+.skill-chip{padding:.22rem .6rem;border-radius:50px;font-size:.65rem;font-weight:600;background:var(--bg);color:var(--text-secondary);border:1px solid var(--border)}
+.week-outcome-box{background:var(--bg-light);border-radius:var(--radius-xs);padding:.8rem 1rem;border-left:3px solid}
+.w1 .week-outcome-box{border-color:var(--orange)}.w2 .week-outcome-box{border-color:#E8A040}.w3 .week-outcome-box{border-color:#66BB6A}.w4 .week-outcome-box{border-color:var(--green)}
+.week-outcome-box .out-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.2rem}
+.week-outcome-box p{font-size:.78rem;color:var(--text-primary);line-height:1.55;font-weight:500;margin:0}
+.week-detail{padding-top:.6rem}
+.week-detail-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.6rem}
+.week-detail-item{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.5rem;font-size:.8rem;color:var(--text-secondary);line-height:1.5}
+.week-detail-item svg{flex-shrink:0;margin-top:2px;width:14px;height:14px}
+.journey-week:nth-child(even) .week-detail-item{justify-content:flex-end;flex-direction:row-reverse}
+.detail-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:6px}
+.w2 .detail-dot{background:#E8A040}.w3 .detail-dot{background:#66BB6A}.w4 .detail-dot{background:var(--green)}
+
+/* ── SKILLS PROGRESSION ── */
+#skills-bar{background:var(--bg-card)}
+.skills-progress-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.skills-list{display:flex;flex-direction:column;gap:1.1rem}
+.skill-row{display:flex;flex-direction:column;gap:.4rem}
+.skill-row-header{display:flex;justify-content:space-between;align-items:center}
+.skill-row-name{font-size:.83rem;font-weight:700;color:var(--navy)}
+.skill-row-pct{font-size:.75rem;font-weight:700;color:var(--orange)}
+.skill-bar-track{height:8px;background:var(--bg-light);border-radius:50px;overflow:hidden;border:1px solid var(--border)}
+.skill-bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--orange),var(--orange-light));width:0;transition:width 1.2s cubic-bezier(.25,.46,.45,.94)}
+.skills-visual{background:var(--bg-light);border-radius:var(--radius);padding:2rem;border:1px solid var(--border)}
+.skills-visual h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:1.2rem}
+.skill-stage{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding:.9rem 1rem;background:var(--bg-card);border-radius:var(--radius-xs);border:1px solid var(--border);transition:all .3s}
+.skill-stage:hover{transform:translateX(6px);border-color:var(--orange);box-shadow:var(--shadow-sm)}
+.stage-week-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#fff;flex-shrink:0}
+.s1{background:var(--orange)}.s2{background:#E8A040}.s3{background:#66BB6A}.s4{background:var(--green)}
+.stage-info{flex:1}
+.stage-title{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.15rem}
+.stage-desc{font-size:.74rem;color:var(--text-secondary);line-height:1.5}
+.stage-arrow{color:var(--text-muted);font-size:.9rem}
+
+/* ── ASSIGNMENTS ── */
+#assignments{background:var(--bg-light)}
+.assign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.assign-card{background:var(--bg-card);border-radius:var(--radius);padding:1.6rem;border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+.assign-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.assign-card:nth-child(1)::after,.assign-card:nth-child(4)::after,.assign-card:nth-child(7)::after{background:var(--orange)}
+.assign-card:nth-child(2)::after,.assign-card:nth-child(5)::after,.assign-card:nth-child(8)::after{background:#E8A040}
+.assign-card:nth-child(3)::after,.assign-card:nth-child(6)::after,.assign-card:nth-child(9)::after{background:#66BB6A}
+.assign-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent}
+.assign-sector{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.25rem .65rem;border-radius:5px;background:var(--bg-light);color:var(--text-muted);border:1px solid var(--border);display:inline-block;margin-bottom:.8rem}
+.assign-num{font-family:'DM Serif Display',serif;font-size:2rem;color:rgba(232,122,46,0.15);position:absolute;top:.8rem;right:1rem;line-height:1}
+.assign-card h4{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;line-height:1.35}
+.assign-card p{font-size:.78rem;color:var(--text-secondary);line-height:1.6;margin-bottom:.8rem}
+.assign-meta{display:flex;align-items:center;gap:.5rem;font-size:.7rem;color:var(--text-muted);font-weight:600}
+.assign-meta span{display:flex;align-items:center;gap:.25rem}
+.assign-type-badge{font-size:.64rem;font-weight:700;padding:.2rem .55rem;border-radius:4px}
+.assign-type-badge.industry{background:var(--orange-glow);color:var(--orange)}
+.assign-type-badge.mini{background:rgba(76,175,80,0.1);color:#388E3C}
+.assign-type-badge.practical{background:var(--blue-light);color:var(--blue)}
+
+/* ── CAPSTONE ── */
+#capstone{background:var(--bg-card)}
+.capstone-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.capstone-card{border-radius:var(--radius);padding:2rem;border:1px solid var(--border);transition:all .35s;position:relative;overflow:hidden;background:var(--bg-light)}
+.capstone-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--orange)}
+.capstone-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.capstone-card:nth-child(1)::before{background:linear-gradient(90deg,var(--orange),var(--orange-light))}
+.capstone-card:nth-child(2)::before{background:linear-gradient(90deg,#008DD2,#4AB3E0)}
+.capstone-card:nth-child(3)::before{background:linear-gradient(90deg,#66BB6A,#81C784)}
+.capstone-card:nth-child(4)::before{background:linear-gradient(90deg,#9C6ACE,#B98FE0)}
+.capstone-emoji{font-size:2rem;margin-bottom:.9rem;display:block}
+.capstone-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:.3rem}
+.capstone-sector{font-size:.7rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.7rem}
+.capstone-card p{font-size:.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:1rem}
+.capstone-components{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.capstone-component{display:flex;align-items:center;gap:.5rem;font-size:.76rem;color:var(--text-secondary)}
+.comp-dot{width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.capstone-card:nth-child(2) .comp-dot{background:#008DD2}
+.capstone-card:nth-child(3) .comp-dot{background:#66BB6A}
+.capstone-card:nth-child(4) .comp-dot{background:#9C6ACE}
+.capstone-pitch{background:var(--navy-dark);border-radius:var(--radius-xs);padding:.85rem 1rem;margin-top:.8rem}
+.capstone-pitch-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,0.45);margin-bottom:.25rem}
+.capstone-pitch p{font-size:.76rem;color:rgba(255,255,255,0.8);line-height:1.6;margin:0;font-style:italic}
+
+/* ── OUTCOME ── */
+#outcome{background:linear-gradient(160deg,var(--navy-dark) 0%,#232540 100%);color:#fff;position:relative;overflow:hidden}
+#outcome::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,122,46,0.15) 0%,transparent 70%)}
+#outcome::after{content:'';position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,141,210,0.1) 0%,transparent 70%)}
+#outcome .section-eyebrow{color:var(--orange-light)}.#outcome .section-eyebrow::before,#outcome .section-eyebrow::after{background:var(--orange-light)}
+#outcome .section-title{color:#fff}
+#outcome .section-sub{color:rgba(255,255,255,0.65)}
+.outcome-checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:3rem}
+.outcome-item{display:flex;align-items:flex-start;gap:.8rem;padding:1.2rem 1.4rem;background:rgba(255,255,255,0.06);border-radius:var(--radius-xs);border:1px solid rgba(255,255,255,0.08);transition:all .3s}
+.outcome-item:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+.outcome-check{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-light));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;color:#fff;font-weight:700}
+.outcome-text{flex:1}
+.outcome-text strong{display:block;font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.outcome-text span{font-size:.78rem;color:rgba(255,255,255,0.6);line-height:1.55}
+.outcome-final{text-align:center;padding:2.5rem;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.1);position:relative;z-index:1}
+.outcome-final-quote{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,2.5vw,1.65rem);color:#fff;line-height:1.4;margin-bottom:1rem}
+.outcome-final-quote em{font-style:normal;color:var(--orange)}
+.outcome-final-sub{font-size:.85rem;color:rgba(255,255,255,0.55);line-height:1.65}
+
+/* ── INTERVIEW SECTION ── */
+#interview{background:var(--bg-light)}
+.interview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.interview-card{background:var(--bg-card);border-radius:var(--radius);padding:1.6rem;border:1px solid var(--border);transition:all .3s;position:relative}
+.interview-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--orange)}
+.interview-icon{font-size:1.8rem;margin-bottom:.8rem;display:block}
+.interview-card h4{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.interview-card p{font-size:.8rem;color:var(--text-secondary);line-height:1.65}
+
+/* ── CTA SECTION ── */
+.cta-section{padding:5rem 2rem;background:var(--bg)}
+.cta-box{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-radius:24px;padding:4rem;text-align:center;position:relative;overflow:hidden;max-width:860px;margin:0 auto}
+.cta-box::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;border-radius:50%;background:rgba(232,122,46,0.12)}
+.cta-box::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;border-radius:50%;background:rgba(0,141,210,0.08)}
+.cta-box h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:#fff;margin-bottom:.8rem;position:relative;z-index:1}
+.cta-box h2 em{font-style:normal;color:var(--orange)}
+.cta-box p{font-size:.95rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2rem;position:relative;z-index:1}
+.cta-buttons{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+.btn-cta-main{background:var(--orange);color:#fff;border:none;padding:.85rem 2.4rem;border-radius:12px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}.btn-cta-main:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,122,46,0.4)}
+.btn-cta-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);padding:.83rem 2.2rem;border-radius:12px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}.btn-cta-ghost:hover{border-color:rgba(255,255,255,0.5)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-dark);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:.78rem}
+footer span{color:var(--orange);font-weight:600}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+@keyframes fillBar{from{width:0}to{width:var(--target-w)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}.hero-visual{display:none}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .journey-connector{display:none}.journey-week{grid-template-columns:1fr;gap:1rem}.journey-week:nth-child(even) .week-card-wrap,.journey-week:nth-child(even) .week-node,.journey-week:nth-child(even) .week-detail{order:unset}.week-node{flex-direction:row;justify-content:flex-start}.week-detail{display:none}
+  .assign-grid{grid-template-columns:1fr 1fr}
+  .capstone-grid{grid-template-columns:1fr}
+  .outcome-checklist{grid-template-columns:1fr}
+  .skills-progress-wrap{grid-template-columns:1fr}
+  .interview-grid{grid-template-columns:1fr 1fr}
+  .nav-right .nav-link{display:none}
+}
+@media(max-width:600px){
+  .why-grid,.assign-grid,.interview-grid{grid-template-columns:1fr}
+  section{padding:3.5rem 1.2rem}
+  .cta-box{padding:2.5rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="#">
+    <img class="nav-logo-img" src="LOGO_PLACEHOLDER" alt="MokshPath" onerror="this.style.display='none'">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Moksh<span>Path</span></span>
+      <span class="nav-logo-sub">AI-Powered Learning</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <a href="#journey" class="nav-link">Curriculum</a>
+    <a href="#capstone" class="nav-link">Capstone</a>
+    <a href="#outcome" class="nav-link">Outcomes</a>
+    <button class="btn-enroll">Enrol Now →</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span>Now Enrolling · Final-Year Engineers</div>
+      <h1>Next Gen AI: <em>Python Developer</em> Career Accelerator</h1>
+      <p class="hero-sub">A rigorous 4-week intensive that transforms you from Python beginner to a job-ready data developer — with real industry projects you can demo live at any interview.</p>
+      <div class="hero-pills">
+        <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No ML, no SQL — pure production Python</span>
+        <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>12 assignments built on real industry data</span>
+        <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Interview-ready GitHub portfolio</span>
+        <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All free tools — zero subscription</span>
+      </div>
+      <div class="hero-cta">
+        <button class="btn-primary">Start Your Journey →</button>
+        <button class="btn-secondary">View Curriculum</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-card">
+        <span class="hero-transform-badge">🚀 4 Weeks to Job-Ready</span>
+        <div class="hero-visual-avatar">
+          <div class="avatar-svg" id="navLogoDisplay"></div>
+        </div>
+        <div class="hero-metrics">
+          <div class="hero-metric"><div class="hero-metric-num">4</div><div class="hero-metric-label">Weeks</div></div>
+          <div class="hero-metric"><div class="hero-metric-num">12</div><div class="hero-metric-label">Assignments</div></div>
+          <div class="hero-metric"><div class="hero-metric-num">4</div><div class="hero-metric-label">Mini-Projects</div></div>
+          <div class="hero-metric"><div class="hero-metric-num">1</div><div class="hero-metric-label">Capstone</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS COURSE -->
+<section id="why">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Why This Course</div>
+      <h2 class="section-title" style="color:#fff">Built for Interviews, Not Just Learning</h2>
+      <p class="section-sub">Every assignment simulates a task a junior data analyst gets on their first week at work — with realistic messy data, business context, and a deliverable you can open on your laptop in an interview.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🏭</div>
+        <h3>Real Industry Scenarios</h3>
+        <p>Manufacturing plants, hospitals, fintech startups, agri-tech companies — every dataset mimics a real operational problem with noise, messy formatting, and business stakes.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">💼</div>
+        <h3>Interview-First Design</h3>
+        <p>You learn to explain your code decisions, not just write them. Recruiters ask "Why did you use groupby here?" — you'll have a confident, specific answer every time.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">📈</div>
+        <h3>Progressive Skill Build</h3>
+        <p>Each assignment builds on the last. Week 1's notebook becomes Week 4's production package — you see your own growth in real code, not just test scores.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">⚡</div>
+        <h3>Automation-Focused</h3>
+        <p>The one skill most employers test: building pipelines that run without human intervention. By Week 3, you'll have a live automated system running on your laptop.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">🐙</div>
+        <h3>GitHub-Ready Portfolio</h3>
+        <p>Professional READMEs, modular code, pytest tests, logging — your repos will look like a working developer's, not a student's homework folder.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">🎯</div>
+        <h3>Any Engineering Branch</h3>
+        <p>CS, Mechanical, Electronics, Civil, Chemical — if you can write a Python function, you're ready. No data science background required. Pure Python, the way industry uses it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY / CURRICULUM -->
+<section id="journey">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">4-Week Curriculum</div>
+      <h2 class="section-title">Your Week-by-Week Transformation</h2>
+      <p class="section-sub">Each week delivers a complete, demonstrable skill set. By Friday of every week, you'll have a clean project you can show any recruiter.</p>
+    </div>
+    <div class="journey-timeline">
+      <div class="journey-connector"></div>
+
+      <!-- WEEK 1 -->
+      <div class="journey-week w1 reveal">
+        <div class="week-card-wrap">
+          <div class="week-card">
+            <div class="week-card-header">
+              <span class="week-tag">Week 1</span>
+            </div>
+            <h3>Data Foundations</h3>
+            <p class="focus">Python · Pandas · NumPy · File I/O · Data Cleaning</p>
+            <p>Become fluent with data — loading from CSV, Excel, and JSON, cleaning the mess that real data always contains, reshaping into useful structures, and computing KPIs that businesses actually care about.</p>
+            <div class="week-skills">
+              <span class="skill-chip">read_csv / read_excel</span><span class="skill-chip">DataFrame inspection</span><span class="skill-chip">groupby & pivot_table</span><span class="skill-chip">Missing value handling</span><span class="skill-chip">Date parsing</span><span class="skill-chip">NumPy aggregation</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="out-label">✦ Week Deliverable</div>
+              <p>3 clean, commented Jupyter notebooks + a data pipeline portfolio ready to show any recruiter</p>
+            </div>
+          </div>
+        </div>
+        <div class="week-node">
+          <div class="week-num-circle">1</div>
+          <span class="week-label-small">Week 1</span>
+        </div>
+        <div class="week-detail">
+          <div class="week-detail-title">Industry Projects</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>🏭 Manufacturing Shift Log — Settling a Production Dispute with Data</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>🛒 Retail Inventory Audit — Catching Stock Risks Before They Become Losses</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>🌾 Crop Harvest Data Cleaning — Turning Field Records into a Usable Dataset</span></div>
+          <div style="margin-top:.8rem" class="week-detail-title">Practical Exercises</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Missing Data Experiment (45 min)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Groupby vs Loop Speed Test (30 min)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Pivot Table vs Aggregation (30 min)</span></div>
+        </div>
+      </div>
+
+      <!-- WEEK 2 -->
+      <div class="journey-week w2 reveal">
+        <div class="week-card-wrap">
+          <div class="week-card">
+            <div class="week-card-header">
+              <span class="week-tag">Week 2</span>
+            </div>
+            <h3>Analysis & Visualisation</h3>
+            <p class="focus">EDA · Matplotlib · Seaborn · Automated Reporting</p>
+            <p>Transform raw data into insight and insight into professional documents. Build presentation-ready charts, write automated Excel and PDF reports that eliminate manual work, and develop the statistical thinking that makes analysts trusted business partners.</p>
+            <div class="week-skills">
+              <span class="skill-chip">Matplotlib Figure/Axes</span><span class="skill-chip">Seaborn heatmaps</span><span class="skill-chip">Rolling statistics</span><span class="skill-chip">ExcelWriter multi-sheet</span><span class="skill-chip">Conditional formatting</span><span class="skill-chip">EDA narrative</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="out-label">✦ Week Deliverable</div>
+              <p>1 mini-project dashboard (energy intelligence) + automated hospital Excel report running with one command</p>
+            </div>
+          </div>
+        </div>
+        <div class="week-node">
+          <div class="week-num-circle">2</div>
+          <span class="week-label-small">Week 2</span>
+        </div>
+        <div class="week-detail">
+          <div class="week-detail-title">Industry Projects</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>🏦 Financial Transaction Pattern Analysis (90 days of spending)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>🏥 Hospital Discharge Report Automation (replaces 90-min Monday task)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>⚡ Energy Consumption Dashboard (Mini-Project, 5–6 hrs)</span></div>
+          <div style="margin-top:.8rem" class="week-detail-title">Practical Exercises</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Chart Before &amp; After — publication-ready styling</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Correlation ≠ Causation — critical analysis</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Build Your Own Summary Stats Function</span></div>
+        </div>
+      </div>
+
+      <!-- WEEK 3 -->
+      <div class="journey-week w3 reveal">
+        <div class="week-card-wrap">
+          <div class="week-card">
+            <div class="week-card-header">
+              <span class="week-tag">Week 3</span>
+            </div>
+            <h3>APIs, Scraping & Automation</h3>
+            <p class="focus">REST APIs · Web Scraping · Scheduled Workflows · Email Alerts</p>
+            <p>Connect Python to the live world: fetch real-time data, extract information from websites, build pipelines that run automatically on a schedule, and send email alerts when thresholds are breached. The skills most Python courses never teach.</p>
+            <div class="week-skills">
+              <span class="skill-chip">REST API + auth</span><span class="skill-chip">BeautifulSoup4</span><span class="skill-chip">requests pagination</span><span class="skill-chip">schedule library</span><span class="skill-chip">smtplib HTML email</span><span class="skill-chip">python-dotenv</span><span class="skill-chip">robots.txt ethics</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="out-label">✦ Week Deliverable</div>
+              <p>A live automated pipeline running on your laptop — a recruiter can watch it fetch data and send an email alert in real time</p>
+            </div>
+          </div>
+        </div>
+        <div class="week-node">
+          <div class="week-num-circle">3</div>
+          <span class="week-label-small">Week 3</span>
+        </div>
+        <div class="week-detail">
+          <div class="week-detail-title">Industry Projects</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>🚢 Commodity Price Intelligence — Live Procurement Pipeline</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>💊 Pharma Tender Scraper — Govt Portal Market Intelligence</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>🛒 Retail Price Monitor — Full Competitive Intelligence (Mini-Project)</span></div>
+          <div style="margin-top:.8rem" class="week-detail-title">Practical Exercises</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>API Rate Limit + Retry Wrapper (45 min)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>robots.txt Audit across 5 sites (30 min)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Email Formatting: plain vs HTML styled (30 min)</span></div>
+        </div>
+      </div>
+
+      <!-- WEEK 4 -->
+      <div class="journey-week w4 reveal">
+        <div class="week-card-wrap">
+          <div class="week-card">
+            <div class="week-card-header">
+              <span class="week-tag">Week 4</span>
+            </div>
+            <h3>Production & Portfolio</h3>
+            <p class="focus">Modular Code · Testing · Documentation · GitHub</p>
+            <p>Take everything you've built and make it something a company would trust to run in production. Learn the engineering disciplines that distinguish a job-ready graduate: modular structure, logging, unit testing, and documentation.</p>
+            <div class="week-skills">
+              <span class="skill-chip">Python packages</span><span class="skill-chip">logging module</span><span class="skill-chip">pytest unit tests</span><span class="skill-chip">Docstrings</span><span class="skill-chip">requirements.txt</span><span class="skill-chip">Git commit discipline</span><span class="skill-chip">README writing</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="out-label">✦ Week Deliverable</div>
+              <p>Complete capstone project + polished GitHub portfolio + interview-ready demo you can run live in 5 minutes</p>
+            </div>
+          </div>
+        </div>
+        <div class="week-node">
+          <div class="week-num-circle">4</div>
+          <span class="week-label-small">Week 4</span>
+        </div>
+        <div class="week-detail">
+          <div class="week-detail-title">Practical Projects</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Refactor to Production — Notebook → Python Package</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Pipeline Resilience — Retry decorator, heartbeat file, corrupt-file recovery</span></div>
+          <div style="margin-top:.8rem" class="week-detail-title">Portfolio Sprint</div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Commit History Audit + rewrite (30 min)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>README Writing Sprint (45 min)</span></div>
+          <div class="week-detail-item"><span class="detail-dot"></span><span>Live Demo Dry Run — recorded on phone (45 min)</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS PROGRESSION -->
+<section id="skills-bar">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Skill Progression</div>
+      <h2 class="section-title">How Your Capabilities Evolve</h2>
+      <p class="section-sub">Each week expands your stack. By Week 4, you'll have the skills to build, test, and ship automated data systems that run in production.</p>
+    </div>
+    <div class="skills-progress-wrap">
+      <div class="skills-list" id="skillsList">
+        <div class="skill-row reveal">
+          <div class="skill-row-header"><span class="skill-row-name">Data Loading & Cleaning</span><span class="skill-row-pct">100%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-1">
+          <div class="skill-row-header"><span class="skill-row-name">Pandas & NumPy Analysis</span><span class="skill-row-pct">95%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-1">
+          <div class="skill-row-header"><span class="skill-row-name">Data Visualisation (Matplotlib / Seaborn)</span><span class="skill-row-pct">90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-2">
+          <div class="skill-row-header"><span class="skill-row-name">Automated Excel & PDF Reporting</span><span class="skill-row-pct">88%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-2">
+          <div class="skill-row-header"><span class="skill-row-name">REST APIs & Web Scraping</span><span class="skill-row-pct">82%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-3">
+          <div class="skill-row-header"><span class="skill-row-name">Scheduling & Email Automation</span><span class="skill-row-pct">80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-3">
+          <div class="skill-row-header"><span class="skill-row-name">Modular Code & Package Structure</span><span class="skill-row-pct">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-4">
+          <div class="skill-row-header"><span class="skill-row-name">pytest Unit Testing</span><span class="skill-row-pct">78%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78%"></div></div>
+        </div>
+        <div class="skill-row reveal reveal-delay-4">
+          <div class="skill-row-header"><span class="skill-row-name">GitHub Portfolio & Interview Readiness</span><span class="skill-row-pct">100%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100%"></div></div>
+        </div>
+      </div>
+      <div class="skills-visual reveal reveal-delay-2">
+        <h3>Your Developer Journey</h3>
+        <div class="skill-stage">
+          <div class="stage-week-dot s1">W1</div>
+          <div class="stage-info">
+            <div class="stage-title">Data Analyst Foundation</div>
+            <div class="stage-desc">Load, clean, and analyse any dataset. Compute business KPIs with Pandas groupby in seconds, not hours.</div>
+          </div>
+          <span class="stage-arrow">→</span>
+        </div>
+        <div class="skill-stage">
+          <div class="stage-week-dot s2">W2</div>
+          <div class="stage-info">
+            <div class="stage-title">Visualisation & Reporting</div>
+            <div class="stage-desc">Build publication-quality charts and automated multi-sheet Excel reports stakeholders can actually read.</div>
+          </div>
+          <span class="stage-arrow">→</span>
+        </div>
+        <div class="skill-stage">
+          <div class="stage-week-dot s3">W3</div>
+          <div class="stage-info">
+            <div class="stage-title">Live Data & Automation</div>
+            <div class="stage-desc">Fetch real-time API data, scrape websites ethically, run scheduled workflows, and email alerts automatically.</div>
+          </div>
+          <span class="stage-arrow">→</span>
+        </div>
+        <div class="skill-stage">
+          <div class="stage-week-dot s4">W4</div>
+          <div class="stage-info">
+            <div class="stage-title">Production-Grade Developer</div>
+            <div class="stage-desc">Modular packages, logging, pytest tests, and a GitHub portfolio that opens conversations at every interview.</div>
+          </div>
+          <span class="stage-arrow">🎯</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSIGNMENTS OVERVIEW -->
+<section id="assignments">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">12 Assignments + 4 Mini-Projects</div>
+      <h2 class="section-title">Every Project Tells a Story in an Interview</h2>
+      <p class="section-sub">Spanning 7 industry sectors — each assignment gives you a specific business problem, a real dataset, and a deliverable that demonstrates professional thinking.</p>
+    </div>
+    <div class="assign-grid">
+      <div class="assign-card reveal">
+        <span class="assign-sector">🏭 Manufacturing</span>
+        <span class="assign-num">01</span>
+        <h4>Manufacturing Shift Log Analysis</h4>
+        <p>Compute production KPIs across 4 lines, build a Pareto chart of downtime causes, and write a 150-word management summary that settles a factory floor dispute.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge industry">Industry</span>
+          <span>⏱ 3–4 hrs</span>
+          <span>Week 1</span>
+        </div>
+      </div>
+      <div class="assign-card reveal reveal-delay-1">
+        <span class="assign-sector">🛒 Retail</span>
+        <span class="assign-num">02</span>
+        <h4>Retail Inventory Audit Script</h4>
+        <p>Replace a 45-minute manual CSV review with a 3-second Python script that classifies 600 SKUs as STOCKOUT RISK, OVERSTOCK, or HEALTHY.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge practical">Practical</span>
+          <span>⏱ 2–3 hrs</span>
+          <span>Week 1</span>
+        </div>
+      </div>
+      <div class="assign-card reveal reveal-delay-2">
+        <span class="assign-sector">🌾 Agriculture</span>
+        <span class="assign-num">03</span>
+        <h4>Crop Harvest Data Cleaning Pipeline</h4>
+        <p>Clean a 400-farm dataset with inconsistent districts, mixed units, three date formats, and negative rainfall values — the kind of mess that separates job-ready graduates.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge industry">Industry</span>
+          <span>⏱ 3–4 hrs</span>
+          <span>Week 1</span>
+        </div>
+      </div>
+      <div class="assign-card reveal">
+        <span class="assign-sector">🏦 Finance</span>
+        <span class="assign-num">04</span>
+        <h4>Financial Transaction Pattern Analysis</h4>
+        <p>Analyse 90 days of spending data: category breakdowns, weekly patterns, merchant concentration, and anomaly detection — as a fintech startup analyst would.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge industry">Industry</span>
+          <span>⏱ 3–4 hrs</span>
+          <span>Week 2</span>
+        </div>
+      </div>
+      <div class="assign-card reveal reveal-delay-1">
+        <span class="assign-sector">🏥 Healthcare</span>
+        <span class="assign-num">05</span>
+        <h4>Hospital Discharge Report Automation</h4>
+        <p>Merge 3 CSVs, compute clinical KPIs, and generate a 3-sheet Excel report with conditional formatting — replacing a 90-minute Monday morning manual process.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge industry">Industry</span>
+          <span>⏱ 3–4 hrs</span>
+          <span>Week 2</span>
+        </div>
+      </div>
+      <div class="assign-card reveal reveal-delay-2">
+        <span class="assign-sector">⚡ Energy</span>
+        <span class="assign-num">06</span>
+        <h4>Energy Consumption Dashboard</h4>
+        <p>6 months of smart meter data → 4-panel dashboard with energy intensity trends, off-shift waste in rupees, and a management Excel report. Run it live at your interview.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge mini">Mini-Project</span>
+          <span>⏱ 5–6 hrs</span>
+          <span>Week 2</span>
+        </div>
+      </div>
+      <div class="assign-card reveal">
+        <span class="assign-sector">🚢 Logistics</span>
+        <span class="assign-num">07</span>
+        <h4>Commodity Price Intelligence Pipeline</h4>
+        <p>Fetch live commodity prices from a financial API, compute moving averages, flag >3% movements as ALERT, and auto-email the procurement head — with .env security.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge industry">Industry</span>
+          <span>⏱ 3–4 hrs</span>
+          <span>Week 3</span>
+        </div>
+      </div>
+      <div class="assign-card reveal reveal-delay-1">
+        <span class="assign-sector">💊 Pharma</span>
+        <span class="assign-num">08</span>
+        <h4>Pharmaceutical Tender Scraper</h4>
+        <p>Scrape government drug procurement portals, handle pagination, deduplicate, and analyse top drug categories by tender value — with ethical robots.txt compliance.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge industry">Industry</span>
+          <span>⏱ 3–4 hrs</span>
+          <span>Week 3</span>
+        </div>
+      </div>
+      <div class="assign-card reveal reveal-delay-2">
+        <span class="assign-sector">🛒 E-Commerce</span>
+        <span class="assign-num">09</span>
+        <h4>Retail Price Monitor — Full System</h4>
+        <p>Scrape 20 products × 3 competitor sites, detect price changes, schedule weekly runs, generate an Excel report, and email it as an attachment. A complete automated system.</p>
+        <div class="assign-meta">
+          <span class="assign-type-badge mini">Mini-Project</span>
+          <span>⏱ 5–6 hrs</span>
+          <span>Week 3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSTONE -->
+<section id="capstone">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Choose Your Capstone</div>
+      <h2 class="section-title">One Project to Lead Every Interview</h2>
+      <p class="section-sub">Your capstone is a complete end-to-end automated Python system — it fetches data, processes it, analyses it, visualises it, reports it, and delivers an alert, all from one command. Pick the industry that excites you most.</p>
+    </div>
+    <div class="capstone-grid">
+      <div class="capstone-card reveal">
+        <span class="capstone-emoji">🏭</span>
+        <h3>Capstone A: Manufacturing Plant Daily Intelligence</h3>
+        <div class="capstone-sector">Manufacturing · Industry 4.0 · Approachable</div>
+        <p>A fully automated system that monitors a plant's operational health and emails a complete OEE briefing to the plant manager every morning at 06:30 — zero human involvement once set up.</p>
+        <div class="capstone-components">
+          <div class="capstone-component"><span class="comp-dot"></span><span>OEE per production line (ISO 22400 standard)</span></div>
+          <div class="capstone-component"><span class="comp-dot"></span><span>4-panel dashboard + 3-sheet Excel report</span></div>
+          <div class="capstone-component"><span class="comp-dot"></span><span>Email alert if any line OEE &lt; 70%</span></div>
+          <div class="capstone-component"><span class="comp-dot"></span><span>10 pytest tests + full logging</span></div>
+        </div>
+        <div class="capstone-pitch">
+          <div class="capstone-pitch-label">What You'll Say in Your Interview</div>
+          <p>"This system runs every morning at 06:30. It loads sensor data, computes OEE for 6 production lines, generates a 3-sheet Excel briefing, and emails an alert if any line drops below 70% — with the chart attached. It has 10 pytest tests. I can run it right now."</p>
+        </div>
+      </div>
+      <div class="capstone-card reveal reveal-delay-1">
+        <span class="capstone-emoji">🏦</span>
+        <h3>Capstone B: Personal Finance Intelligence Engine</h3>
+        <div class="capstone-sector">Financial Services · FinTech · Approachable</div>
+        <p>A complete automated finance analysis system: fetch live exchange rates, analyse transaction patterns across 3 accounts, generate monthly reports, and email weekly budget alerts.</p>
+        <div class="capstone-components">
+          <div class="capstone-component"><span class="comp-dot" style="background:#008DD2"></span><span>Live USD/INR, EUR/INR API enrichment</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#008DD2"></span><span>12-category spending analysis + merchant concentration</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#008DD2"></span><span>Weekly budget alert if any category >20% over</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#008DD2"></span><span>config.yaml-driven — no code changes to customise</span></div>
+        </div>
+        <div class="capstone-pitch">
+          <div class="capstone-pitch-label">What You'll Say in Your Interview</div>
+          <p>"It fetches live exchange rates, analyses 3 months of transactions, and emails a weekly budget alert. Budget limits are in a config file — users don't touch the code. 10 pytest tests. The monthly report takes 4 seconds from raw CSV."</p>
+        </div>
+      </div>
+      <div class="capstone-card reveal">
+        <span class="capstone-emoji">🌾</span>
+        <h3>Capstone C: Agri-Market Price Intelligence Platform</h3>
+        <div class="capstone-sector">Agriculture · Logistics · Moderate Challenge</div>
+        <p>A daily market intelligence platform scraping government mandi portals for 10 commodities across 6 cities, with buy/wait recommendations and immediate alerts on &gt;8% price movements.</p>
+        <div class="capstone-components">
+          <div class="capstone-component"><span class="comp-dot" style="background:#66BB6A"></span><span>Daily Agmarknet API scrape + 12-month rolling history</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#66BB6A"></span><span>BUY / WAIT / HOLD advisory algorithm</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#66BB6A"></span><span>HTML email alert within minutes of >8% movement</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#66BB6A"></span><span>Backtested recommendations in README</span></div>
+        </div>
+        <div class="capstone-pitch">
+          <div class="capstone-pitch-label">What You'll Say in Your Interview</div>
+          <p>"I built a daily agri-market platform that scrapes government prices for 10 commodities across 6 cities, runs a buy/wait algorithm, and sends an alert within minutes of a >8% movement. One command. 10 automated tests. Agri-tech is one of India's fastest-growing sectors."</p>
+        </div>
+      </div>
+      <div class="capstone-card reveal reveal-delay-1">
+        <span class="capstone-emoji">💊</span>
+        <h3>Capstone D: Healthcare Operations Analytics Dashboard</h3>
+        <div class="capstone-sector">Healthcare · Hospital Management · Most Complete</div>
+        <p>A fully automated weekly hospital operations system: merge 3 data sources, compute 12 clinical KPIs, benchmark against NABH standards, and send personalised emails to each department head.</p>
+        <div class="capstone-components">
+          <div class="capstone-component"><span class="comp-dot" style="background:#9C6ACE"></span><span>12 KPIs per department: LOS, readmission, occupancy…</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#9C6ACE"></span><span>Red/Amber/Green traffic light benchmarking (NABH)</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#9C6ACE"></span><span>Personalised email per department head</span></div>
+          <div class="capstone-component"><span class="comp-dot" style="background:#9C6ACE"></span><span>12 pytest tests + spider charts + small multiples</span></div>
+        </div>
+        <div class="capstone-pitch">
+          <div class="capstone-pitch-label">What You'll Say in Your Interview</div>
+          <p>"It merges three data sources, computes 12 clinical KPIs per department, benchmarks against NABH standards, and sends each head a personalised email. Healthcare requires the highest standard of correctness — that's why I chose it. 12 automated tests. Runs every Monday at 07:00."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section id="outcome">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow" style="color:var(--orange-light)">Final Transformation</div>
+      <h2 class="section-title" style="color:#fff">What You Can Do After 4 Weeks</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6)">These aren't learning objectives — these are demonstrable, testable skills you will have practised in real projects.</p>
+    </div>
+    <div class="outcome-checklist">
+      <div class="outcome-item reveal">
+        <div class="outcome-check">✓</div>
+        <div class="outcome-text">
+          <strong>Load & clean any messy real-world dataset</strong>
+          <span>Handle missing values, duplicate records, inconsistent formats, and outliers — the four problems every real dataset has — using Python and Pandas.</span>
+        </div>
+      </div>
+      <div class="outcome-item reveal reveal-delay-1">
+        <div class="outcome-check">✓</div>
+        <div class="outcome-text">
+          <strong>Build automated workflows that run without you</strong>
+          <span>The skill most employers test. Scheduled pipelines that fetch live data, process it, and deliver reports or alerts on a timer — zero human involvement.</span>
+        </div>
+      </div>
+      <div class="outcome-item reveal">
+        <div class="outcome-check">✓</div>
+        <div class="outcome-text">
+          <strong>Visualise data and generate management reports</strong>
+          <span>Professional Matplotlib / Seaborn charts and automated multi-sheet Excel reports with conditional formatting that non-technical managers can read.</span>
+        </div>
+      </div>
+      <div class="outcome-item reveal reveal-delay-1">
+        <div class="outcome-check">✓</div>
+        <div class="outcome-text">
+          <strong>Fetch live data from APIs and web pages</strong>
+          <span>REST APIs with authentication, pagination, and error handling. BeautifulSoup scraping with robots.txt ethics. Live data piped into your pipelines.</span>
+        </div>
+      </div>
+      <div class="outcome-item reveal">
+        <div class="outcome-check">✓</div>
+        <div class="outcome-text">
+          <strong>Package work as GitHub-ready projects</strong>
+          <span>Modular Python packages, pytest unit tests, logging, docstrings, professional READMEs with results tables and screenshots. Repos that stand out to recruiters.</span>
+        </div>
+      </div>
+      <div class="outcome-item reveal reveal-delay-1">
+        <div class="outcome-check">✓</div>
+        <div class="outcome-text">
+          <strong>Demo your project confidently in a 30-minute interview</strong>
+          <span>You'll know the STAR-P story framework, the 15 most common Python interview questions with specific answers from your own projects, and the live demo checklist.</span>
+        </div>
+      </div>
+    </div>
+    <div class="outcome-final reveal">
+      <div class="outcome-final-quote">"Do you have any Python project experience?"<br>Your answer: <em>"Yes — here is my GitHub.<br>Let me show you the one I'm most proud of."</em></div>
+      <p class="outcome-final-sub">You now have more practical Python project experience than the majority of students graduating from a 4-year engineering programme. Most of your peers know Python syntax. You built working systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTERVIEW PREP -->
+<section id="interview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Interview Preparation</div>
+      <h2 class="section-title">Built-In Interview Readiness</h2>
+      <p class="section-sub">Every assignment ends with an Interview Tip. The course includes the STAR-P framework, 15 common Python interview Q&As, and a live demo dry-run checklist.</p>
+    </div>
+    <div class="interview-grid">
+      <div class="interview-card reveal">
+        <span class="interview-icon">🎯</span>
+        <h4>STAR-P Story Framework</h4>
+        <p>Situation · Task · Action · Result · Process. A structured 2-minute project story that shows business thinking, not just code. Covers every project you build in the course.</p>
+      </div>
+      <div class="interview-card reveal reveal-delay-1">
+        <span class="interview-icon">❓</span>
+        <h4>15 Python Interview Q&As</h4>
+        <p>Why use groupby instead of a loop? How do you handle missing data? What does a decorator do? Each question answered with a specific example from your own course projects.</p>
+      </div>
+      <div class="interview-card reveal reveal-delay-2">
+        <span class="interview-icon">💻</span>
+        <h4>Live Demo Checklist</h4>
+        <p>Step-by-step preparation so your capstone runs cleanly from a fresh terminal in under 5 minutes — the standard a recruiter expects when they say "show me your work."</p>
+      </div>
+      <div class="interview-card reveal">
+        <span class="interview-icon">📊</span>
+        <h4>3 Numbers Memorised</h4>
+        <p>The business problem size, your output metric, and the time or cost your system saves. Interviewers remember candidates who lead with concrete impact: "₹1.8 lakh of energy waste identified."</p>
+      </div>
+      <div class="interview-card reveal reveal-delay-1">
+        <span class="interview-icon">🐙</span>
+        <h4>GitHub Portfolio Guide</h4>
+        <p>A complete README template, repository structure guide, commit message convention (feat/fix/docs/test), and the exact difference between a student's repo and a developer's.</p>
+      </div>
+      <div class="interview-card reveal reveal-delay-2">
+        <span class="interview-icon">🗣️</span>
+        <h4>Questions to Ask the Interviewer</h4>
+        <p>Four specific, curiosity-showing questions that signal you've thought about data engineering roles — not generic "what's the company culture like?" filler.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKLOAD -->
+<section style="padding:3rem 2rem;background:var(--bg-card)">
+  <div class="container">
+    <div style="background:var(--bg-light);border-radius:var(--radius);padding:2.5rem;border:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;text-align:center" class="reveal">
+      <div>
+        <div style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--orange)">1.5–2 hrs</div>
+        <div style="font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem">Daily Learning Session</div>
+        <div style="font-size:.8rem;color:var(--text-secondary);margin-top:.4rem;line-height:1.55">Concept reading + practice notebook</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--orange)">2–3 hrs</div>
+        <div style="font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem">Per Assignment</div>
+        <div style="font-size:.8rem;color:var(--text-secondary);margin-top:.4rem;line-height:1.55">Spread across 2 days for best results</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--orange)">12–16 hrs</div>
+        <div style="font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem">Weekly Total</div>
+        <div style="font-size:.8rem;color:var(--text-secondary);margin-top:.4rem;line-height:1.55">Challenging but achievable alongside college</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-box">
+    <h2>Ready to Build Your <em>Developer Story?</em></h2>
+    <p>In 4 weeks, you'll have a GitHub portfolio with real automated systems, a capstone project you can demo live, and the confidence to walk into any data role interview and say "let me show you what I built."</p>
+    <div class="cta-buttons">
+      <button class="btn-cta-main">Enrol in Next Gen AI →</button>
+      <button class="btn-cta-ghost">Download Syllabus PDF</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>MokshPath</span> · Next Gen AI: Python Developer Career Accelerator · All Rights Reserved</p>
+</footer>
+
+<script>
+// Embed the logo SVG inline in nav and hero
+(function() {
+  // Inline SVG for logo in nav
+  const logoSvg = `<svg width="38" height="38" viewBox="200 0 550 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#h1)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M477.546 168.932C633.402 168.932 709.638 238.108 712.834 376.067C716.031 514.01 666.136 618.313 477.546 618.313C288.973 618.313 237.164 528.095 238.429 376.067C239.711 224.04 321.707 168.932 477.546 168.932Z" fill="url(#h2)"/>
+<path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+<path d="M493.477 333.881H460.795C456.99 333.881 453.906 336.961 453.906 340.761C453.906 344.561 456.99 347.641 460.795 347.641H493.477C497.282 347.641 500.366 344.561 500.366 340.761C500.366 336.961 497.282 333.881 493.477 333.881Z" fill="#EF7F1A"/>
+<path d="M493.477 353.486H460.795C456.99 353.486 453.906 356.567 453.906 360.366C453.906 364.166 456.99 367.246 460.795 367.246H493.477C497.282 367.246 500.366 364.166 500.366 360.366C500.366 356.567 497.282 353.486 493.477 353.486Z" fill="#EF7F1A"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M426.283 434.613C416.284 443.092 403.344 448.202 389.208 448.202C375.072 448.202 362.132 443.092 352.133 434.613H426.283Z" fill="#008DD2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M602.086 434.613C592.087 443.092 579.147 448.202 565.011 448.202C550.892 448.202 537.953 443.092 527.953 434.613H602.086Z" fill="#008DD2"/>
+<defs>
+<radialGradient id="h1" cx="0" cy="0" r="1" gradientTransform="matrix(124 4 -1.3 118 464 116)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient>
+<radialGradient id="h2" cx="0" cy="0" r="1" gradientTransform="matrix(-2.8 312 -384 2.2 476 376)" gradientUnits="userSpaceOnUse"><stop stop-color="#7A6A48"/><stop offset="0.66" stop-color="#412C23"/><stop offset="1" stop-color="#412C23"/></radialGradient>
+</defs>
+</svg>`;
+
+  // Set nav logo
+  const navLogoImg = document.querySelector('.nav-logo-img');
+  if (navLogoImg) {
+    const blob = new Blob([`<svg width="955" height="1486" viewBox="0 0 955 1486" fill="none" xmlns="http://www.w3.org/2000/svg">`], {type:'image/svg+xml'});
+    navLogoImg.outerHTML = logoSvg;
+  }
+
+  // Set hero visual logo
+  const heroDisplay = document.getElementById('navLogoDisplay');
+  if (heroDisplay) {
+    const heroSvg = `<svg width="100" height="100" viewBox="150 50 640 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#hh1)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M477.546 168.932C633.402 168.932 709.638 238.108 712.834 376.067C716.031 514.01 666.136 618.313 477.546 618.313C288.973 618.313 237.164 528.095 238.429 376.067C239.711 224.04 321.707 168.932 477.546 168.932Z" fill="url(#hh2)"/>
+<path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+<path d="M493.477 333.881H460.795C456.99 333.881 453.906 336.961 453.906 340.761C453.906 344.561 456.99 347.641 460.795 347.641H493.477C497.282 347.641 500.366 344.561 500.366 340.761C500.366 336.961 497.282 333.881 493.477 333.881Z" fill="#EF7F1A"/>
+<path d="M493.477 353.486H460.795C456.99 353.486 453.906 356.567 453.906 360.366C453.906 364.166 456.99 367.246 460.795 367.246H493.477C497.282 367.246 500.366 364.166 500.366 360.366C500.366 356.567 497.282 353.486 493.477 353.486Z" fill="#EF7F1A"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M426.283 434.613C416.284 443.092 403.344 448.202 389.208 448.202C375.072 448.202 362.132 443.092 352.133 434.613H426.283Z" fill="#008DD2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M602.086 434.613C592.087 443.092 579.147 448.202 565.011 448.202C550.892 448.202 537.953 443.092 527.953 434.613H602.086Z" fill="#008DD2"/>
+<defs>
+<radialGradient id="hh1" cx="0" cy="0" r="1" gradientTransform="matrix(124 4 -1.3 118 464 116)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient>
+<radialGradient id="hh2" cx="0" cy="0" r="1" gradientTransform="matrix(-2.8 312 -384 2.2 476 376)" gradientUnits="userSpaceOnUse"><stop stop-color="#7A6A48"/><stop offset="0.66" stop-color="#412C23"/><stop offset="1" stop-color="#412C23"/></radialGradient>
+</defs>
+</svg>`;
+    heroDisplay.innerHTML = heroSvg;
+  }
+
+  // Also replace the nav img with inline SVG
+  const navImg = document.querySelector('.nav-logo-img');
+  if (navImg) navImg.outerHTML = `<span class="nav-logo-img">${logoSvg}</span>`;
+})();
+
+// Intersection Observer for reveal animations
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Skill bar animation
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+        const w = bar.getAttribute('data-width');
+        setTimeout(() => { bar.style.width = w; }, 200);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+const skillsList = document.getElementById('skillsList');
+if (skillsList) barObserver.observe(skillsList);
+
+// Smooth active nav link highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => {
+        l.style.color = '';
+        if (l.getAttribute('href') === '#' + entry.target.id) l.style.color = 'var(--orange)';
+      });
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => navObserver.observe(s));
+</script>
+</body>
+</html>

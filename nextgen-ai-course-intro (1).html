@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Gen AI: Machine Learning Career Accelerator</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --orange:#E87A2E;--orange-dark:#D06A20;--orange-light:#F5943E;
+  --orange-glow:rgba(232,122,46,0.12);--orange-glow2:rgba(232,122,46,0.06);
+  --navy:#2B2D42;--navy-dark:#1A1B2E;
+  --bg:#F3EDE7;--bg-card:#FFFFFF;--bg-light:#F9F5F0;
+  --text-primary:#2B2D42;--text-secondary:#6B6D7B;--text-muted:#9597A6;
+  --border:#E5DDD4;
+  --green:#4CAF50;--green-light:#E8F5E9;
+  --blue:#3B82F6;--purple:#8B5CF6;
+  --w1:#E87A2E;--w2:#E8A040;--w3:#66BB6A;--w4:#4CAF50;
+  --shadow-sm:0 2px 8px rgba(43,45,66,0.06);
+  --shadow-md:0 8px 24px rgba(43,45,66,0.08);
+  --shadow-lg:0 20px 60px rgba(43,45,66,0.14);
+  --radius:14px;--radius-sm:8px;--radius-lg:20px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ─── NAVBAR ─── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-sm)}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-logo-svg{width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.2}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--navy)}.nav-logo-name em{font-style:normal;color:var(--orange)}
+.nav-logo-tag{font-size:.6rem;color:var(--text-muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:1.2rem}
+.nav-link{font-size:.82rem;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--orange)}
+.nav-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.4rem;border-radius:9px;font-size:.82rem;font-weight:700;background:var(--orange);color:#fff;border:none;cursor:pointer;font-family:inherit;transition:all .2s;text-decoration:none}.nav-cta:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,122,46,0.35)}
+
+/* ─── HERO ─── */
+.hero{padding:5rem 2rem 3rem;position:relative;overflow:hidden;min-height:90vh;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-blob1{position:absolute;top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,122,46,0.08) 0%,transparent 70%)}
+.hero-blob2{position:absolute;bottom:-100px;left:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(76,175,80,0.06) 0%,transparent 70%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(43,45,66,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(43,45,66,0.04) 1px,transparent 1px);background-size:60px 60px;opacity:.5}
+.hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1.1rem;border-radius:50px;background:var(--orange-glow);border:1px solid rgba(232,122,46,0.25);color:var(--orange);font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.4rem;animation:fadeUp .6s ease both}
+.hero-badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1.1;color:var(--navy);margin-bottom:1.1rem;animation:fadeUp .6s ease .1s both}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-sub{font-size:1rem;color:var(--text-secondary);line-height:1.75;margin-bottom:2rem;max-width:500px;animation:fadeUp .6s ease .2s both}
+.hero-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.2rem;animation:fadeUp .6s ease .25s both}
+.hero-meta-item{display:flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;color:var(--text-secondary)}
+.hero-meta-item svg{width:15px;height:15px;color:var(--orange);flex-shrink:0}
+.hero-cta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;animation:fadeUp .6s ease .3s both}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.2rem;border-radius:11px;font-size:.92rem;font-weight:700;background:var(--orange);color:#fff;border:none;cursor:pointer;font-family:inherit;transition:all .2s;text-decoration:none}.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 24px rgba(232,122,46,0.35)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:11px;font-size:.88rem;font-weight:600;background:transparent;color:var(--navy);border:1.5px solid var(--border);cursor:pointer;font-family:inherit;transition:all .2s;text-decoration:none}.btn-secondary:hover{border-color:var(--orange);color:var(--orange)}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;animation:scaleIn .8s ease .1s both}
+.hero-visual-inner{position:relative;width:100%;max-width:440px}
+.hero-logo-display{width:100%;background:var(--bg-card);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center}
+.hero-svg-wrap{display:flex;justify-content:center;margin-bottom:1rem}
+.hero-svg-wrap svg{width:180px;height:auto;filter:drop-shadow(0 8px 24px rgba(232,122,46,0.15))}
+.hero-logo-title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--navy);margin-bottom:.3rem}
+.hero-logo-sub{font-size:.75rem;color:var(--text-muted);font-weight:500}
+.float-card{position:absolute;background:var(--bg-card);border-radius:12px;padding:.75rem 1rem;box-shadow:var(--shadow-lg);border:1px solid var(--border);display:flex;align-items:center;gap:.55rem;animation:float 3s ease-in-out infinite}
+.float-card.fc1{bottom:-20px;left:-30px;animation-delay:.5s}
+.float-card.fc2{top:-10px;right:-20px;animation-delay:1.2s}
+.float-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.float-text strong{display:block;font-size:.78rem;font-weight:700;color:var(--navy)}
+.float-text span{font-size:.68rem;color:var(--text-muted)}
+.hero-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.5rem}
+.hero-stat{background:var(--bg-light);border-radius:10px;padding:.9rem;text-align:center;border:1px solid var(--border)}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--orange)}
+.hero-stat-lbl{font-size:.65rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.1rem}
+
+/* ─── WHY THIS COURSE ─── */
+.why-section{padding:5rem 2rem;background:var(--bg-light)}
+.container{max-width:1180px;margin:0 auto}
+.section-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:.7rem}
+.section-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:var(--navy);line-height:1.2;margin-bottom:.6rem}
+.section-sub{font-size:.93rem;color:var(--text-secondary);line-height:1.7;max-width:540px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.why-card{background:var(--bg-card);border-radius:var(--radius);padding:1.8rem;border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent}.why-card:hover::before{transform:scaleX(1)}
+.why-card:nth-child(2)::before{background:var(--w2)}.why-card:nth-child(3)::before{background:var(--green)}
+.why-card:nth-child(4)::before{background:var(--purple)}.why-card:nth-child(5)::before{background:var(--blue)}.why-card:nth-child(6)::before{background:var(--w4)}
+.why-icon{font-size:1.8rem;margin-bottom:1rem}
+.why-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.why-card p{font-size:.8rem;color:var(--text-secondary);line-height:1.65}
+
+/* ─── JOURNEY TIMELINE ─── */
+.journey-section{padding:5rem 2rem;background:var(--bg)}
+.journey-header{text-align:center;margin-bottom:4rem}
+.journey-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:1rem}
+.journey-timeline::before{content:'';position:absolute;top:52px;left:calc(12.5% + 10px);right:calc(12.5% + 10px);height:3px;background:linear-gradient(90deg,var(--w1),var(--w2),var(--w3),var(--w4));border-radius:2px;z-index:0}
+.journey-step{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;cursor:pointer}
+.journey-num-wrap{position:relative;margin-bottom:1rem}
+.journey-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.15);transition:transform .3s;position:relative;z-index:1}
+.journey-step:hover .journey-num{transform:scale(1.12)}
+.journey-step:nth-child(1) .journey-num{background:var(--w1)}
+.journey-step:nth-child(2) .journey-num{background:var(--w2)}
+.journey-step:nth-child(3) .journey-num{background:var(--w3)}
+.journey-step:nth-child(4) .journey-num{background:var(--w4)}
+.journey-week-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);margin-bottom:.3rem}
+.journey-title{font-family:'DM Serif Display',serif;font-size:.98rem;color:var(--navy);margin-bottom:.25rem}
+.journey-duration{font-size:.68rem;color:var(--text-muted);font-weight:500}
+.journey-arrow{font-size:1rem;color:var(--border);position:absolute;top:36px;right:-12px;z-index:2;pointer-events:none}
+
+/* ─── WEEK CARDS ─── */
+.weeks-section{padding:5rem 2rem;background:var(--bg-light)}
+.weeks-header{margin-bottom:3rem}
+.week-tab-row{display:flex;gap:.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.week-tab{padding:.55rem 1.3rem;border-radius:50px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;border:1.5px solid var(--border);color:var(--text-secondary);background:var(--bg-card)}
+.week-tab.active{color:#fff;border-color:transparent}
+.week-tab:nth-child(1).active{background:var(--w1)}
+.week-tab:nth-child(2).active{background:var(--w2)}
+.week-tab:nth-child(3).active{background:var(--w3)}
+.week-tab:nth-child(4).active{background:var(--w4)}
+.week-content{display:none;animation:fadeUp .35s ease both}
+.week-content.active{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.week-left{}
+.week-header-band{height:5px;border-radius:3px 3px 0 0;margin-bottom:0}
+.week-main-card{background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-sm)}
+.week-band{height:5px}
+.w1-band{background:linear-gradient(90deg,var(--w1),#F5943E)}
+.w2-band{background:linear-gradient(90deg,var(--w2),#F0C060)}
+.w3-band{background:linear-gradient(90deg,var(--w3),#81C784)}
+.w4-band{background:linear-gradient(90deg,var(--w4),#66BB6A)}
+.week-card-body{padding:1.8rem}
+.week-card-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.3rem .7rem;border-radius:6px;margin-bottom:.9rem}
+.w1-label{background:rgba(232,122,46,0.1);color:var(--w1)}
+.w2-label{background:rgba(232,160,64,0.1);color:#B87A20}
+.w3-label{background:rgba(102,187,106,0.12);color:#2E7D32}
+.w4-label{background:rgba(76,175,80,0.12);color:#1B5E20}
+.week-card-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:.4rem}
+.week-card-focus{font-size:.78rem;color:var(--orange);font-weight:600;font-style:italic;margin-bottom:.9rem}
+.week-card-desc{font-size:.83rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1.2rem}
+.week-skills-grid{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.skill-chip{padding:.3rem .7rem;border-radius:50px;font-size:.68rem;font-weight:600;background:var(--bg-light);color:var(--text-secondary);border:1px solid var(--border)}
+.week-outcome-box{background:var(--navy-dark);border-radius:var(--radius-sm);padding:1.1rem 1.2rem;color:#fff}
+.week-outcome-box .label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,0.5);margin-bottom:.35rem}
+.week-outcome-box p{font-size:.8rem;color:rgba(255,255,255,0.9);line-height:1.6}
+.week-right{}
+.week-assignments{}
+.week-assign-title{font-size:.8rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem;display:flex;align-items:center;gap:.4rem}
+.assign-list{display:flex;flex-direction:column;gap:.8rem}
+.assign-card{background:var(--bg-card);border-radius:var(--radius-sm);border:1px solid var(--border);padding:1.1rem 1.2rem;transition:all .25s;cursor:pointer}
+.assign-card:hover{transform:translateX(4px);box-shadow:var(--shadow-sm);border-color:var(--orange)}
+.assign-type{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .55rem;border-radius:4px;display:inline-block;margin-bottom:.4rem}
+.type-industry{background:rgba(232,122,46,0.1);color:var(--orange)}
+.type-mini{background:rgba(76,175,80,0.1);color:var(--green)}
+.type-practical{background:rgba(59,130,246,0.1);color:var(--blue)}
+.assign-card h4{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.2rem}
+.assign-card .sector{font-size:.7rem;color:var(--text-muted);font-weight:500}
+.assign-card .time{font-size:.68rem;color:var(--text-muted);margin-top:.4rem;display:flex;align-items:center;gap:.3rem}
+.assign-card .time svg{width:11px;height:11px}
+.week-industry-row{margin-top:1.2rem;background:var(--bg-card);border-radius:var(--radius-sm);border:1px solid var(--border);padding:1rem 1.2rem}
+.industry-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.6rem}
+.industry-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.ind-chip{padding:.25rem .6rem;border-radius:4px;font-size:.68rem;font-weight:600;background:var(--bg-light);color:var(--text-secondary);border:1px solid var(--border)}
+
+/* ─── SKILL EVOLUTION ─── */
+.evolution-section{padding:5rem 2rem;background:var(--bg)}
+.evolution-header{text-align:center;margin-bottom:4rem}
+.skill-path{display:flex;flex-direction:column;gap:0;max-width:860px;margin:0 auto;position:relative}
+.skill-path::before{content:'';position:absolute;left:28px;top:24px;bottom:24px;width:2px;background:linear-gradient(to bottom,var(--w1),var(--w2),var(--w3),var(--w4));border-radius:2px}
+.skill-level{display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;position:relative}
+.skill-level-dot{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;box-shadow:0 3px 12px rgba(0,0,0,0.12);z-index:1;position:relative}
+.sl1 .skill-level-dot{background:linear-gradient(135deg,rgba(232,122,46,0.15),rgba(232,122,46,0.05));border:2px solid var(--w1)}
+.sl2 .skill-level-dot{background:linear-gradient(135deg,rgba(232,160,64,0.15),rgba(232,160,64,0.05));border:2px solid var(--w2)}
+.sl3 .skill-level-dot{background:linear-gradient(135deg,rgba(102,187,106,0.15),rgba(102,187,106,0.05));border:2px solid var(--w3)}
+.sl4 .skill-level-dot{background:linear-gradient(135deg,rgba(76,175,80,0.15),rgba(76,175,80,0.05));border:2px solid var(--w4)}
+.skill-level-content{flex:1}
+.skill-level-header{display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem;flex-wrap:wrap}
+.skill-level-week{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.25rem .6rem;border-radius:4px}
+.sl1 .skill-level-week{background:rgba(232,122,46,0.1);color:var(--w1)}
+.sl2 .skill-level-week{background:rgba(232,160,64,0.1);color:#B87A20}
+.sl3 .skill-level-week{background:rgba(102,187,106,0.12);color:#2E7D32}
+.sl4 .skill-level-week{background:rgba(76,175,80,0.12);color:#1B5E20}
+.skill-level-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy)}
+.skill-level-desc{font-size:.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:.9rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.stag{padding:.28rem .65rem;border-radius:50px;font-size:.67rem;font-weight:600;border:1px solid var(--border);background:var(--bg-card);color:var(--text-secondary)}
+.skill-level-connector{width:2px;height:24px;margin-left:28px;background:linear-gradient(to bottom,transparent,var(--border),transparent);opacity:.5}
+
+/* ─── CAPSTONE ─── */
+.capstone-section{padding:5rem 2rem;background:var(--navy-dark);position:relative;overflow:hidden}
+.capstone-bg1{position:absolute;top:-80px;right:-80px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(232,122,46,0.1),transparent 70%)}
+.capstone-bg2{position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(76,175,80,0.07),transparent 70%)}
+.capstone-inner{max-width:1180px;margin:0 auto;position:relative;z-index:1}
+.capstone-header{text-align:center;margin-bottom:3.5rem}
+.capstone-header .section-title{color:#fff}
+.capstone-header .section-sub{color:rgba(255,255,255,0.55)}
+.capstone-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange-light);margin-bottom:.7rem}
+.capstone-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem}
+.capstone-card{background:rgba(255,255,255,0.06);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.1);padding:1.8rem;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.capstone-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,122,46,0.05),transparent);opacity:0;transition:opacity .3s}
+.capstone-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(232,122,46,0.35);transform:translateY(-3px)}.capstone-card:hover::before{opacity:1}
+.capstone-letter{font-family:'DM Serif Display',serif;font-size:2.5rem;color:rgba(255,255,255,0.08);position:absolute;top:.8rem;right:1.2rem;line-height:1}
+.cap-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.28rem .65rem;border-radius:4px;margin-bottom:.8rem}
+.cap-b1{background:rgba(232,122,46,0.2);color:var(--orange-light)}
+.cap-b2{background:rgba(59,130,246,0.2);color:#93C5FD}
+.cap-b3{background:rgba(102,187,106,0.2);color:#86EFAC}
+.cap-b4{background:rgba(239,68,68,0.2);color:#FCA5A5}
+.capstone-card h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:#fff;margin-bottom:.4rem}
+.capstone-card .cap-focus{font-size:.75rem;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:.8rem}
+.cap-features{list-style:none;display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.cap-features li{font-size:.77rem;color:rgba(255,255,255,0.65);display:flex;align-items:flex-start;gap:.5rem;line-height:1.5}
+.cap-features li::before{content:'→';color:var(--orange-light);font-size:.7rem;margin-top:.1rem;flex-shrink:0}
+.cap-stack{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem}
+.cap-tech{padding:.2rem .55rem;border-radius:4px;font-size:.63rem;font-weight:600;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6)}
+
+/* ─── FINAL OUTCOMES ─── */
+.outcomes-section{padding:5rem 2rem;background:var(--bg-light)}
+.outcomes-inner{max-width:1180px;margin:0 auto}
+.outcomes-header{text-align:center;margin-bottom:3.5rem}
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.outcome-card{background:var(--bg-card);border-radius:var(--radius);padding:1.8rem;border:1px solid var(--border);transition:all .3s}
+.outcome-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.outcome-icon-wrap{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.1rem}
+.oi1{background:rgba(232,122,46,0.1)}.oi2{background:rgba(76,175,80,0.1)}.oi3{background:rgba(59,130,246,0.1)}.oi4{background:rgba(139,92,246,0.1)}.oi5{background:rgba(232,160,64,0.1)}.oi6{background:rgba(239,68,68,0.1)}
+.outcome-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.outcome-card p{font-size:.8rem;color:var(--text-secondary);line-height:1.65}
+
+/* ─── TRANSFORMATION CTA ─── */
+.transform-section{padding:5rem 2rem;background:var(--bg)}
+.transform-box{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-radius:var(--radius-lg);padding:4rem;position:relative;overflow:hidden;text-align:center;max-width:900px;margin:0 auto}
+.transform-box::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(232,122,46,0.12),transparent 70%)}
+.transform-box::after{content:'';position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(76,175,80,0.08),transparent 70%)}
+.transform-box .tb-inner{position:relative;z-index:1}
+.transform-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange-light);margin-bottom:1rem}
+.transform-box h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;line-height:1.15;margin-bottom:.8rem}
+.transform-box h2 em{font-style:normal;color:var(--orange-light)}
+.transform-box p{font-size:.93rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:560px;margin:0 auto 2.2rem}
+.transform-before-after{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:2.5rem}
+.ba-card{background:rgba(255,255,255,0.06);border-radius:var(--radius-sm);padding:1.4rem;border:1px solid rgba(255,255,255,0.1);text-align:left}
+.ba-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,0.4);margin-bottom:.7rem}
+.ba-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.ba-list li{font-size:.79rem;color:rgba(255,255,255,0.6);display:flex;align-items:flex-start;gap:.45rem;line-height:1.5}
+.ba-list.after li{color:rgba(255,255,255,0.85)}
+.ba-arrow{font-size:2rem;color:var(--orange-light);text-align:center}
+.transform-cta-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+
+/* ─── TOOLS ─── */
+.tools-section{padding:4rem 2rem;background:var(--bg-light);border-top:1px solid var(--border)}
+.tools-inner{max-width:1180px;margin:0 auto;text-align:center}
+.tools-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);margin-bottom:1.5rem}
+.tools-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
+.tool-pill{display:flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:50px;font-size:.75rem;font-weight:600;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);transition:all .2s}
+.tool-pill:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.tool-pill .dot{width:7px;height:7px;border-radius:50%}
+
+/* ─── FOOTER ─── */
+footer{background:var(--bg-card);border-top:1px solid var(--border);padding:2rem;text-align:center}
+.footer-logo-row{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:.6rem}
+.footer-logo-svg{width:36px;height:36px;overflow:hidden;border-radius:8px}
+.footer-name{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--navy)}.footer-name em{font-style:normal;color:var(--orange)}
+.footer-copy{font-size:.75rem;color:var(--text-muted)}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,122,46,.4)}50%{box-shadow:0 0 0 6px rgba(232,122,46,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-visual{order:-1}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .journey-timeline::before{display:none}
+  .journey-timeline{grid-template-columns:repeat(2,1fr);gap:1.2rem}
+  .week-content.active{grid-template-columns:1fr}
+  .capstone-grid{grid-template-columns:1fr}
+  .outcomes-grid{grid-template-columns:repeat(2,1fr)}
+  .transform-before-after{grid-template-columns:1fr;gap:1rem}
+  .ba-arrow{transform:rotate(90deg)}
+}
+@media(max-width:600px){
+  .why-grid{grid-template-columns:1fr}
+  .outcomes-grid{grid-template-columns:1fr}
+  .hero-meta{gap:1rem}
+  .week-tab-row{gap:.4rem}
+  .nav-right .nav-link{display:none}
+  .hero-stats-row{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-svg">
+      <svg viewBox="0 0 955 1486" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
+        <path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+        <path d="M493.477 333.881H460.795C456.99 333.881 453.906 336.961 453.906 340.761C453.906 344.561 456.99 347.641 460.795 347.641H493.477C497.282 347.641 500.366 344.561 500.366 340.761C500.366 336.961 497.282 333.881 493.477 333.881Z" fill="#EF7F1A"/>
+        <path d="M493.477 353.486H460.795C456.99 353.486 453.906 356.567 453.906 360.366C453.906 364.166 456.99 367.246 460.795 367.246H493.477C497.282 367.246 500.366 364.166 500.366 360.366C500.366 356.567 497.282 353.486 493.477 353.486Z" fill="#EF7F1A"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#nh1)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M477.546 168.932C633.402 168.932 709.638 238.108 712.834 376.067C716.031 514.01 666.136 618.313 477.546 618.313C288.973 618.313 237.164 528.095 238.429 376.067C239.711 224.04 321.707 168.932 477.546 168.932Z" fill="url(#nh2)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M475.307 739.607C516.775 739.607 553.765 753.949 583.422 778.306C563.029 805.536 522.433 824.099 475.683 824.099C428.694 824.099 387.943 805.365 367.637 777.93C397.208 753.795 434.044 739.607 475.307 739.607Z" fill="#A4ACAE"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M537.013 747.316L546.585 751.47C547.08 751.692 546.345 752.103 546.841 752.342L555.371 756.444C571.079 767.298 585.643 778.922 598.565 792.648C575.336 965.751 665.827 1157.67 475.306 1171.02C393.771 1176.75 322.339 1107.27 299.4 1026.88C289.297 976.673 289.109 970.725 289.109 970.725C387.242 954.828 497.681 831.569 537.013 747.316Z" fill="#EC691F"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M426.283 434.613C416.284 443.092 403.344 448.202 389.208 448.202C375.072 448.202 362.132 443.092 352.133 434.613H426.283Z" fill="#008DD2"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M602.086 434.613C592.087 443.092 579.147 448.202 565.011 448.202C550.892 448.202 537.953 443.092 527.953 434.613H602.086Z" fill="#008DD2"/>
+        <defs>
+          <radialGradient id="nh1" cx="0" cy="0" r="1" gradientTransform="matrix(124.017 4.00035 -1.33306 118.217 464.349 115.789)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient>
+          <radialGradient id="nh2" cx="0" cy="0" r="1" gradientTransform="matrix(-2.84241 312.13 -384.583 2.19371 475.705 375.654)" gradientUnits="userSpaceOnUse"><stop stop-color="#7A6A48"/><stop offset="0.66" stop-color="#412C23"/><stop offset="1" stop-color="#412C23"/></radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Next Gen <em>AI</em></span>
+      <span class="nav-logo-tag">ML Career Accelerator</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <a href="#weeks" class="nav-link">Curriculum</a>
+    <a href="#outcomes" class="nav-link">Outcomes</a>
+    <a href="#capstone" class="nav-link">Capstone</a>
+    <a href="#enroll" class="nav-cta">Enroll Now →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-blob1"></div>
+    <div class="hero-blob2"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="pulse"></span> 4-Week Intensive · Cohort 2026</div>
+      <h1>Next Gen <em>AI:</em><br>Machine Learning<br>Career Accelerator</h1>
+      <p class="hero-sub">Turn 28 days of focused work into a GitHub portfolio, live API endpoints, and the confidence to ace any ML interview — built for final-year engineering students.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          15–20 hrs/week
+        </div>
+        <div class="hero-meta-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          12 Assignments
+        </div>
+        <div class="hero-meta-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          1 Capstone Project
+        </div>
+      </div>
+      <div class="hero-cta-row">
+        <a href="#enroll" class="btn-primary">Enroll Now →</a>
+        <a href="#weeks" class="btn-secondary">View Curriculum</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <div class="hero-logo-display">
+          <div class="hero-svg-wrap">
+            <svg viewBox="0 0 955 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+              <path d="M493.477 333.881H460.795C456.99 333.881 453.906 336.961 453.906 340.761C453.906 344.561 456.99 347.641 460.795 347.641H493.477C497.282 347.641 500.366 344.561 500.366 340.761C500.366 336.961 497.282 333.881 493.477 333.881Z" fill="#EF7F1A"/>
+              <path d="M493.477 353.486H460.795C456.99 353.486 453.906 356.567 453.906 360.366C453.906 364.166 456.99 367.246 460.795 367.246H493.477C497.282 367.246 500.366 364.166 500.366 360.366C500.366 356.567 497.282 353.486 493.477 353.486Z" fill="#EF7F1A"/>
+              <path d="M740.832 490.575C778.018 490.575 808.162 454.086 808.162 409.075C808.162 364.063 778.018 327.574 740.832 327.574C703.647 327.574 673.502 364.063 673.502 409.075C673.502 454.086 703.647 490.575 740.832 490.575Z" fill="#D9DADA"/>
+              <path d="M210.549 490.575C247.734 490.575 277.879 454.086 277.879 409.075C277.879 364.063 247.734 327.574 210.549 327.574C173.364 327.574 143.219 364.063 143.219 409.075C143.219 454.086 173.364 490.575 210.549 490.575Z" fill="#D9DADA"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#hg1)"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M477.546 168.932C633.402 168.932 709.638 238.108 712.834 376.067C716.031 514.01 666.136 618.313 477.546 618.313C288.973 618.313 237.164 528.095 238.429 376.067C239.711 224.04 321.707 168.932 477.546 168.932Z" fill="url(#hg2)"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M475.307 739.607C516.775 739.607 553.765 753.949 583.422 778.306C563.029 805.536 522.433 824.099 475.683 824.099C428.694 824.099 387.943 805.365 367.637 777.93C397.208 753.795 434.044 739.607 475.307 739.607Z" fill="#A4ACAE"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M537.013 747.316C522.091 757.077 500.143 763.248 475.683 763.248C451.308 763.248 429.429 757.128 414.523 747.436C443.479 726.753 442.915 711.028 427.668 699.9L519.408 699.404C501.562 719.044 515.134 732.565 537.013 747.316Z" fill="#412C23"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M537.013 747.316L546.585 751.47C571.079 767.298 585.643 778.922 598.565 792.648C575.336 965.751 665.827 1057.67 475.306 871.02C393.771 876.75 322.339 807.27 299.4 826.88C289.297 776.673 289.109 770.725 289.109 770.725C387.242 754.828 497.681 731.569 537.013 747.316Z" fill="#EC691F"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M426.283 434.613C416.284 443.092 403.344 448.202 389.208 448.202C375.072 448.202 362.132 443.092 352.133 434.613H426.283Z" fill="#008DD2"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M602.086 434.613C592.087 443.092 579.147 448.202 565.011 448.202C550.892 448.202 537.953 443.092 527.953 434.613H602.086Z" fill="#008DD2"/>
+              <defs>
+                <radialGradient id="hg1" cx="0" cy="0" r="1" gradientTransform="matrix(124.017 4.00035 -1.33306 118.217 464.349 115.789)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient>
+                <radialGradient id="hg2" cx="0" cy="0" r="1" gradientTransform="matrix(-2.84241 312.13 -384.583 2.19371 475.705 375.654)" gradientUnits="userSpaceOnUse"><stop stop-color="#7A6A48"/><stop offset="0.66" stop-color="#412C23"/><stop offset="1" stop-color="#412C23"/></radialGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="hero-logo-title">Next Gen AI</div>
+          <div class="hero-logo-sub">Machine Learning Career Accelerator</div>
+          <div class="hero-stats-row">
+            <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-lbl">Weeks</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-lbl">Projects</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">6+</div><div class="hero-stat-lbl">Industries</div></div>
+          </div>
+        </div>
+        <div class="float-card fc1">
+          <div class="float-icon" style="background:rgba(76,175,80,0.12)">🚀</div>
+          <div class="float-text">
+            <strong>Job-Ready Portfolio</strong>
+            <span>GitHub · APIs · SHAP</span>
+          </div>
+        </div>
+        <div class="float-card fc2">
+          <div class="float-icon" style="background:var(--orange-glow)">🏆</div>
+          <div class="float-text">
+            <strong>Capstone Project</strong>
+            <span>Live demo in interviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS COURSE -->
+<section class="why-section">
+  <div class="container">
+    <div style="max-width:560px;margin-bottom:3rem" class="reveal">
+      <div class="section-eyebrow"><span class="dot"></span> Why This Course</div>
+      <h2 class="section-title">Built differently — for interview day, not just exam day</h2>
+      <p class="section-sub">Most ML courses teach you to run models. This course teaches you to build, explain, and deploy them — exactly what employers ask for in every technical round.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">🏗️</div>
+        <h3>End-to-End Projects</h3>
+        <p>Every assignment spans data loading, feature engineering, modelling, evaluation, and explanation. No isolated notebooks — real pipelines from day one.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">🏭</div>
+        <h3>Real Industry Scenarios</h3>
+        <p>Work on datasets from manufacturing, fintech, healthcare, agriculture, and retail — not generic toy examples. Interviewers will recognise the domain context.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">🧠</div>
+        <h3>Explainability-First</h3>
+        <p>SHAP values, Grad-CAM, and model cards are baked in from Week 2. You won't just say "I used XGBoost" — you'll say <em>why</em> and <em>what it found</em>.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">🚀</div>
+        <h3>Deploy, Don't Just Train</h3>
+        <p>Ship a FastAPI REST endpoint by Week 4. Your model will respond to real HTTP requests — an experience most fresh graduates have never had.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">📊</div>
+        <h3>Experiment Like a Pro</h3>
+        <p>MLflow tracks every run: hyperparameters, metrics, and artefacts. You'll walk into interviews with a model registry and experiment history to show.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">💼</div>
+        <h3>Interview Story Framework</h3>
+        <p>STAR-ML storytelling, top 20 interview questions, and a live-demo checklist are woven through every project. Graduate ready to talk, not just code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY OVERVIEW -->
+<section class="journey-section">
+  <div class="container">
+    <div class="journey-header reveal">
+      <div class="section-eyebrow"><span class="dot"></span> Your Learning Path</div>
+      <h2 class="section-title">From zero to deployed in 4 weeks</h2>
+      <p class="section-sub" style="margin:0 auto">Each week builds on the last — data mastery unlocks modelling, modelling unlocks advanced ML, and deployment makes it real.</p>
+    </div>
+    <div class="journey-timeline">
+      <div class="journey-step reveal reveal-delay-1">
+        <div class="journey-num-wrap">
+          <div class="journey-num">W1</div>
+        </div>
+        <div class="journey-week-label">Week 1</div>
+        <div class="journey-title">Data Intelligence</div>
+        <div class="journey-duration">3 Assignments · EDA Portfolio</div>
+      </div>
+      <div class="journey-step reveal reveal-delay-2">
+        <div class="journey-num-wrap">
+          <div class="journey-num">W2</div>
+        </div>
+        <div class="journey-week-label">Week 2</div>
+        <div class="journey-title">Predictive ML</div>
+        <div class="journey-duration">3 Assignments · 1 Mini-Project</div>
+      </div>
+      <div class="journey-step reveal reveal-delay-3">
+        <div class="journey-num-wrap">
+          <div class="journey-num">W3</div>
+        </div>
+        <div class="journey-week-label">Week 3</div>
+        <div class="journey-title">Advanced ML</div>
+        <div class="journey-duration">3 Assignments · 1 Mini-Project</div>
+      </div>
+      <div class="journey-step reveal" style="transition-delay:.4s">
+        <div class="journey-num-wrap">
+          <div class="journey-num">W4</div>
+        </div>
+        <div class="journey-week-label">Week 4</div>
+        <div class="journey-title">Deploy & Impress</div>
+        <div class="journey-duration">Capstone · API · Portfolio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEK DEEP-DIVES -->
+<section class="weeks-section" id="weeks">
+  <div class="container">
+    <div class="weeks-header reveal">
+      <div class="section-eyebrow"><span class="dot"></span> Week by Week</div>
+      <h2 class="section-title">What you'll build each week</h2>
+    </div>
+    <div class="week-tab-row reveal">
+      <button class="week-tab active" onclick="switchWeek(1)">Week 1 · Data</button>
+      <button class="week-tab" onclick="switchWeek(2)">Week 2 · Predict</button>
+      <button class="week-tab" onclick="switchWeek(3)">Week 3 · Advanced</button>
+      <button class="week-tab" onclick="switchWeek(4)">Week 4 · Deploy</button>
+    </div>
+
+    <!-- WEEK 1 -->
+    <div class="week-content active" id="week-1">
+      <div class="week-left">
+        <div class="week-main-card">
+          <div class="week-band w1-band"></div>
+          <div class="week-card-body">
+            <span class="week-card-label w1-label">📊 Week 1</span>
+            <h2 class="week-card-title">Data Intelligence</h2>
+            <div class="week-card-focus">Python · Pandas · EDA · Feature Engineering · Visualisation</div>
+            <p class="week-card-desc">You become fluent with data — loading it, cleaning it, understanding it, and engineering features from it. By Friday you'll have an EDA notebook that any data science recruiter would be impressed by. These foundational skills are used in every ML project you'll ever do.</p>
+            <div class="week-skills-grid">
+              <span class="skill-chip">Pandas DataFrames</span><span class="skill-chip">EDA Narratives</span><span class="skill-chip">Outlier Detection</span><span class="skill-chip">Lag Features</span><span class="skill-chip">Rolling Averages</span><span class="skill-chip">One-Hot Encoding</span><span class="skill-chip">Correlation Matrix</span><span class="skill-chip">Data Storytelling</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="label">✦ Week 1 Output</div>
+              <p>A professional EDA portfolio notebook with 6+ publication-quality charts and written insights you can walk any recruiter through in 5 minutes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="week-right">
+        <div class="week-assign-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Assignments &amp; Exercises
+        </div>
+        <div class="assign-list">
+          <div class="assign-card">
+            <span class="assign-type type-industry">Industry Assignment</span>
+            <h4>Manufacturing Shift Log — Uncover Hidden Downtime Patterns</h4>
+            <div class="sector">🏭 Manufacturing · 180-day plant data · 4 production lines</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3–4 hours · Pareto chart · Downtime heatmap</div>
+          </div>
+          <div class="assign-card">
+            <span class="assign-type type-practical">Practical Exercise</span>
+            <h4>Retail Demand Feature Engineering — Forecasting Foundation</h4>
+            <div class="sector">🛒 E-Commerce · 52-week × 10 SKUs · Lag &amp; rolling features</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 2–3 hours · Autocorrelation plot · Feature matrix CSV</div>
+          </div>
+          <div class="assign-card">
+            <span class="assign-type type-industry">Industry Assignment</span>
+            <h4>Crop Yield EDA — Precision Agriculture Data Story</h4>
+            <div class="sector">🌾 Agriculture · 500 farms · NPK, soil, irrigation, yield</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3–4 hours · 3 business questions · Recommendations</div>
+          </div>
+        </div>
+        <div class="week-industry-row">
+          <div class="industry-title">Industries Covered</div>
+          <div class="industry-chips">
+            <span class="ind-chip">Manufacturing</span><span class="ind-chip">Retail / E-Commerce</span><span class="ind-chip">Agriculture</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week-content" id="week-2">
+      <div class="week-left">
+        <div class="week-main-card">
+          <div class="week-band w2-band"></div>
+          <div class="week-card-body">
+            <span class="week-card-label w2-label">🤖 Week 2</span>
+            <h2 class="week-card-title">Predictive Machine Learning</h2>
+            <div class="week-card-focus">Regression · Classification · Ensembles · SHAP · Model Evaluation</div>
+            <p class="week-card-desc">Build your first real predictive models. You'll train, tune, and evaluate models on industry datasets — then learn to explain <em>why</em> your model makes each decision using SHAP values. By Friday you'll have a mini-project you can demo live in any interview.</p>
+            <div class="week-skills-grid">
+              <span class="skill-chip">XGBoost</span><span class="skill-chip">Random Forest</span><span class="skill-chip">SHAP Values</span><span class="skill-chip">AUC-ROC</span><span class="skill-chip">Precision-Recall</span><span class="skill-chip">SMOTE</span><span class="skill-chip">Cross-Validation</span><span class="skill-chip">Threshold Tuning</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="label">✦ Week 2 Output</div>
+              <p>Three model notebooks (credit scoring, sepsis detection, yield prediction) with SHAP explanation plots and a predict_and_explain() function — all GitHub-ready.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="week-right">
+        <div class="week-assign-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Assignments &amp; Exercises
+        </div>
+        <div class="assign-list">
+          <div class="assign-card">
+            <span class="assign-type type-industry">Industry Assignment</span>
+            <h4>Credit Default Predictor — Who Gets the Loan?</h4>
+            <div class="sector">💳 FinTech · 5,000 applicants · Alternative credit signals</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 4–5 hours · SHAP summary · Business brief</div>
+          </div>
+          <div class="assign-card">
+            <span class="assign-type type-industry">Industry Assignment</span>
+            <h4>Sepsis Early Warning — Predicting Patient Deterioration</h4>
+            <div class="sector">🏥 Healthcare ICU · Imbalanced 8% positive · Recall ≥ 0.90</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3–4 hours · Class weights · SMOTE comparison</div>
+          </div>
+          <div class="assign-card">
+            <span class="assign-type type-mini">Mini-Project</span>
+            <h4>Crop Yield Regression — From Soil to Prediction</h4>
+            <div class="sector">🌾 Precision Farming · Ridge vs RF vs XGBoost · Full pipeline</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5–6 hours · SHAP dependence plots · 3 test farms</div>
+          </div>
+        </div>
+        <div class="week-industry-row">
+          <div class="industry-title">Industries Covered</div>
+          <div class="industry-chips">
+            <span class="ind-chip">Financial Services</span><span class="ind-chip">Healthcare</span><span class="ind-chip">Agriculture</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week-content" id="week-3">
+      <div class="week-left">
+        <div class="week-main-card">
+          <div class="week-band w3-band"></div>
+          <div class="week-card-body">
+            <span class="week-card-label w3-label">🔬 Week 3</span>
+            <h2 class="week-card-title">Advanced ML</h2>
+            <div class="week-card-focus">Clustering · Computer Vision · NLP · Time Series Forecasting</div>
+            <p class="week-card-desc">Expand your toolkit into the areas where modern ML jobs live: computer vision for quality inspection, NLP for text classification, time series for demand forecasting, and clustering for customer intelligence. These skills get you shortlisted at product companies, not just IT services.</p>
+            <div class="week-skills-grid">
+              <span class="skill-chip">K-Means / PCA</span><span class="skill-chip">Transfer Learning</span><span class="skill-chip">MobileNetV2</span><span class="skill-chip">Grad-CAM</span><span class="skill-chip">DistilBERT</span><span class="skill-chip">LSTM</span><span class="skill-chip">ARIMA Baseline</span><span class="skill-chip">RFM Segmentation</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="label">✦ Week 3 Output</div>
+              <p>A CNN defect detector with Grad-CAM visualisations, a customer segmentation dashboard with named clusters, and an LSTM energy forecaster beating the moving-average baseline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="week-right">
+        <div class="week-assign-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Assignments &amp; Exercises
+        </div>
+        <div class="assign-list">
+          <div class="assign-card">
+            <span class="assign-type type-industry">Industry Assignment</span>
+            <h4>Retail Customer Intelligence — Who Are Your Shoppers?</h4>
+            <div class="sector">🛍️ E-Commerce · 10,000 customers · RFM + K-Means clusters</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3–4 hours · Elbow chart · Named segment strategy</div>
+          </div>
+          <div class="assign-card">
+            <span class="assign-type type-mini">Mini-Project</span>
+            <h4>Defect Vision System — Teaching a Computer to See Quality</h4>
+            <div class="sector">⚡ Manufacturing 4.0 · 800 images · 4-class inspection · ≥92% target</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6–7 hours · Grad-CAM · classify_image() function</div>
+          </div>
+          <div class="assign-card">
+            <span class="assign-type type-industry">Industry Assignment</span>
+            <h4>Energy Demand Forecaster — Predicting the Grid 72 Hours Ahead</h4>
+            <div class="sector">🔋 Smart Grid · 1-year hourly data · Beat baseline by 15% MAPE</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 4–5 hours · LSTM · ARIMA comparison</div>
+          </div>
+        </div>
+        <div class="week-industry-row">
+          <div class="industry-title">Industries Covered</div>
+          <div class="industry-chips">
+            <span class="ind-chip">Retail</span><span class="ind-chip">Manufacturing 4.0</span><span class="ind-chip">Energy / Smart Grid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week-content" id="week-4">
+      <div class="week-left">
+        <div class="week-main-card">
+          <div class="week-band w4-band"></div>
+          <div class="week-card-body">
+            <span class="week-card-label w4-label">🚀 Week 4</span>
+            <h2 class="week-card-title">Deploy &amp; Impress</h2>
+            <div class="week-card-focus">FastAPI · MLflow · Model Monitoring · Ethics · Portfolio Polish</div>
+            <p class="week-card-desc">Take everything you built and turn it into something you can show, share, and explain. Deploy your best model as a production-grade REST API, track experiments professionally, complete your capstone project, and prepare to talk about all of it confidently in a 30-minute technical interview.</p>
+            <div class="week-skills-grid">
+              <span class="skill-chip">FastAPI + Pydantic</span><span class="skill-chip">MLflow Registry</span><span class="skill-chip">PSI Drift Monitor</span><span class="skill-chip">Model Card</span><span class="skill-chip">GitHub README</span><span class="skill-chip">STAR-ML Story</span><span class="skill-chip">Mock Interviews</span><span class="skill-chip">joblib Serialization</span>
+            </div>
+            <div class="week-outcome-box">
+              <div class="label">✦ Week 4 Output</div>
+              <p>A live FastAPI endpoint, an MLflow experiment registry with 6+ logged runs, a completed capstone project with professional README, and a portfolio recruiters can explore in 30 seconds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="week-right">
+        <div class="week-assign-title">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Assignments &amp; Exercises
+        </div>
+        <div class="assign-list">
+          <div class="assign-card">
+            <span class="assign-type type-practical">Practical Exercise</span>
+            <h4>Deploy Your Credit Model — From Notebook to API</h4>
+            <div class="sector">💳 MLOps / FinTech · /health + /predict endpoints · &lt;200ms</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 4–5 hours · Pydantic validation · test_api.py</div>
+          </div>
+          <div class="assign-card">
+            <span class="assign-type type-practical">Practical Exercise</span>
+            <h4>MLflow Experiment Tracking — Rigour in Model Development</h4>
+            <div class="sector">📈 Cross-Industry · 6+ runs logged · Model Registry · Metrics UI</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3–4 hours · Production candidate registration</div>
+          </div>
+          <div class="assign-card" style="border-color:var(--orange);background:rgba(232,122,46,0.03)">
+            <span class="assign-type type-mini">🏆 Capstone</span>
+            <h4>Choose Your Capstone — 5–6 Day Centrepiece Project</h4>
+            <div class="sector">🎯 A: Predictive Maintenance · B: Credit Intelligence · C: Retail Suite · D: Medical AI</div>
+            <div class="time"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5–6 days · Full API · MLflow · Demo-ready GitHub</div>
+          </div>
+        </div>
+        <div class="week-industry-row">
+          <div class="industry-title">Industries Covered</div>
+          <div class="industry-chips">
+            <span class="ind-chip">Finance</span><span class="ind-chip">Energy</span><span class="ind-chip">Healthcare</span><span class="ind-chip">Manufacturing</span><span class="ind-chip">All Sectors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILL EVOLUTION -->
+<section class="evolution-section">
+  <div class="container">
+    <div class="evolution-header reveal">
+      <div class="section-eyebrow"><span class="dot"></span> Skill Progression</div>
+      <h2 class="section-title">How your skills evolve week by week</h2>
+      <p class="section-sub" style="margin:0 auto">Each layer builds on the previous one. By Week 4, you're not just a data analyst — you're a full-stack ML engineer.</p>
+    </div>
+    <div class="skill-path">
+      <div class="skill-level sl1 reveal">
+        <div class="skill-level-dot">📊</div>
+        <div class="skill-level-content">
+          <div class="skill-level-header">
+            <span class="skill-level-week">Week 1 Foundation</span>
+            <span class="skill-level-title">Data Intelligence & Feature Engineering</span>
+          </div>
+          <p class="skill-level-desc">You can load, clean, and interrogate any real-world dataset. You know how to detect outliers with three methods, engineer lag features for time series, and produce a professional EDA notebook that tells a business story — not just a collection of charts.</p>
+          <div class="skill-tags">
+            <span class="stag">Pandas Proficiency</span><span class="stag">EDA Narrative</span><span class="stag">Feature Matrix Design</span><span class="stag">Outlier Detection</span><span class="stag">Data Storytelling</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-level-connector"></div>
+      <div class="skill-level sl2 reveal">
+        <div class="skill-level-dot">🤖</div>
+        <div class="skill-level-content">
+          <div class="skill-level-header">
+            <span class="skill-level-week">Week 2 Growth</span>
+            <span class="skill-level-title">Predictive Modelling & Explainability</span>
+          </div>
+          <p class="skill-level-desc">You can train, evaluate, and explain supervised learning models. You know when to choose XGBoost over Random Forest and why, how to handle imbalanced classes in a healthcare context, and how to explain any individual prediction to a non-technical stakeholder using SHAP waterfall plots.</p>
+          <div class="skill-tags">
+            <span class="stag">Model Selection</span><span class="stag">SHAP Explanations</span><span class="stag">Threshold Optimisation</span><span class="stag">Business Metrics</span><span class="stag">Imbalance Handling</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-level-connector"></div>
+      <div class="skill-level sl3 reveal">
+        <div class="skill-level-dot">🔬</div>
+        <div class="skill-level-content">
+          <div class="skill-level-header">
+            <span class="skill-level-week">Week 3 Expansion</span>
+            <span class="skill-level-title">Vision, Language & Time Series</span>
+          </div>
+          <p class="skill-level-desc">Your toolkit now covers the full breadth of modern ML. You can fine-tune a CNN with transfer learning, apply a pre-trained NLP model to text classification, build an LSTM forecaster that beats naive baselines, and name customer clusters with actionable marketing strategies — not just run K-Means.</p>
+          <div class="skill-tags">
+            <span class="stag">Transfer Learning</span><span class="stag">Grad-CAM Analysis</span><span class="stag">NLP Fine-Tuning</span><span class="stag">LSTM Forecasting</span><span class="stag">Cluster Naming</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-level-connector"></div>
+      <div class="skill-level sl4 reveal">
+        <div class="skill-level-dot">🚀</div>
+        <div class="skill-level-content">
+          <div class="skill-level-header">
+            <span class="skill-level-week">Week 4 Mastery</span>
+            <span class="skill-level-title">ML Engineering & Production Readiness</span>
+          </div>
+          <p class="skill-level-desc">You're no longer a data scientist who runs notebooks — you're an ML engineer. Your model responds to HTTP requests in under 200 milliseconds. Your experiments are logged. Your GitHub tells the story of how you got there. And you can demo everything live in a 5-minute interview slot.</p>
+          <div class="skill-tags">
+            <span class="stag">REST API Deployment</span><span class="stag">Experiment Tracking</span><span class="stag">Model Registry</span><span class="stag">Drift Monitoring</span><span class="stag">Portfolio Readiness</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSTONE -->
+<section class="capstone-section" id="capstone">
+  <div class="capstone-bg1"></div>
+  <div class="capstone-bg2"></div>
+  <div class="capstone-inner">
+    <div class="capstone-header reveal">
+      <div class="capstone-eyebrow">🏆 Choose Your Capstone</div>
+      <h2 class="section-title">The project you lead with in every interview</h2>
+      <p class="section-sub">Pick one of four industry-specific capstone tracks. Each is designed to be completed in 5–6 days and become the centrepiece of your portfolio — something you demo live, not just describe.</p>
+    </div>
+    <div class="capstone-grid">
+      <div class="capstone-card reveal reveal-delay-1">
+        <div class="capstone-letter">A</div>
+        <span class="cap-badge cap-b1">⚙️ Manufacturing · Industry 4.0</span>
+        <h3>Predictive Maintenance Intelligence Platform</h3>
+        <div class="cap-focus">Monitor sensor streams · Predict failure 24–48hrs ahead · FastAPI + MLflow</div>
+        <ul class="cap-features">
+          <li>Isolation Forest anomaly pre-filter + XGBoost failure classifier</li>
+          <li>SHAP: which sensor, which time window drives the alert</li>
+          <li>/sensor-reading returns health_score 0–100 + alert level</li>
+          <li>Business impact: "Catching 3 of 4 failures saves ₹X monthly"</li>
+        </ul>
+        <div class="cap-stack">
+          <span class="cap-tech">XGBoost</span><span class="cap-tech">Isolation Forest</span><span class="cap-tech">SHAP</span><span class="cap-tech">FastAPI</span><span class="cap-tech">MLflow</span>
+        </div>
+      </div>
+      <div class="capstone-card reveal reveal-delay-2">
+        <div class="capstone-letter">B</div>
+        <span class="cap-badge cap-b2">💳 Financial Services · FinTech</span>
+        <h3>AI Credit Intelligence Engine</h3>
+        <div class="cap-focus">Explainable credit scoring · Fairness audit · Live prediction API</div>
+        <ul class="cap-features">
+          <li>12 behavioural features from transaction data</li>
+          <li>Fairlearn fairness audit: parity diff ≤ 0.05 across age groups</li>
+          <li>/credit-score returns score, decision + top 3 reasons</li>
+          <li>Model card documenting purpose, performance, and limitations</li>
+        </ul>
+        <div class="cap-stack">
+          <span class="cap-tech">XGBoost</span><span class="cap-tech">SHAP</span><span class="cap-tech">Fairlearn</span><span class="cap-tech">FastAPI</span><span class="cap-tech">MLflow</span>
+        </div>
+      </div>
+      <div class="capstone-card reveal reveal-delay-3">
+        <div class="capstone-letter">C</div>
+        <span class="cap-badge cap-b3">🛍️ Retail · E-Commerce</span>
+        <h3>Retail Intelligence Suite</h3>
+        <div class="cap-focus">Segmentation + Forecasting + Recommendations · Streamlit Dashboard</div>
+        <ul class="cap-features">
+          <li>5 named customer clusters with targeted campaign recommendations</li>
+          <li>LSTM demand forecast: MAPE ≤ 18% on promotional periods</li>
+          <li>Collaborative filtering recommendation engine (precision@5 ≥ 0.35)</li>
+          <li>Interactive Streamlit dashboard the business team can actually use</li>
+        </ul>
+        <div class="cap-stack">
+          <span class="cap-tech">K-Means</span><span class="cap-tech">LSTM</span><span class="cap-tech">Collab Filter</span><span class="cap-tech">Streamlit</span><span class="cap-tech">SHAP</span>
+        </div>
+      </div>
+      <div class="capstone-card reveal" style="transition-delay:.4s">
+        <div class="capstone-letter">D</div>
+        <span class="cap-badge cap-b4">🏥 Healthcare · MedTech · Advanced</span>
+        <h3>Medical AI Diagnostic Assistant</h3>
+        <div class="cap-focus">Chest X-ray CNN + Sepsis Risk · Multi-model API · Ethics Statement</div>
+        <ul class="cap-features">
+          <li>EfficientNetB0 X-ray classifier: AUC ≥ 0.88</li>
+          <li>Sepsis risk from vitals: recall ≥ 0.92</li>
+          <li>Grad-CAM highlights which lung regions drove diagnosis</li>
+          <li>Ethics section: what the model must NOT be used for</li>
+        </ul>
+        <div class="cap-stack">
+          <span class="cap-tech">EfficientNetB0</span><span class="cap-tech">Grad-CAM</span><span class="cap-tech">FastAPI</span><span class="cap-tech">MLflow</span><span class="cap-tech">OpenCV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL OUTCOMES -->
+<section class="outcomes-section" id="outcomes">
+  <div class="outcomes-inner">
+    <div class="outcomes-header reveal">
+      <div class="section-eyebrow"><span class="dot"></span> Course Outcomes</div>
+      <h2 class="section-title">What you can do after 28 days</h2>
+      <p class="section-sub" style="margin:0 auto">Concrete, demonstrable competencies — not vague "understanding of ML concepts".</p>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome-card reveal reveal-delay-1">
+        <div class="outcome-icon-wrap oi1">🗂️</div>
+        <h3>Clean Any Dataset</h3>
+        <p>Load, clean, and feature-engineer any real-world tabular dataset — handling missing values, outliers, lag features, and categorical encodings with confidence.</p>
+      </div>
+      <div class="outcome-card reveal reveal-delay-2">
+        <div class="outcome-icon-wrap oi2">🎯</div>
+        <h3>Build & Evaluate Models</h3>
+        <p>Train regression and classification models with proper cross-validation. Choose the right metric for the business context — not just accuracy.</p>
+      </div>
+      <div class="outcome-card reveal reveal-delay-3">
+        <div class="outcome-icon-wrap oi3">💡</div>
+        <h3>Explain Any Prediction</h3>
+        <p>Generate SHAP summary plots, waterfall charts, and Grad-CAM visualisations. Tell any stakeholder exactly why your model made a specific decision.</p>
+      </div>
+      <div class="outcome-card reveal reveal-delay-1">
+        <div class="outcome-icon-wrap oi4">🌐</div>
+        <h3>Deploy as a REST API</h3>
+        <p>Package your model with FastAPI and Pydantic. Your model will handle 200+ requests per hour with input validation and sub-200ms response time.</p>
+      </div>
+      <div class="outcome-card reveal reveal-delay-2">
+        <div class="outcome-icon-wrap oi5">📈</div>
+        <h3>Track Experiments Properly</h3>
+        <p>Use MLflow to log every hyperparameter, metric, and artefact. Show interviewers a model registry — not just a notebook with hardcoded values.</p>
+      </div>
+      <div class="outcome-card reveal reveal-delay-3">
+        <div class="outcome-icon-wrap oi6">💬</div>
+        <h3>Ace Technical Interviews</h3>
+        <p>Answer the top 20 ML interview questions with project-backed examples. Use the STAR-ML framework to tell compelling 2-minute project stories from memory.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS SECTION -->
+<section class="tools-section">
+  <div class="tools-inner">
+    <div class="tools-title reveal">Everything you need — all free, all industry-standard</div>
+    <div class="tools-row reveal">
+      <span class="tool-pill"><span class="dot" style="background:#3776AB"></span> Python 3.10+</span>
+      <span class="tool-pill"><span class="dot" style="background:#F7C948"></span> Pandas / NumPy</span>
+      <span class="tool-pill"><span class="dot" style="background:#F7931E"></span> scikit-learn</span>
+      <span class="tool-pill"><span class="dot" style="background:#1E88E5"></span> XGBoost / LightGBM</span>
+      <span class="tool-pill"><span class="dot" style="background:#FF6F00"></span> TensorFlow / Keras</span>
+      <span class="tool-pill"><span class="dot" style="background:#FECC00"></span> HuggingFace Transformers</span>
+      <span class="tool-pill"><span class="dot" style="background:#E87A2E"></span> SHAP</span>
+      <span class="tool-pill"><span class="dot" style="background:#009688"></span> FastAPI</span>
+      <span class="tool-pill"><span class="dot" style="background:#0194E2"></span> MLflow</span>
+      <span class="tool-pill"><span class="dot" style="background:#181717"></span> GitHub</span>
+      <span class="tool-pill"><span class="dot" style="background:#F9A03C"></span> Google Colab</span>
+      <span class="tool-pill"><span class="dot" style="background:#E84393"></span> Streamlit</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION CTA -->
+<section class="transform-section" id="enroll">
+  <div class="transform-box reveal">
+    <div class="tb-inner">
+      <div class="transform-eyebrow">✦ Your Transformation</div>
+      <h2>From <em>"I studied ML in college"</em><br>to <em>"Here's my GitHub. Let me show you."</em></h2>
+      <p>In 28 days you'll have more practical ML project experience than the majority of students who graduate from a 4-year engineering programme.</p>
+      <div class="transform-before-after">
+        <div class="ba-card">
+          <div class="ba-label">Before the course</div>
+          <ul class="ba-list">
+            <li>Ran a few sklearn notebooks</li>
+            <li>Knows what XGBoost is</li>
+            <li>No deployed models</li>
+            <li>No GitHub portfolio</li>
+            <li>Struggles with "tell me about a project"</li>
+          </ul>
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-card">
+          <div class="ba-label">After 28 days</div>
+          <ul class="ba-list after">
+            <li>3+ GitHub repos with clean READMEs</li>
+            <li>Live FastAPI endpoint answering requests</li>
+            <li>MLflow registry with 6+ logged experiments</li>
+            <li>SHAP plots that explain every decision</li>
+            <li>A 2-minute project story for every assignment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="transform-cta-row">
+        <a href="#" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem">Enroll in Next Gen AI →</a>
+        <a href="#weeks" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.25)">Review Curriculum</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-row">
+    <div class="footer-logo-svg">
+      <svg viewBox="0 0 955 1486" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#fg1)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M537.013 747.316C497.681 831.569 387.242 954.828 289.109 970.725C289.109 970.725 299.4 1026.88 475.306 1171.02C665.827 1157.67 575.336 965.751 598.565 792.648C585.643 778.922 537.013 747.316 537.013 747.316Z" fill="#EC691F"/>
+        <path d="M493.477 321.164H460.795C456.99 321.164 453.906 324.244 453.906 328.044C453.906 331.844 456.99 334.924 460.795 334.924H493.477C497.282 334.924 500.366 331.844 500.366 328.044C500.366 324.244 497.282 321.164 493.477 321.164Z" fill="#FECC00"/>
+        <defs>
+          <radialGradient id="fg1" cx="0" cy="0" r="1" gradientTransform="matrix(124.017 4.00035 -1.33306 118.217 464.349 115.789)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <span class="footer-name">Next Gen <em>AI</em></span>
+  </div>
+  <p class="footer-copy">Machine Learning Career Accelerator · A MokshPath Program · © 2026 · All rights reserved</p>
+</footer>
+
+<script>
+// Week tab switcher
+function switchWeek(n) {
+  document.querySelectorAll('.week-tab').forEach((t,i) => t.classList.toggle('active', i === n-1));
+  document.querySelectorAll('.week-content').forEach((c,i) => c.classList.toggle('active', i === n-1));
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Journey step clicks scroll to week
+document.querySelectorAll('.journey-step').forEach((s,i) => {
+  s.addEventListener('click', () => {
+    switchWeek(i+1);
+    document.getElementById('weeks').scrollIntoView({ behavior:'smooth' });
+  });
+});
+</script>
+</body>
+</html>

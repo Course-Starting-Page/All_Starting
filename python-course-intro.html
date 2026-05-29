@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python: Zero to Job-Ready – 4-Week Intensive</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --orange:#E87A2E;--orange-dark:#D06A20;--orange-light:#F5943E;--orange-glow:rgba(232,122,46,0.12);
+  --navy:#2B2D42;--navy-dark:#1A1B2E;--bg:#F3EDE7;--bg-card:#FFFFFF;--bg-light:#F9F5F0;
+  --text-primary:#2B2D42;--text-secondary:#6B6D7B;--text-muted:#9597A6;--border:#E5DDD4;
+  --green:#4CAF50;--green-light:#E8F5E9;
+  --shadow-sm:0 2px 8px rgba(43,45,66,0.06);--shadow-md:0 8px 24px rgba(43,45,66,0.08);
+  --shadow-lg:0 16px 48px rgba(43,45,66,0.12);--radius:14px;--radius-sm:8px;
+  --w1:#E87A2E;--w2:#E8A040;--w3:#66BB6A;--w4:#4CAF50
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-sm)}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-logo-icon{width:38px;height:38px;overflow:hidden}
+.nav-logo-icon svg{width:100%;height:100%;object-fit:contain}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.2}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--navy)}
+.nav-logo-name span{color:var(--orange)}
+.nav-logo-tag{font-size:.6rem;color:var(--text-muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.nav-pills{display:flex;gap:.3rem}
+.nav-pill{padding:.38rem .9rem;border-radius:50px;font-size:.75rem;font-weight:600;text-decoration:none;color:var(--text-secondary);transition:all .2s;border:1px solid transparent}
+.nav-pill:hover{background:var(--orange-glow);color:var(--orange);border-color:var(--orange)}
+.nav-pill.active{background:var(--orange-glow);color:var(--orange)}
+.nav-cta{padding:.5rem 1.3rem;background:var(--orange);color:#fff;border-radius:8px;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 4px 14px rgba(232,122,46,.3)}
+.mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.mobile-menu-btn span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;border-radius:2px;transition:.3s}
+
+/* ── HERO ── */
+.hero{padding:4.5rem 2rem 3rem;position:relative;overflow:hidden;background:var(--bg)}
+.hero::before{content:'';position:absolute;top:-100px;right:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,122,46,.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(76,175,80,.06) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:3.5rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.38rem 1rem;border-radius:50px;background:var(--orange-glow);color:var(--orange);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.1rem;animation:fadeUp .6s ease both}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.3rem,4.5vw,3.5rem);line-height:1.1;color:var(--navy);margin-bottom:1rem;animation:fadeUp .6s ease .1s both}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-sub{font-size:1rem;color:var(--text-secondary);line-height:1.72;margin-bottom:2rem;max-width:500px;animation:fadeUp .6s ease .2s both}
+.hero-stats{display:flex;gap:2rem;margin-bottom:2.2rem;animation:fadeUp .6s ease .25s both}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--orange);line-height:1}
+.hero-stat-label{font-size:.68rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-top:.15rem}
+.hero-cta{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;animation:fadeUp .6s ease .3s both}
+.btn-primary{padding:.75rem 2rem;background:var(--orange);color:#fff;border-radius:10px;font-size:.9rem;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:inherit}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,122,46,.35)}
+.btn-outline{padding:.72rem 1.6rem;border:1.5px solid var(--border);background:transparent;color:var(--text-primary);border-radius:10px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;font-family:inherit}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.hero-visual{position:relative;animation:fadeUp .7s ease .2s both}
+.hero-card-float{background:var(--bg-card);border-radius:var(--radius);padding:1.4rem 1.6rem;box-shadow:var(--shadow-lg);border:1px solid var(--border);position:relative;overflow:hidden}
+.hero-card-float::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),#66BB6A)}
+.hero-card-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1.1rem}
+.hero-skill-row{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid var(--border)}
+.hero-skill-row:last-child{border-bottom:none}
+.hero-skill-week{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:800;color:#fff;flex-shrink:0}
+.hero-skill-name{font-size:.8rem;font-weight:600;color:var(--navy);flex:1}
+.hero-skill-tags{display:flex;gap:.3rem;flex-wrap:wrap}
+.hero-skill-tag{font-size:.6rem;padding:.15rem .45rem;border-radius:4px;background:var(--bg-light);color:var(--text-muted);border:1px solid var(--border);font-weight:500}
+.hero-floating-badge{position:absolute;bottom:-14px;right:-14px;background:var(--navy-dark);color:#fff;border-radius:10px;padding:.7rem 1rem;font-size:.72rem;font-weight:600;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:.4rem}
+.hero-floating-badge .badge-icon{font-size:1rem}
+
+/* ── SECTION COMMONS ── */
+section{padding:4.5rem 2rem}
+.container{max-width:1160px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3rem}
+.section-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:.5rem}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--navy);line-height:1.2;margin-bottom:.5rem}
+.section-sub{font-size:.92rem;color:var(--text-secondary);line-height:1.65;max-width:540px;margin:0 auto}
+
+/* ── WHY SECTION ── */
+#why{background:var(--bg-light)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.why-card{background:var(--bg-card);border-radius:var(--radius);padding:1.7rem;border:1px solid var(--border);transition:all .3s}
+.why-card:hover{box-shadow:var(--shadow-md);border-color:transparent;transform:translateY(-4px)}
+.why-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.3rem}
+.why-card:nth-child(1) .why-icon{background:var(--orange-glow)}
+.why-card:nth-child(2) .why-icon{background:rgba(76,175,80,.1)}
+.why-card:nth-child(3) .why-icon{background:rgba(66,133,244,.1)}
+.why-card:nth-child(4) .why-icon{background:rgba(233,30,99,.08)}
+.why-card:nth-child(5) .why-icon{background:rgba(156,39,176,.08)}
+.why-card:nth-child(6) .why-icon{background:rgba(0,150,136,.08)}
+.why-card h4{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.why-card p{font-size:.8rem;color:var(--text-secondary);line-height:1.6}
+
+/* ── JOURNEY / TIMELINE ── */
+#journey{background:var(--bg)}
+.journey-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:3.5rem}
+.journey-track::before{content:'';position:absolute;top:34px;left:12.5%;right:12.5%;height:3px;background:linear-gradient(90deg,var(--w1),var(--w2),var(--w3),var(--w4));border-radius:2px;z-index:0}
+.journey-step{text-align:center;position:relative;z-index:1;cursor:pointer}
+.journey-num{width:68px;height:68px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:.7rem;position:relative;transition:transform .3s;border:3px solid var(--bg-card);box-shadow:var(--shadow-md)}
+.journey-step:hover .journey-num{transform:scale(1.08)}
+.journey-step.active .journey-num{transform:scale(1.12)}
+.journey-step:nth-child(1) .journey-num{background:linear-gradient(135deg,#FF9F50,var(--w1))}
+.journey-step:nth-child(2) .journey-num{background:linear-gradient(135deg,#F0C060,var(--w2))}
+.journey-step:nth-child(3) .journey-num{background:linear-gradient(135deg,#81C784,var(--w3))}
+.journey-step:nth-child(4) .journey-num{background:linear-gradient(135deg,#66BB6A,var(--w4))}
+.journey-step-week{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);margin-bottom:.2rem}
+.journey-step-name{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--navy);line-height:1.25}
+.journey-step-hours{font-size:.68rem;color:var(--text-muted);margin-top:.2rem}
+.journey-panels{position:relative;min-height:380px}
+.journey-panel{display:none;animation:panelIn .4s ease}
+.journey-panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.jp-inner{background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
+.jp-header{padding:1.8rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.jp-header-left{}
+.jp-week-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.28rem .7rem;border-radius:6px;display:inline-block;margin-bottom:.6rem}
+.jp-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--navy);margin-bottom:.3rem}
+.jp-subtitle{font-size:.85rem;color:var(--text-secondary)}
+.jp-outcome-box{background:var(--navy-dark);border-radius:var(--radius-sm);padding:1rem 1.3rem;min-width:220px;flex-shrink:0}
+.jp-outcome-label{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.5);margin-bottom:.4rem}
+.jp-outcome-title{font-family:'DM Serif Display',serif;font-size:.92rem;color:#fff;margin-bottom:.5rem}
+.jp-outcome-list{list-style:none}
+.jp-outcome-list li{font-size:.75rem;color:rgba(255,255,255,.7);padding:.2rem 0;display:flex;align-items:flex-start;gap:.4rem}
+.jp-outcome-list li::before{content:'✓';color:var(--orange-light);font-size:.7rem;margin-top:.05rem;flex-shrink:0}
+.jp-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.jp-col{padding:1.5rem 1.8rem;border-right:1px solid var(--border)}
+.jp-col:last-child{border-right:none}
+.jp-col-label{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
+.jp-col-label .col-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.assignment-item{margin-bottom:.85rem;padding:.75rem;background:var(--bg-light);border-radius:var(--radius-sm);border-left:3px solid transparent;transition:border-color .2s}
+.assignment-item:hover{border-left-color:var(--orange)}
+.assignment-item:last-child{margin-bottom:0}
+.assignment-sector{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.2rem}
+.assignment-name{font-size:.8rem;font-weight:600;color:var(--navy);margin-bottom:.15rem;line-height:1.35}
+.assignment-hours{font-size:.68rem;color:var(--text-muted)}
+.skill-pill{display:inline-flex;align-items:center;gap:.3rem;padding:.32rem .7rem;border-radius:50px;font-size:.7rem;font-weight:600;margin:.2rem .15rem .2rem 0;border:1px solid var(--border);background:var(--bg-light);color:var(--text-secondary);transition:all .2s}
+.skill-pill:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-glow)}
+.topic-day{margin-bottom:.7rem}
+.topic-day-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:.2rem}
+.topic-day-text{font-size:.78rem;color:var(--text-secondary);line-height:1.5}
+/* week colors */
+.w1-color{color:var(--w1)}.w2-color{color:var(--w2)}.w3-color{color:var(--w3)}.w4-color{color:var(--w4)}
+.w1-bg{background:rgba(232,122,46,.1);color:var(--w1)}.w2-bg{background:rgba(232,160,64,.1);color:#C08830}.w3-bg{background:rgba(102,187,106,.1);color:#388E3C}.w4-bg{background:rgba(76,175,80,.1);color:#2E7D32}
+.w1-dot{background:var(--w1)}.w2-dot{background:var(--w2)}.w3-dot{background:var(--w3)}.w4-dot{background:var(--w4)}
+.w1-border{border-left-color:var(--w1)!important}.w2-border{border-left-color:var(--w2)!important}.w3-border{border-left-color:var(--w3)!important}.w4-border{border-left-color:var(--w4)!important}
+.w1-active .journey-num{box-shadow:0 0 0 4px rgba(232,122,46,.2),var(--shadow-md)}
+.w2-active .journey-num{box-shadow:0 0 0 4px rgba(232,160,64,.2),var(--shadow-md)}
+.w3-active .journey-num{box-shadow:0 0 0 4px rgba(102,187,106,.2),var(--shadow-md)}
+.w4-active .journey-num{box-shadow:0 0 0 4px rgba(76,175,80,.2),var(--shadow-md)}
+
+/* ── SKILLS EVOLUTION ── */
+#skills{background:var(--bg-light)}
+.skills-evolution{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.skills-before-after{display:flex;flex-direction:column;gap:1rem}
+.evo-label{display:flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem}
+.evo-label .evo-dot{width:8px;height:8px;border-radius:50%}
+.evo-item{background:var(--bg-card);border-radius:var(--radius-sm);padding:.9rem 1rem;border:1px solid var(--border);font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:.5rem;transition:all .3s}
+.evo-item .evo-icon{font-size:1rem;flex-shrink:0}
+.evo-item.after{border-left:3px solid var(--orange)}
+.evo-item.after:hover{box-shadow:var(--shadow-sm);transform:translateX(3px)}
+.skills-chart-wrap{background:var(--bg-card);border-radius:var(--radius);padding:1.8rem;border:1px solid var(--border)}
+.skills-chart-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1.4rem}
+.skill-bar-row{margin-bottom:1rem}
+.skill-bar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem}
+.skill-bar-name{font-size:.8rem;font-weight:600;color:var(--navy)}
+.skill-bar-pct{font-size:.72rem;font-weight:700;color:var(--orange)}
+.skill-bar-bg{background:var(--bg-light);border-radius:50px;height:8px;overflow:hidden;border:1px solid var(--border)}
+.skill-bar-fill{height:100%;border-radius:50px;transition:width 1.2s cubic-bezier(.25,.46,.45,.94);width:0}
+.skill-bar-fill.animated{width:var(--target-width)}
+.week-legend{display:flex;gap:1.2rem;margin-top:1.2rem;flex-wrap:wrap}
+.wl-item{display:flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--text-muted)}
+.wl-dot{width:10px;height:10px;border-radius:50%}
+
+/* ── CAPSTONE ── */
+#capstone{background:var(--bg)}
+.capstone-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.capstone-card{background:var(--bg-card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:all .3s;cursor:pointer}
+.capstone-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+.capstone-card-top{height:5px}
+.capstone-card:nth-child(1) .capstone-card-top{background:linear-gradient(90deg,#FF9F50,var(--w1))}
+.capstone-card:nth-child(2) .capstone-card-top{background:linear-gradient(90deg,#F0C060,var(--w2))}
+.capstone-card:nth-child(3) .capstone-card-top{background:linear-gradient(90deg,#81C784,var(--w3))}
+.capstone-card:nth-child(4) .capstone-card-top{background:linear-gradient(90deg,#66BB6A,var(--w4))}
+.capstone-body{padding:1.6rem}
+.capstone-header{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:.9rem}
+.capstone-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.capstone-card:nth-child(1) .capstone-icon{background:rgba(232,122,46,.1)}
+.capstone-card:nth-child(2) .capstone-icon{background:rgba(232,160,64,.1)}
+.capstone-card:nth-child(3) .capstone-icon{background:rgba(102,187,106,.1)}
+.capstone-card:nth-child(4) .capstone-icon{background:rgba(76,175,80,.1)}
+.capstone-label{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.2rem}
+.capstone-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);line-height:1.25}
+.capstone-desc{font-size:.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:1rem}
+.capstone-outcome{background:var(--bg-light);border-radius:var(--radius-sm);padding:.75rem .9rem;font-size:.76rem;color:var(--text-primary);line-height:1.5;border-left:3px solid var(--orange);font-style:italic}
+.capstone-card:nth-child(2) .capstone-outcome{border-left-color:var(--w2)}
+.capstone-card:nth-child(3) .capstone-outcome{border-left-color:var(--w3)}
+.capstone-card:nth-child(4) .capstone-outcome{border-left-color:var(--w4)}
+.capstone-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.9rem}
+.capstone-tag{font-size:.62rem;font-weight:600;padding:.2rem .55rem;border-radius:4px;background:var(--bg);border:1px solid var(--border);color:var(--text-muted)}
+
+/* ── TRANSFORMATION ── */
+#transform{background:var(--navy-dark);color:#fff}
+.transform-inner{max-width:1160px;margin:0 auto}
+.transform-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;text-align:center;margin-bottom:.5rem}
+.transform-title em{font-style:normal;color:var(--orange-light)}
+.transform-sub{text-align:center;font-size:.92rem;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto 3rem}
+.transform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3rem}
+.transform-card{background:rgba(255,255,255,.05);border-radius:var(--radius);padding:1.6rem;border:1px solid rgba(255,255,255,.08);transition:all .3s}
+.transform-card:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.transform-card-icon{font-size:1.8rem;margin-bottom:.8rem}
+.transform-card h4{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.transform-card p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6}
+.interview-quote{background:rgba(232,122,46,.12);border:1px solid rgba(232,122,46,.25);border-radius:var(--radius);padding:2rem;text-align:center;margin-top:1rem}
+.iq-before{font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:.5rem;font-style:italic}
+.iq-after{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--orange-light);line-height:1.4}
+.iq-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);margin-top:.5rem}
+
+/* ── TOOLS ── */
+#tools{background:var(--bg-light)}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.tool-item{background:var(--bg-card);border-radius:var(--radius-sm);padding:1.1rem;border:1px solid var(--border);text-align:center;transition:all .25s}
+.tool-item:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.tool-item-icon{font-size:1.6rem;margin-bottom:.5rem}
+.tool-item-name{font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:.15rem}
+.tool-item-desc{font-size:.68rem;color:var(--text-muted)}
+
+/* ── CTA ── */
+.cta-section{padding:4.5rem 2rem}
+.cta-box{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-radius:var(--radius);padding:3.5rem;text-align:center;position:relative;overflow:hidden;max-width:1160px;margin:0 auto}
+.cta-box::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(232,122,46,.1)}
+.cta-box::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(76,175,80,.07)}
+.cta-box h2{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,2.5vw,2.2rem);color:#fff;margin-bottom:.5rem;position:relative;z-index:1}
+.cta-box h2 em{font-style:normal;color:var(--orange-light)}
+.cta-box p{font-size:.9rem;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 2rem;line-height:1.65;position:relative;z-index:1}
+.cta-checklist{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem;position:relative;z-index:1}
+.cta-check{display:flex;align-items:center;gap:.35rem;padding:.4rem .85rem;border-radius:50px;background:rgba(255,255,255,.08);font-size:.75rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.1)}
+.cta-check::before{content:'✓';color:var(--orange-light);font-weight:700}
+.cta-btns{display:flex;justify-content:center;gap:.8rem;position:relative;z-index:1}
+
+/* ── FOOTER ── */
+footer{background:var(--bg-card);border-top:1px solid var(--border);padding:1.8rem 2rem}
+.footer-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.75rem;color:var(--text-muted)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.75rem;color:var(--text-secondary);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--orange)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.8)}}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-visual{order:-1}
+  .hero-stats{gap:1.5rem}
+  .journey-track::before{display:none}
+  .journey-track{grid-template-columns:repeat(2,1fr);gap:.8rem}
+  .jp-header{flex-direction:column}
+  .jp-body{grid-template-columns:1fr}
+  .jp-col{border-right:none;border-bottom:1px solid var(--border)}
+  .jp-col:last-child{border-bottom:none}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .skills-evolution{grid-template-columns:1fr}
+  .capstone-grid{grid-template-columns:1fr}
+  .transform-grid{grid-template-columns:repeat(2,1fr)}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .nav-pills,.nav-cta{display:none}
+  .mobile-menu-btn{display:block}
+  section{padding:3rem 1.2rem}
+  .why-grid{grid-template-columns:1fr}
+  .transform-grid{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:1.2rem}
+  .cta-btns{flex-direction:column;align-items:center}
+  .footer-inner{flex-direction:column;text-align:center}
+  .journey-track{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="38" height="38" viewBox="0 150 955 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#navgrad1)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M477.546 168.932C633.402 168.932 709.638 238.108 712.834 376.067C716.031 514.01 666.136 618.313 477.546 618.313C288.973 618.313 237.164 528.095 238.429 376.067C239.711 224.04 321.707 168.932 477.546 168.932Z" fill="url(#navgrad2)"/>
+        <path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+        <path d="M493.477 333.881H460.795C456.99 333.881 453.906 336.961 453.906 340.761C453.906 344.561 456.99 347.641 460.795 347.641H493.477C497.282 347.641 500.366 344.561 500.366 340.761C500.366 336.961 497.282 333.881 493.477 333.881Z" fill="#EF7F1A"/>
+        <path d="M493.477 353.486H460.795C456.99 353.486 453.906 356.567 453.906 360.366C453.906 364.166 456.99 367.246 460.795 367.246H493.477C497.282 367.246 500.366 364.166 500.366 360.366C500.366 356.567 497.282 353.486 493.477 353.486Z" fill="#EF7F1A"/>
+        <defs>
+          <radialGradient id="navgrad1" cx="0" cy="0" r="1" gradientTransform="matrix(124 4 -1.3 118 464 115)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient>
+          <radialGradient id="navgrad2" cx="0" cy="0" r="1" gradientTransform="matrix(-2.8 312 -384 2.2 475 375)" gradientUnits="userSpaceOnUse"><stop stop-color="#7A6A48"/><stop offset="0.66" stop-color="#412C23"/><stop offset="1" stop-color="#412C23"/></radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Mok<span>sh</span>Path</span>
+      <span class="nav-logo-tag">Python Intensive</span>
+    </div>
+  </a>
+  <div class="nav-pills">
+    <a href="#why" class="nav-pill">Why This Course</a>
+    <a href="#journey" class="nav-pill">Curriculum</a>
+    <a href="#capstone" class="nav-pill">Capstone</a>
+    <a href="#transform" class="nav-pill">Outcomes</a>
+  </div>
+  <a href="#cta" class="nav-cta">Enroll Now</a>
+  <button class="mobile-menu-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span>Final-Year Engineering Students</div>
+      <h1>Python: <em>Zero</em> to<br>Job-Ready<br>in 4 Weeks</h1>
+      <p class="hero-sub">Build real industry pipelines — not toy scripts. Every assignment is an interview story. Every project is a GitHub portfolio piece. No ML, no SQL, pure Python the way companies actually use it.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Weeks</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-label">Assignments</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Mini-Projects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">1</div><div class="hero-stat-label">Capstone</div></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#journey" class="btn-primary">Explore Curriculum</a>
+        <a href="#capstone" class="btn-outline">See Capstone Projects</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-float">
+        <div class="hero-card-title">Your 4-Week Learning Arc</div>
+        <div class="hero-skill-row">
+          <div class="hero-skill-week" style="background:var(--w1)">1</div>
+          <div class="hero-skill-name">Data Foundations</div>
+          <div class="hero-skill-tags">
+            <span class="hero-skill-tag">Pandas</span><span class="hero-skill-tag">NumPy</span><span class="hero-skill-tag">Cleaning</span>
+          </div>
+        </div>
+        <div class="hero-skill-row">
+          <div class="hero-skill-week" style="background:var(--w2)">2</div>
+          <div class="hero-skill-name">Analysis & Visualisation</div>
+          <div class="hero-skill-tags">
+            <span class="hero-skill-tag">Matplotlib</span><span class="hero-skill-tag">Seaborn</span><span class="hero-skill-tag">Reports</span>
+          </div>
+        </div>
+        <div class="hero-skill-row">
+          <div class="hero-skill-week" style="background:var(--w3)">3</div>
+          <div class="hero-skill-name">APIs, Scraping & Automation</div>
+          <div class="hero-skill-tags">
+            <span class="hero-skill-tag">REST APIs</span><span class="hero-skill-tag">Scraping</span><span class="hero-skill-tag">Email</span>
+          </div>
+        </div>
+        <div class="hero-skill-row">
+          <div class="hero-skill-week" style="background:var(--w4)">4</div>
+          <div class="hero-skill-name">Production & Portfolio</div>
+          <div class="hero-skill-tags">
+            <span class="hero-skill-tag">pytest</span><span class="hero-skill-tag">Logging</span><span class="hero-skill-tag">GitHub</span>
+          </div>
+        </div>
+        <div class="hero-floating-badge">
+          <span class="badge-icon">🎯</span>
+          Interview-Ready Portfolio
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS COURSE -->
+<section id="why">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">⚡ Why This Course</div>
+      <h2 class="section-title">Not Another Python Tutorial</h2>
+      <p class="section-sub">Most Python courses teach syntax. This course builds the skills recruiters actually test in interviews — with industry data and real business context.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">🏭</div>
+        <h4>Industry-Grounded Scenarios</h4>
+        <p>Every dataset comes from a real business context — manufacturing plants, hospitals, e-commerce, agricultural data. No lorem ipsum datasets.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">💼</div>
+        <h4>Interview-First Design</h4>
+        <p>Each assignment is built so you can run it live in an interview, explain your decisions, and share the GitHub link on your resume.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🔧</div>
+        <h4>End-to-End Workflows</h4>
+        <p>You build complete pipelines — from raw messy CSV to automated Excel report with email alerts — not isolated code snippets.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">📈</div>
+        <h4>Progressive Difficulty</h4>
+        <p>Each week builds on the last. Day 1 you load a file. Day 28 you deploy a fully tested automated system with logging and unit tests.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🎓</div>
+        <h4>Explain, Don't Just Code</h4>
+        <p>You learn to articulate why you made each decision — because "Why did you use groupby here?" is the real interview question.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🚀</div>
+        <h4>All Engineering Branches</h4>
+        <p>CSE, Mechanical, Electronics, Civil, Chemical — if you can write a Python function, this course will transform your job prospects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEK-BY-WEEK JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">📅 Curriculum</div>
+      <h2 class="section-title">Your Week-by-Week Journey</h2>
+      <p class="section-sub">Click each week to explore assignments, skills, and what you'll be able to do by the end of it.</p>
+    </div>
+
+    <!-- Timeline selector -->
+    <div class="journey-track fade-in" id="weekTrack">
+      <div class="journey-step w1-active active" data-week="1" onclick="switchWeek(1)">
+        <div class="journey-num">📦</div>
+        <div class="journey-step-week">Week 1</div>
+        <div class="journey-step-name">Data Foundations</div>
+        <div class="journey-step-hours">12–16 hrs</div>
+      </div>
+      <div class="journey-step" data-week="2" onclick="switchWeek(2)">
+        <div class="journey-num">📊</div>
+        <div class="journey-step-week">Week 2</div>
+        <div class="journey-step-name">Analysis & Visualisation</div>
+        <div class="journey-step-hours">12–16 hrs</div>
+      </div>
+      <div class="journey-step" data-week="3" onclick="switchWeek(3)">
+        <div class="journey-num">🌐</div>
+        <div class="journey-step-week">Week 3</div>
+        <div class="journey-step-name">APIs, Scraping & Automation</div>
+        <div class="journey-step-hours">12–16 hrs</div>
+      </div>
+      <div class="journey-step" data-week="4" onclick="switchWeek(4)">
+        <div class="journey-num">🏗️</div>
+        <div class="journey-step-week">Week 4</div>
+        <div class="journey-step-name">Production & Portfolio</div>
+        <div class="journey-step-hours">12–16 hrs</div>
+      </div>
+    </div>
+
+    <!-- Week panels -->
+    <div class="journey-panels">
+
+      <!-- WEEK 1 -->
+      <div class="journey-panel active" id="panel-1">
+        <div class="jp-inner">
+          <div class="jp-header">
+            <div class="jp-header-left">
+              <div class="jp-week-label w1-bg">Week 1 · Data Foundations</div>
+              <div class="jp-title">Python · Pandas · NumPy · File I/O · Data Cleaning</div>
+              <div class="jp-subtitle">Industries: Manufacturing · Retail · Agriculture</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 1 You Can…</div>
+              <div class="jp-outcome-title">Work with any messy dataset</div>
+              <ul class="jp-outcome-list">
+                <li>Load CSV, Excel, JSON into Pandas</li>
+                <li>Handle missing values, duplicates, type errors</li>
+                <li>Compute business KPIs with groupby</li>
+                <li>Write reusable, testable functions</li>
+                <li>Push 3 commented notebooks to GitHub</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w1-dot"></span>Assignments</div>
+              <div class="assignment-item w1-border">
+                <div class="assignment-sector">⚙️ Manufacturing</div>
+                <div class="assignment-name">Shift Log Analysis — Settling a Production Dispute with Data</div>
+                <div class="assignment-hours">⏱ 3–4 hours · Pareto chart + heatmap</div>
+              </div>
+              <div class="assignment-item w1-border">
+                <div class="assignment-sector">🛒 Retail</div>
+                <div class="assignment-name">Inventory Audit — Catching Stock Risks Before They Become Losses</div>
+                <div class="assignment-hours">⏱ 2–3 hours · Python script with 3 functions</div>
+              </div>
+              <div class="assignment-item w1-border">
+                <div class="assignment-sector">🌾 Agriculture</div>
+                <div class="assignment-name">Crop Harvest Cleaning — Turning Field Records into Usable Data</div>
+                <div class="assignment-hours">⏱ 3–4 hours · Full cleaning pipeline</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w1-dot"></span>Core Skills Learned</div>
+              <span class="skill-pill">pd.read_csv()</span>
+              <span class="skill-pill">groupby + pivot_table</span>
+              <span class="skill-pill">merge / concat</span>
+              <span class="skill-pill">fillna strategies</span>
+              <span class="skill-pill">dropna + imputation</span>
+              <span class="skill-pill">String cleaning</span>
+              <span class="skill-pill">Date parsing</span>
+              <span class="skill-pill">Outlier capping (99th pct)</span>
+              <span class="skill-pill">NumPy vectorisation</span>
+              <span class="skill-pill">Error handling</span>
+              <span class="skill-pill">List comprehensions</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w1-dot"></span>Daily Topics</div>
+              <div class="topic-day"><div class="topic-day-label">Day 1–2</div><div class="topic-day-text">Python review — functions, comprehensions, dicts, error handling with industry data examples</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 2–3</div><div class="topic-day-text">Pandas essentials — DataFrame inspection, filtering, sorting, groupby, pivot_table, merge</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 3–4</div><div class="topic-day-text">Data cleaning — missing values, duplicates, type conversion, date parsing, string standardisation</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 4–5</div><div class="topic-day-text">NumPy for aggregation — vectorised operations, statistical functions on large datasets</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 2 -->
+      <div class="journey-panel" id="panel-2">
+        <div class="jp-inner">
+          <div class="jp-header">
+            <div class="jp-header-left">
+              <div class="jp-week-label w2-bg">Week 2 · Analysis & Visualisation</div>
+              <div class="jp-title">EDA · Matplotlib · Seaborn · Automated Reporting</div>
+              <div class="jp-subtitle">Industries: Finance · Healthcare · Energy</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 2 You Can…</div>
+              <div class="jp-outcome-title">Turn data into insight & reports</div>
+              <ul class="jp-outcome-list">
+                <li>Build publication-quality charts</li>
+                <li>Generate automated Excel + PDF reports</li>
+                <li>Apply conditional formatting with openpyxl</li>
+                <li>Compute rolling stats, z-scores, correlations</li>
+                <li>Deliver a complete mini-project from scratch</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w2-dot"></span>Assignments</div>
+              <div class="assignment-item w2-border">
+                <div class="assignment-sector">🏦 Finance</div>
+                <div class="assignment-name">Transaction Pattern Analysis — Finding the Story in 90 Days of Spending</div>
+                <div class="assignment-hours">⏱ 3–4 hours · 5 publication-quality charts</div>
+              </div>
+              <div class="assignment-item w2-border">
+                <div class="assignment-sector">🏥 Healthcare</div>
+                <div class="assignment-name">Hospital Discharge Report Automation — One Script, Zero Manual Work</div>
+                <div class="assignment-hours">⏱ 3–4 hours · 3-sheet Excel with formatting</div>
+              </div>
+              <div class="assignment-item w2-border">
+                <div class="assignment-sector">⚡ Energy · Mini-Project</div>
+                <div class="assignment-name">Energy Consumption Dashboard — Raw Meter Data to Management Insight</div>
+                <div class="assignment-hours">⏱ 5–6 hours · 4-panel dashboard + ₹ impact</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w2-dot"></span>Core Skills Learned</div>
+              <span class="skill-pill">Matplotlib Figure/Axes</span>
+              <span class="skill-pill">Seaborn heatmaps</span>
+              <span class="skill-pill">Correlation matrices</span>
+              <span class="skill-pill">Rolling averages</span>
+              <span class="skill-pill">Percentiles &amp; z-scores</span>
+              <span class="skill-pill">ExcelWriter multi-sheet</span>
+              <span class="skill-pill">openpyxl formatting</span>
+              <span class="skill-pill">EDA narrative structure</span>
+              <span class="skill-pill">Chart annotation</span>
+              <span class="skill-pill">Timestamp resampling</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w2-dot"></span>Daily Topics</div>
+              <div class="topic-day"><div class="topic-day-label">Day 1</div><div class="topic-day-text">Matplotlib — Figure/Axes architecture, subplots, annotations, saving at print quality</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 2</div><div class="topic-day-text">Seaborn — distribution plots, correlation heatmaps, pair plots, categorical analysis</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 3</div><div class="topic-day-text">NumPy analysis — rolling windows, percentiles, z-scores, correlation matrices</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 4</div><div class="topic-day-text">Automated reporting — ExcelWriter, openpyxl conditional formatting, PDF generation</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 5</div><div class="topic-day-text">EDA narrative — structuring data stories, annotating with business context, verbal presentation</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 3 -->
+      <div class="journey-panel" id="panel-3">
+        <div class="jp-inner">
+          <div class="jp-header">
+            <div class="jp-header-left">
+              <div class="jp-week-label w3-bg">Week 3 · APIs, Scraping & Automation</div>
+              <div class="jp-title">REST APIs · BeautifulSoup · Schedule · Email Alerts</div>
+              <div class="jp-subtitle">Industries: Logistics · Pharma · Retail · E-Commerce</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 3 You Can…</div>
+              <div class="jp-outcome-title">Connect Python to the live world</div>
+              <ul class="jp-outcome-list">
+                <li>Fetch live data from REST APIs</li>
+                <li>Scrape websites with BeautifulSoup</li>
+                <li>Send automated HTML email alerts</li>
+                <li>Build pipelines that run on a schedule</li>
+                <li>Store API keys safely with .env + .gitignore</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w3-dot"></span>Assignments</div>
+              <div class="assignment-item w3-border">
+                <div class="assignment-sector">🚢 Logistics / Manufacturing</div>
+                <div class="assignment-name">Commodity Price Intelligence — A Live Data Pipeline for Procurement</div>
+                <div class="assignment-hours">⏱ 3–4 hours · Daily API fetch + email alert</div>
+              </div>
+              <div class="assignment-item w3-border">
+                <div class="assignment-sector">💊 Pharma / Healthcare</div>
+                <div class="assignment-name">Pharmaceutical Tender Scraper — Government Portal Market Intelligence</div>
+                <div class="assignment-hours">⏱ 3–4 hours · Paginated scraper + analysis</div>
+              </div>
+              <div class="assignment-item w3-border">
+                <div class="assignment-sector">🛒 Retail · Mini-Project</div>
+                <div class="assignment-name">Retail Price Monitor — Fully Automated Competitive Intelligence Pipeline</div>
+                <div class="assignment-hours">⏱ 5–6 hours · Scheduled weekly report + email</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w3-dot"></span>Core Skills Learned</div>
+              <span class="skill-pill">requests + JSON parsing</span>
+              <span class="skill-pill">API auth &amp; pagination</span>
+              <span class="skill-pill">BeautifulSoup4</span>
+              <span class="skill-pill">HTML table extraction</span>
+              <span class="skill-pill">robots.txt ethics</span>
+              <span class="skill-pill">schedule library</span>
+              <span class="skill-pill">smtplib HTML emails</span>
+              <span class="skill-pill">python-dotenv</span>
+              <span class="skill-pill">Retry with backoff</span>
+              <span class="skill-pill">Multi-file project structure</span>
+              <span class="skill-pill">CSV deduplication</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w3-dot"></span>Daily Topics</div>
+              <div class="topic-day"><div class="topic-day-label">Day 1</div><div class="topic-day-text">REST API fundamentals — HTTP, JSON, authentication, pagination, rate limiting</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 2</div><div class="topic-day-text">Web scraping — HTML structure, tag selectors, tables, dynamic pages, robots.txt</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 3</div><div class="topic-day-text">Data storage — appending to CSV, deduplication, scheduling with schedule and cron</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 4</div><div class="topic-day-text">Email automation — smtplib, HTML formatting, attachments, threshold-triggered alerts</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 5</div><div class="topic-day-text">Project structure — multi-file packages, .env, requirements.txt, technical README</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 4 -->
+      <div class="journey-panel" id="panel-4">
+        <div class="jp-inner">
+          <div class="jp-header">
+            <div class="jp-header-left">
+              <div class="jp-week-label w4-bg">Week 4 · Production & Portfolio</div>
+              <div class="jp-title">Modular Code · pytest · Logging · GitHub Portfolio</div>
+              <div class="jp-subtitle">All Sectors · Capstone Project Completion</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 4 You Can…</div>
+              <div class="jp-outcome-title">Ship production-grade Python</div>
+              <ul class="jp-outcome-list">
+                <li>Structure code as importable packages</li>
+                <li>Write 10+ pytest unit tests that pass</li>
+                <li>Add logging with severity levels &amp; file handlers</li>
+                <li>Document with professional READMEs</li>
+                <li>Run your capstone live in an interview</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w4-dot"></span>Assignments</div>
+              <div class="assignment-item w4-border">
+                <div class="assignment-sector">⚙️ Any Industry</div>
+                <div class="assignment-name">Refactor to Production — Turning a Notebook into a Real Python Application</div>
+                <div class="assignment-hours">⏱ 4–5 hours · 6-module package + 8 pytest tests</div>
+              </div>
+              <div class="assignment-item w4-border">
+                <div class="assignment-sector">🌐 Cross-Industry</div>
+                <div class="assignment-name">Pipeline Resilience — Making Your Automation Survive the Real World</div>
+                <div class="assignment-hours">⏱ 3–4 hours · Retry decorator + heartbeat JSON</div>
+              </div>
+              <div class="assignment-item w4-border">
+                <div class="assignment-sector">🎯 All Sectors · Capstone</div>
+                <div class="assignment-name">Choose One of 4 Capstone Projects — Your Interview Centrepiece</div>
+                <div class="assignment-hours">⏱ 5–6 days · 10 tests + full automated system</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w4-dot"></span>Core Skills Learned</div>
+              <span class="skill-pill">Python packages</span>
+              <span class="skill-pill">__init__.py structure</span>
+              <span class="skill-pill">logging module</span>
+              <span class="skill-pill">Rotating file handlers</span>
+              <span class="skill-pill">pytest fixtures</span>
+              <span class="skill-pill">Parametrised tests</span>
+              <span class="skill-pill">Mock API calls</span>
+              <span class="skill-pill">functools.wraps</span>
+              <span class="skill-pill">requirements.txt</span>
+              <span class="skill-pill">Commit message conventions</span>
+              <span class="skill-pill">Live demo prep</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w4-dot"></span>Daily Topics</div>
+              <div class="topic-day"><div class="topic-day-label">Day 1</div><div class="topic-day-text">Project structure — Python packages, __init__.py, separating concerns into modules</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 2</div><div class="topic-day-text">Logging — severity levels, rotating file handlers, structured JSON logging for pipelines</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 3</div><div class="topic-day-text">pytest — test functions, fixtures, parametrised tests, testing data cleaning functions</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 4</div><div class="topic-day-text">Capstone integration — putting all modules together, end-to-end testing, debug session</div></div>
+              <div class="topic-day"><div class="topic-day-label">Day 5</div><div class="topic-day-text">GitHub portfolio — README writing, commit discipline, project structure, demo preparation</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /journey-panels -->
+  </div>
+</section>
+
+<!-- SKILLS EVOLUTION -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">📈 Skill Growth</div>
+      <h2 class="section-title">How Your Skills Evolve</h2>
+      <p class="section-sub">From writing a Python function to deploying a fully tested automated pipeline that runs every morning without you.</p>
+    </div>
+    <div class="skills-evolution">
+      <div class="skills-before-after fade-in">
+        <div>
+          <div class="evo-label" style="color:var(--text-muted)"><span class="evo-dot" style="background:#ccc"></span>Before the Course</div>
+          <div class="evo-item" style="opacity:.6">
+            <span class="evo-icon">😐</span>
+            <span>Can write a Python function and basic loops</span>
+          </div>
+          <div class="evo-item" style="opacity:.6">
+            <span class="evo-icon">😐</span>
+            <span>Opens CSV files manually in Excel</span>
+          </div>
+          <div class="evo-item" style="opacity:.6">
+            <span class="evo-icon">😐</span>
+            <span>No GitHub portfolio or real projects</span>
+          </div>
+          <div class="evo-item" style="opacity:.6">
+            <span class="evo-icon">😐</span>
+            <span>Can't explain code decisions to an interviewer</span>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem">
+          <div class="evo-label" style="color:var(--orange)"><span class="evo-dot" style="background:var(--orange)"></span>After 4 Weeks</div>
+          <div class="evo-item after">
+            <span class="evo-icon">🚀</span>
+            <span>Builds production-grade automated data pipelines</span>
+          </div>
+          <div class="evo-item after">
+            <span class="evo-icon">📊</span>
+            <span>Generates Excel reports with conditional formatting in one command</span>
+          </div>
+          <div class="evo-item after">
+            <span class="evo-icon">💻</span>
+            <span>GitHub portfolio with 4+ projects, READMEs, and pytest tests</span>
+          </div>
+          <div class="evo-item after">
+            <span class="evo-icon">🎤</span>
+            <span>Delivers a 2-minute STAR-P project story with real numbers and a live demo</span>
+          </div>
+          <div class="evo-item after">
+            <span class="evo-icon">🔒</span>
+            <span>Stores API keys safely, handles failures with retry logic, writes unit tests</span>
+          </div>
+        </div>
+      </div>
+      <div class="skills-chart-wrap fade-in" id="skillsChart">
+        <div class="skills-chart-title">Skill Level Progression by Week</div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-header"><span class="skill-bar-name">Data Cleaning & Pandas</span><span class="skill-bar-pct">Week 1</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="--target-width:88%;background:linear-gradient(90deg,var(--w1),#FF9F50)"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-header"><span class="skill-bar-name">Data Visualisation</span><span class="skill-bar-pct">Week 2</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="--target-width:82%;background:linear-gradient(90deg,var(--w2),#F0C060)"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-header"><span class="skill-bar-name">Automated Reporting</span><span class="skill-bar-pct">Week 2</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="--target-width:78%;background:linear-gradient(90deg,var(--w2),#F0C060)"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-header"><span class="skill-bar-name">API & Web Scraping</span><span class="skill-bar-pct">Week 3</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="--target-width:75%;background:linear-gradient(90deg,var(--w3),#81C784)"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-header"><span class="skill-bar-name">Workflow Automation</span><span class="skill-bar-pct">Week 3</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="--target-width:80%;background:linear-gradient(90deg,var(--w3),#81C784)"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-header"><span class="skill-bar-name">Testing (pytest)</span><span class="skill-bar-pct">Week 4</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="--target-width:70%;background:linear-gradient(90deg,var(--w4),#66BB6A)"></div></div>
+        </div>
+        <div class="skill-bar-row">
+          <div class="skill-bar-header"><span class="skill-bar-name">Production Code Structure</span><span class="skill-bar-pct">Week 4</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="--target-width:85%;background:linear-gradient(90deg,var(--w4),#66BB6A)"></div></div>
+        </div>
+        <div class="week-legend">
+          <div class="wl-item"><div class="wl-dot" style="background:var(--w1)"></div>Week 1</div>
+          <div class="wl-item"><div class="wl-dot" style="background:var(--w2)"></div>Week 2</div>
+          <div class="wl-item"><div class="wl-dot" style="background:var(--w3)"></div>Week 3</div>
+          <div class="wl-item"><div class="wl-dot" style="background:var(--w4)"></div>Week 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSTONE -->
+<section id="capstone">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">🏆 Capstone Projects</div>
+      <h2 class="section-title">Your Interview Centrepiece</h2>
+      <p class="section-sub">Choose one end-to-end automated system that fetches data, processes it, visualises it, reports it, and delivers alerts — all from one command. This is what you lead with in every interview.</p>
+    </div>
+    <div class="capstone-grid">
+      <div class="capstone-card fade-in">
+        <div class="capstone-card-top"></div>
+        <div class="capstone-body">
+          <div class="capstone-header">
+            <div class="capstone-icon">🏭</div>
+            <div>
+              <div class="capstone-label">Capstone A · Manufacturing</div>
+              <div class="capstone-name">Plant Daily Intelligence System</div>
+            </div>
+          </div>
+          <p class="capstone-desc">Fully automated daily reporting that monitors 6 production lines, computes OEE, generates a 3-sheet Excel briefing, and emails a maintenance alert at 06:30 every morning — zero human involvement.</p>
+          <div class="capstone-outcome">"Line 3 OEE was 68% — below the 85% world-class benchmark. Availability was the main drag at 79%, driven by 3 changeover delays totalling 94 minutes."</div>
+          <div class="capstone-tags">
+            <span class="capstone-tag">Pandas</span><span class="capstone-tag">Matplotlib</span><span class="capstone-tag">openpyxl</span><span class="capstone-tag">smtplib</span><span class="capstone-tag">schedule</span><span class="capstone-tag">pytest</span><span class="capstone-tag">logging</span>
+          </div>
+        </div>
+      </div>
+      <div class="capstone-card fade-in">
+        <div class="capstone-card-top"></div>
+        <div class="capstone-body">
+          <div class="capstone-header">
+            <div class="capstone-icon">🏦</div>
+            <div>
+              <div class="capstone-label">Capstone B · FinTech</div>
+              <div class="capstone-name">Personal Finance Intelligence Engine</div>
+            </div>
+          </div>
+          <p class="capstone-desc">Fetch live exchange rates, analyse 3 months of transactions, compare against budget thresholds, and email a weekly alert. Monthly Excel report in 4 seconds from raw CSV.</p>
+          <div class="capstone-outcome">"Food delivery was 34% over budget. The Sunday alert caught this on Day 22, not Day 31 — leaving 9 days to course-correct instead of discovering at month-end."</div>
+          <div class="capstone-tags">
+            <span class="capstone-tag">requests</span><span class="capstone-tag">Pandas</span><span class="capstone-tag">PyYAML</span><span class="capstone-tag">openpyxl</span><span class="capstone-tag">smtplib</span><span class="capstone-tag">pytest</span>
+          </div>
+        </div>
+      </div>
+      <div class="capstone-card fade-in">
+        <div class="capstone-card-top"></div>
+        <div class="capstone-body">
+          <div class="capstone-header">
+            <div class="capstone-icon">🌾</div>
+            <div>
+              <div class="capstone-label">Capstone C · Agri-Tech</div>
+              <div class="capstone-name">Agri-Market Price Intelligence Platform</div>
+            </div>
+          </div>
+          <p class="capstone-desc">Scrape government mandi prices for 10 commodities across 6 cities, run a buy/wait advisory algorithm, and email an alert within minutes of a price movement above 8%.</p>
+          <div class="capstone-outcome">"The BUY signal for soybean on Day 14 (price 6.3% below 28-day average) — prices rose 4.1% in the following week. Backtested advisory logic shown in README."</div>
+          <div class="capstone-tags">
+            <span class="capstone-tag">BeautifulSoup4</span><span class="capstone-tag">Seaborn</span><span class="capstone-tag">schedule</span><span class="capstone-tag">smtplib</span><span class="capstone-tag">pytest</span>
+          </div>
+        </div>
+      </div>
+      <div class="capstone-card fade-in">
+        <div class="capstone-card-top"></div>
+        <div class="capstone-body">
+          <div class="capstone-header">
+            <div class="capstone-icon">🏥</div>
+            <div>
+              <div class="capstone-label">Capstone D · Healthcare</div>
+              <div class="capstone-name">Hospital Operations Analytics Dashboard</div>
+            </div>
+          </div>
+          <p class="capstone-desc">Merge 3 data sources, compute 12 clinical KPIs per department, benchmark against NABH standards, and send each department head a personalised email with their results and one recommendation.</p>
+          <div class="capstone-outcome">"I chose this because healthcare data work requires the highest standard of correctness — a KPI error affects clinical decisions." Shows maturity to any recruiter.</div>
+          <div class="capstone-tags">
+            <span class="capstone-tag">NumPy</span><span class="capstone-tag">PyYAML</span><span class="capstone-tag">openpyxl</span><span class="capstone-tag">smtplib</span><span class="capstone-tag">pytest</span><span class="capstone-tag">logging</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section id="transform">
+  <div class="transform-inner">
+    <h2 class="transform-title fade-in">After 4 Weeks, You Are <em>Different</em></h2>
+    <p class="transform-sub fade-in">Not just a Python user. A Python professional who ships working systems and tells compelling stories about them.</p>
+    <div class="transform-grid">
+      <div class="transform-card fade-in">
+        <div class="transform-card-icon">📁</div>
+        <h4>GitHub Portfolio That Opens Doors</h4>
+        <p>4+ repos with professional READMEs, results tables, screenshots, and clean commit history. Recruiters form an impression in 30 seconds — make it count.</p>
+      </div>
+      <div class="transform-card fade-in">
+        <div class="transform-card-icon">🧪</div>
+        <h4>Tested, Logged, Production Code</h4>
+        <p>10 passing pytest tests. Rotating log files. Retry decorators. Heartbeat JSON. The engineering practices that separate a script from a trusted system.</p>
+      </div>
+      <div class="transform-card fade-in">
+        <div class="transform-card-icon">💬</div>
+        <h4>15 Interview Questions Answered Cold</h4>
+        <p>Why groupby not a loop? How do you handle missing data? What's a decorator? You've answered them with your own project examples — not theoretical answers.</p>
+      </div>
+      <div class="transform-card fade-in">
+        <div class="transform-card-icon">⚡</div>
+        <h4>Real Industry Impact Numbers</h4>
+        <p>45 minutes of manual reporting replaced. ₹1.8 lakh of energy waste identified. Budget alert 9 days before month-end. Concrete numbers that make you unforgettable.</p>
+      </div>
+      <div class="transform-card fade-in">
+        <div class="transform-card-icon">🎯</div>
+        <h4>Live Demo-Ready in Under 60 Seconds</h4>
+        <p>Your capstone runs cleanly from a fresh terminal. You've rehearsed the 2-minute story until the hesitation is gone. You can show work, not just claim it.</p>
+      </div>
+      <div class="transform-card fade-in">
+        <div class="transform-card-icon">🌏</div>
+        <h4>Any Engineering Branch Welcomed</h4>
+        <p>CSE, Mechanical, Electronics, Civil, Chemical — the course is built for engineering thinkers. Your domain knowledge makes your Python projects more valuable, not less.</p>
+      </div>
+    </div>
+    <div class="interview-quote fade-in">
+      <div class="iq-before">Instead of saying this…<br>"Yes, I studied Python in college."</div>
+      <div class="iq-after">"Yes — here is my GitHub. Let me show you the one I'm most proud of."</div>
+      <div class="iq-label">The exact answer that gets you to the next round</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">🛠️ Tools & Setup</div>
+      <h2 class="section-title">Everything You Need — All Free</h2>
+      <p class="section-sub">No paid software. No cloud accounts required. All tools install in under 20 minutes.</p>
+    </div>
+    <div class="tools-grid fade-in">
+      <div class="tool-item"><div class="tool-item-icon">🐍</div><div class="tool-item-name">Python 3.11+</div><div class="tool-item-desc">Core language via Anaconda</div></div>
+      <div class="tool-item"><div class="tool-item-icon">📓</div><div class="tool-item-name">Jupyter Notebook</div><div class="tool-item-desc">Interactive coding environment</div></div>
+      <div class="tool-item"><div class="tool-item-icon">💻</div><div class="tool-item-name">VS Code</div><div class="tool-item-desc">Professional code editor</div></div>
+      <div class="tool-item"><div class="tool-item-icon">🐼</div><div class="tool-item-name">Pandas</div><div class="tool-item-desc">Data loading & transformation</div></div>
+      <div class="tool-item"><div class="tool-item-icon">🔢</div><div class="tool-item-name">NumPy</div><div class="tool-item-desc">Numerical computing & arrays</div></div>
+      <div class="tool-item"><div class="tool-item-icon">📈</div><div class="tool-item-name">Matplotlib / Seaborn</div><div class="tool-item-desc">Charts & data visualisation</div></div>
+      <div class="tool-item"><div class="tool-item-icon">📗</div><div class="tool-item-name">openpyxl / xlrd</div><div class="tool-item-desc">Excel file reading & writing</div></div>
+      <div class="tool-item"><div class="tool-item-icon">🌐</div><div class="tool-item-name">requests</div><div class="tool-item-desc">Fetching data from APIs</div></div>
+      <div class="tool-item"><div class="tool-item-icon">🕷️</div><div class="tool-item-name">BeautifulSoup4</div><div class="tool-item-desc">Web scraping</div></div>
+      <div class="tool-item"><div class="tool-item-icon">⏰</div><div class="tool-item-name">schedule</div><div class="tool-item-desc">Running scripts automatically</div></div>
+      <div class="tool-item"><div class="tool-item-icon">🔑</div><div class="tool-item-name">python-dotenv</div><div class="tool-item-desc">Secure API key storage</div></div>
+      <div class="tool-item"><div class="tool-item-icon">🐙</div><div class="tool-item-name">GitHub</div><div class="tool-item-desc">Portfolio & version control</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-box fade-in">
+    <h2>Ready to Go from <em>Zero</em> to Job-Ready?</h2>
+    <p>4 weeks. 12 assignments. 1 capstone that you can run live in an interview. Join the intensive built for final-year engineers who want to stand out.</p>
+    <div class="cta-checklist">
+      <div class="cta-check">4 Weeks Intensive</div>
+      <div class="cta-check">All Engineering Branches</div>
+      <div class="cta-check">Industry Datasets Included</div>
+      <div class="cta-check">Interview Prep Built-In</div>
+      <div class="cta-check">GitHub Portfolio at End</div>
+      <div class="cta-check">No ML or SQL Required</div>
+    </div>
+    <div class="cta-btns">
+      <a href="#" class="btn-primary">Enroll Now</a>
+      <a href="#journey" class="btn-outline" style="color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.2)">View Full Curriculum</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:.5rem">
+      <div style="width:28px;height:28px;overflow:hidden">
+        <svg width="28" height="28" viewBox="0 150 955 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#footergrad)"/>
+          <path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+          <defs><radialGradient id="footergrad" cx="0" cy="0" r="1" gradientTransform="matrix(124 4 -1.3 118 464 115)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient></defs>
+        </svg>
+      </div>
+      <span style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--navy)">Mok<span style="color:var(--orange)">sh</span>Path</span>
+      <span class="footer-copy" style="margin-left:.5rem">· Python Zero to Job-Ready · 4-Week Intensive</span>
+    </div>
+    <div class="footer-links">
+      <a href="#why">Why This Course</a>
+      <a href="#journey">Curriculum</a>
+      <a href="#capstone">Capstone</a>
+      <a href="#tools">Tools</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Week switcher ──
+function switchWeek(w) {
+  // Update steps
+  document.querySelectorAll('.journey-step').forEach((el,i) => {
+    el.classList.toggle('active', i+1 === w);
+    const colors = ['w1-active','w2-active','w3-active','w4-active'];
+    colors.forEach(c => el.classList.remove(c));
+    if (i+1 === w) el.classList.add(colors[w-1]);
+  });
+  // Update panels
+  document.querySelectorAll('.journey-panel').forEach((el,i) => {
+    el.classList.toggle('active', i+1 === w);
+  });
+}
+// Init week 1
+document.querySelector('.journey-step').classList.add('w1-active');
+
+// ── Scroll animations ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+      // Trigger skill bars when chart comes into view
+      if (el.target.id === 'skillsChart' || el.target.closest('#skillsChart')) {
+        animateBars();
+      }
+    }
+  });
+}, {threshold: 0.12});
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Skill bars animation
+function animateBars() {
+  document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+    bar.classList.add('animated');
+  });
+}
+// Also observe the chart wrapper
+const chartWrap = document.getElementById('skillsChart');
+if (chartWrap) {
+  const chartObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateBars(); chartObserver.disconnect(); }
+  }, {threshold: 0.2});
+  chartObserver.observe(chartWrap);
+}
+
+// ── Smooth scroll for nav ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+// ── Active nav pills on scroll ──
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 80;
+  sections.forEach(sec => {
+    const top = sec.offsetTop, h = sec.offsetHeight;
+    const pill = document.querySelector(`.nav-pill[href="#${sec.id}"]`);
+    if (pill) pill.classList.toggle('active', scrollY >= top && scrollY < top + h);
+  });
+}, {passive: true});
+</script>
+</body>
+</html>

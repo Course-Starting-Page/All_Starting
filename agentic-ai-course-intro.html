@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Gen AI Builder: Agentic AI Career Accelerator — MokshPath</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --orange:#E87A2E;--orange-dark:#D06A20;--orange-light:#F5943E;--orange-glow:rgba(232,122,46,0.12);
+  --navy:#2B2D42;--navy-dark:#1A1B2E;
+  --bg:#F3EDE7;--bg-card:#FFFFFF;--bg-light:#F9F5F0;
+  --text-primary:#2B2D42;--text-secondary:#6B6D7B;--text-muted:#9597A6;
+  --border:#E5DDD4;
+  --green:#4CAF50;--green-light:#E8F5E9;
+  --shadow-sm:0 2px 8px rgba(43,45,66,0.06);--shadow-md:0 8px 24px rgba(43,45,66,0.08);--shadow-lg:0 16px 48px rgba(43,45,66,0.12);
+  --radius:14px;--radius-sm:8px;
+  /* per-week accent colours */
+  --w1:#E87A2E;--w2:#9B59B6;--w3:#4CAF50;--w4:#2B82D9;
+  --w1g:rgba(232,122,46,0.10);--w2g:rgba(155,89,182,0.10);--w3g:rgba(76,175,80,0.10);--w4g:rgba(43,130,217,0.10)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-sm)}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-logo-icon{width:42px;height:42px;flex-shrink:0;overflow:hidden}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.nav-logo-name{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--navy)}.nav-logo-name span{color:var(--orange)}
+.nav-logo-tag{font-size:.62rem;color:var(--text-muted);font-weight:500;letter-spacing:.02em}
+.nav-links{display:flex;align-items:center;gap:1.6rem}
+.nav-links a{text-decoration:none;color:var(--text-secondary);font-size:.83rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--orange)}
+.btn-enroll{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.3rem;border-radius:8px;font-size:.82rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;font-family:inherit;background:var(--orange);color:#fff}
+.btn-enroll:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,122,46,0.30)}
+.btn-ghost{background:transparent;border:1.5px solid var(--border);color:var(--text-primary);border-radius:8px;padding:.52rem 1.1rem;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}.mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:2px}
+
+/* ── HERO ── */
+.hero{padding:5rem 2rem 4rem;position:relative;overflow:hidden;background:var(--bg)}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(232,122,46,0.07),transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(76,175,80,0.05),transparent 65%);pointer-events:none}
+.hero-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 440px;gap:3.5rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem 1rem;border-radius:50px;background:var(--orange-glow);color:var(--orange);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.2rem;animation:fadeUp .7s ease both}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.12;color:var(--navy);margin-bottom:1rem;animation:fadeUp .7s ease .1s both}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-sub{font-size:1rem;color:var(--text-secondary);line-height:1.72;margin-bottom:2rem;max-width:490px;animation:fadeUp .7s ease .2s both}
+.hero-stats{display:flex;gap:1.8rem;margin-bottom:2.2rem;animation:fadeUp .7s ease .25s both}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:2.1rem;color:var(--orange);line-height:1}
+.hero-stat-label{font-size:.67rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-top:.15rem}
+.hero-cta{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;animation:fadeUp .7s ease .3s both}
+.hero-cta .btn-enroll{padding:.75rem 2rem;font-size:.9rem;border-radius:10px}
+.hero-cta .btn-ghost{padding:.72rem 1.6rem;font-size:.88rem;border-radius:10px}
+
+/* Hero visual – ReAct card */
+.hero-visual{animation:fadeUp .8s ease .2s both}
+.react-card{background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow-lg);overflow:hidden}
+.rc-header{background:var(--navy-dark);padding:.85rem 1.2rem;display:flex;align-items:center;gap:.6rem}
+.rc-dot{width:9px;height:9px;border-radius:50%}
+.rc-title{font-size:.72rem;font-weight:600;color:rgba(255,255,255,0.55);flex:1;text-align:center;font-family:'Courier New',monospace}
+.rc-body{padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.55rem}
+.rc-step{display:flex;align-items:flex-start;gap:.65rem;padding:.65rem .85rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-light)}
+.rc-step.thought{border-left:3px solid var(--w2)}
+.rc-step.action{border-left:3px solid var(--orange)}
+.rc-step.observe{border-left:3px solid var(--green)}
+.rc-step.result{border-left:3px solid var(--w4)}
+.rc-badge{font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.18rem .42rem;border-radius:4px;flex-shrink:0;margin-top:.05rem}
+.thought .rc-badge{background:var(--w2g);color:var(--w2)}
+.action .rc-badge{background:var(--orange-glow);color:var(--orange)}
+.observe .rc-badge{background:var(--w3g);color:var(--w3)}
+.result .rc-badge{background:var(--w4g);color:var(--w4)}
+.rc-text{font-size:.75rem;color:var(--text-secondary);line-height:1.45}
+.rc-arrow{text-align:center;color:var(--text-muted);font-size:.8rem}
+.rc-footer{padding:.8rem 1.3rem;border-top:1px solid var(--border);background:var(--bg-light);display:flex;justify-content:space-between}
+.rc-metric{font-size:.66rem;color:var(--text-muted);font-weight:600}
+.rc-metric span{color:var(--orange)}
+
+/* ── SECTION COMMONS ── */
+section{padding:4.5rem 2rem}
+.container{max-width:1160px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3rem}
+.section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:.6rem}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.3rem);color:var(--navy);line-height:1.2;margin-bottom:.5rem}
+.section-sub{font-size:.92rem;color:var(--text-secondary);line-height:1.65;max-width:520px;margin:0 auto}
+
+/* ── WHY ── */
+#why{background:var(--bg-light)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.why-card{background:var(--bg-card);border-radius:var(--radius);padding:1.7rem;border:1px solid var(--border);transition:all .3s}
+.why-card:hover{box-shadow:var(--shadow-md);border-color:transparent;transform:translateY(-4px)}
+.why-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.3rem}
+.why-card:nth-child(1) .why-icon{background:var(--orange-glow)}
+.why-card:nth-child(2) .why-icon{background:var(--w2g)}
+.why-card:nth-child(3) .why-icon{background:var(--w3g)}
+.why-card:nth-child(4) .why-icon{background:var(--w4g)}
+.why-card:nth-child(5) .why-icon{background:rgba(234,67,53,0.08)}
+.why-card:nth-child(6) .why-icon{background:rgba(251,188,5,0.10)}
+.why-card h4{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.why-card p{font-size:.8rem;color:var(--text-secondary);line-height:1.6}
+
+/* ── JOURNEY ── */
+#journey{background:var(--bg)}
+.pathway-track{display:flex;align-items:stretch;gap:0;margin-bottom:2.8rem;position:relative}
+.pathway-track::before{content:'';position:absolute;top:50px;left:12.5%;right:12.5%;height:3px;background:linear-gradient(90deg,var(--w1),var(--w2),var(--w3),var(--w4));border-radius:2px;z-index:0}
+.pathway-step{flex:1;text-align:center;position:relative;z-index:1;cursor:pointer}
+.pathway-num{width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.75rem;border:2px solid var(--bg);transition:transform .3s,box-shadow .3s}
+.pathway-step:hover .pathway-num,.pathway-step.active .pathway-num{transform:scale(1.12)}
+.pathway-step:nth-child(1) .pathway-num{background:linear-gradient(135deg,#FF9F50,var(--w1));box-shadow:0 3px 12px rgba(232,122,46,0.25)}
+.pathway-step:nth-child(2) .pathway-num{background:linear-gradient(135deg,#C39BD3,var(--w2));box-shadow:0 3px 12px rgba(155,89,182,0.25)}
+.pathway-step:nth-child(3) .pathway-num{background:linear-gradient(135deg,#81C784,var(--w3));box-shadow:0 3px 12px rgba(76,175,80,0.25)}
+.pathway-step:nth-child(4) .pathway-num{background:linear-gradient(135deg,#64B5F6,var(--w4));box-shadow:0 3px 12px rgba(43,130,217,0.25)}
+.pathway-week{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.25rem}
+.pathway-name{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--navy)}
+.pathway-count{font-size:.68rem;color:var(--text-muted);margin-top:.2rem}
+.w1-active .pathway-step:nth-child(1) .pathway-num,
+.pathway-step.active:nth-child(1) .pathway-num{box-shadow:0 0 0 4px rgba(232,122,46,0.2),0 3px 12px rgba(232,122,46,0.3)}
+/* panel system */
+.journey-panels{position:relative}
+.journey-panel{display:none;animation:panelIn .35s ease}
+.journey-panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.jp-card{background:var(--bg-card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
+.jp-header{padding:1.6rem 1.8rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1.2rem;background:var(--bg-light)}
+.jp-week-tag{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.25rem .65rem;border-radius:6px;display:inline-block;margin-bottom:.5rem}
+.jp-title{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:.25rem;line-height:1.25}
+.jp-subtitle{font-size:.8rem;color:var(--text-secondary)}
+.jp-outcome-box{background:var(--navy-dark);border-radius:var(--radius-sm);padding:1.1rem 1.2rem;min-width:210px;flex-shrink:0}
+.jp-outcome-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,0.5);margin-bottom:.4rem}
+.jp-outcome-title{font-family:'DM Serif Display',serif;font-size:.88rem;color:#fff;margin-bottom:.5rem}
+.jp-outcome-list{list-style:none}
+.jp-outcome-list li{font-size:.73rem;color:rgba(255,255,255,0.75);padding:.18rem 0;display:flex;align-items:flex-start;gap:.35rem}
+.jp-outcome-list li::before{content:'✓';font-weight:700;margin-top:.05rem;flex-shrink:0;font-size:.65rem;color:var(--orange-light)}
+.jp-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.jp-col{padding:1.4rem 1.7rem;border-right:1px solid var(--border)}
+.jp-col:last-child{border-right:none}
+.jp-col-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
+.col-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.assign-item{margin-bottom:.75rem;padding:.7rem .85rem;background:var(--bg-light);border-radius:var(--radius-sm);border-left:3px solid transparent;transition:border-color .2s}
+.assign-item:last-child{margin-bottom:0}
+.assign-item:hover{border-left-color:var(--orange)}
+.assign-sector{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.18rem}
+.assign-name{font-size:.79rem;font-weight:600;color:var(--navy);margin-bottom:.12rem;line-height:1.35}
+.assign-meta{font-size:.66rem;color:var(--text-muted)}
+.skill-tag{display:inline-flex;align-items:center;padding:.22rem .58rem;border-radius:50px;font-size:.65rem;font-weight:600;margin:.18rem .12rem .18rem 0;border:1px solid var(--border);background:var(--bg);color:var(--text-secondary);transition:all .2s}
+.skill-tag:hover{border-color:var(--orange);color:var(--orange)}
+.day-row{margin-bottom:.6rem}
+.day-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:.15rem}
+.day-text{font-size:.77rem;color:var(--text-secondary);line-height:1.52}
+/* week tag colours */
+.w1-tag{background:var(--w1g);color:var(--w1)}.w2-tag{background:var(--w2g);color:var(--w2)}.w3-tag{background:var(--w3g);color:var(--w3)}.w4-tag{background:var(--w4g);color:var(--w4)}
+.w1-dot{background:var(--w1)}.w2-dot{background:var(--w2)}.w3-dot{background:var(--w3)}.w4-dot{background:var(--w4)}
+.w1-item{border-left-color:var(--w1)!important}.w2-item{border-left-color:var(--w2)!important}.w3-item{border-left-color:var(--w3)!important}.w4-item{border-left-color:var(--w4)!important}
+
+/* ── SKILLS EVOLUTION ── */
+#skills{background:var(--bg-light)}
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.evo-block{}
+.evo-head{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:.4rem;margin-bottom:.7rem;color:var(--text-muted)}
+.evo-dot{width:8px;height:8px;border-radius:50%}
+.evo-item{background:var(--bg-card);border-radius:var(--radius-sm);padding:.8rem 1rem;border:1px solid var(--border);font-size:.79rem;color:var(--text-secondary);display:flex;align-items:center;gap:.5rem;margin-bottom:.55rem;transition:all .3s}
+.evo-item.after{border-left:3px solid var(--orange)}
+.evo-item.after:hover{transform:translateX(3px);box-shadow:var(--shadow-sm)}
+.evo-icon{font-size:.95rem;flex-shrink:0}
+.skill-bars{background:var(--bg-card);border-radius:var(--radius);padding:1.8rem;border:1px solid var(--border);box-shadow:var(--shadow-sm)}
+.sb-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1.4rem}
+.sb-row{margin-bottom:.95rem}
+.sb-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem}
+.sb-name{font-size:.79rem;font-weight:600;color:var(--navy)}
+.sb-pct{font-size:.7rem;font-weight:700;color:var(--orange)}
+.sb-track{background:var(--border);border-radius:50px;height:8px;overflow:hidden}
+.sb-fill{height:100%;border-radius:50px;width:0;transition:width 1.3s cubic-bezier(.25,.46,.45,.94)}
+.sb-fill.go{width:var(--w)}
+.leg-row{display:flex;gap:1.2rem;margin-top:1.2rem;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--text-muted)}
+.leg-dot{width:10px;height:10px;border-radius:50%}
+
+/* ── PIPELINE ── */
+#pipeline{background:var(--bg)}
+.pipeline-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.pipeline-row{display:flex;align-items:center;gap:.6rem;min-width:660px;padding:1.2rem 0}
+.pipe-node{flex:1;text-align:center}
+.pipe-box{background:var(--bg-card);border-radius:var(--radius-sm);padding:.95rem .7rem;border:1px solid var(--border);transition:all .3s}
+.pipe-box:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.pipe-node:nth-child(1) .pipe-box{border-top:3px solid var(--w1)}
+.pipe-node:nth-child(3) .pipe-box{border-top:3px solid var(--w2)}
+.pipe-node:nth-child(5) .pipe-box{border-top:3px solid var(--w3)}
+.pipe-node:nth-child(7) .pipe-box{border-top:3px solid var(--w4)}
+.pipe-node:nth-child(9) .pipe-box{border-top:3px solid var(--green)}
+.pipe-icon{font-size:1.45rem;margin-bottom:.3rem}
+.pipe-label{font-size:.73rem;font-weight:700;color:var(--navy);margin-bottom:.12rem}
+.pipe-sub{font-size:.62rem;color:var(--text-muted)}
+.pipe-arrow{color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+
+/* ── CAPSTONE ── */
+#capstone{background:var(--bg-light)}
+.capstone-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.cap-card{background:var(--bg-card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:all .35s cubic-bezier(.25,.46,.45,.94)}
+.cap-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:transparent}
+.cap-stripe{height:6px}
+.cap-card:nth-child(1) .cap-stripe{background:linear-gradient(90deg,#FF9F50,var(--w1))}
+.cap-card:nth-child(2) .cap-stripe{background:linear-gradient(90deg,#C39BD3,var(--w2))}
+.cap-card:nth-child(3) .cap-stripe{background:linear-gradient(90deg,#81C784,var(--w3))}
+.cap-card:nth-child(4) .cap-stripe{background:linear-gradient(90deg,#64B5F6,var(--w4))}
+.cap-body{padding:1.6rem 1.7rem}
+.cap-head{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.85rem}
+.cap-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.cap-card:nth-child(1) .cap-icon{background:var(--w1g)}
+.cap-card:nth-child(2) .cap-icon{background:var(--w2g)}
+.cap-card:nth-child(3) .cap-icon{background:var(--w3g)}
+.cap-card:nth-child(4) .cap-icon{background:var(--w4g)}
+.cap-tag{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.2rem}
+.cap-name{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--navy);line-height:1.25}
+.cap-desc{font-size:.81rem;color:var(--text-secondary);line-height:1.62;margin-bottom:.9rem}
+.cap-outcome{background:var(--bg-light);border-radius:var(--radius-sm);padding:.75rem .95rem;font-size:.76rem;color:var(--text-primary);line-height:1.52;border-left:3px solid var(--orange);font-weight:500;margin-bottom:.9rem}
+.cap-card:nth-child(2) .cap-outcome{border-left-color:var(--w2)}
+.cap-card:nth-child(3) .cap-outcome{border-left-color:var(--w3)}
+.cap-card:nth-child(4) .cap-outcome{border-left-color:var(--w4)}
+.cap-outcome-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.2rem}
+.cap-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.2rem}
+.cap-chip{font-size:.64rem;font-weight:600;padding:.22rem .6rem;border-radius:50px;background:var(--bg);color:var(--text-secondary);border:1px solid var(--border)}
+
+/* ── TRANSFORM ── */
+#transform{background:var(--bg)}
+.transform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2.5rem}
+.t-card{background:var(--bg-card);border-radius:var(--radius);padding:1.6rem;border:1px solid var(--border);transition:all .3s}
+.t-card:hover{box-shadow:var(--shadow-md);border-color:transparent;transform:translateY(-3px)}
+.t-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.3rem}
+.t-card:nth-child(odd) .t-icon{background:var(--orange-glow)}
+.t-card:nth-child(even) .t-icon{background:var(--w3g)}
+.t-card h4{font-size:.91rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.t-card p{font-size:.8rem;color:var(--text-secondary);line-height:1.6}
+.quote-box{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-radius:var(--radius);padding:2.5rem 3rem;text-align:center;position:relative;overflow:hidden}
+.quote-box::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(232,122,46,0.08)}
+.quote-box::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(76,175,80,0.06)}
+.quote-before{font-size:.8rem;color:rgba(255,255,255,0.4);margin-bottom:.5rem;font-style:italic;position:relative;z-index:1}
+.quote-after{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--orange-light);line-height:1.4;position:relative;z-index:1}
+.quote-label{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,0.3);margin-top:.5rem;position:relative;z-index:1}
+
+/* ── TOOLS ── */
+#tools{background:var(--bg-light)}
+.tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.9rem}
+.tool-card{background:var(--bg-card);border-radius:var(--radius-sm);padding:1.1rem .85rem;border:1px solid var(--border);text-align:center;transition:all .25s}
+.tool-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px);border-color:rgba(232,122,46,0.25)}
+.tool-icon{font-size:1.5rem;margin-bottom:.4rem}
+.tool-name{font-size:.76rem;font-weight:700;color:var(--navy);margin-bottom:.1rem}
+.tool-desc{font-size:.62rem;color:var(--text-muted)}
+
+/* ── CTA ── */
+.cta-section{padding:4.5rem 2rem;text-align:center}
+.cta-box{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-radius:var(--radius);padding:3.5rem;position:relative;overflow:hidden;max-width:1160px;margin:0 auto}
+.cta-box::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(232,122,46,0.1)}
+.cta-box::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(76,175,80,0.07)}
+.cta-box h2{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,2.1rem);color:#fff;margin-bottom:.5rem;position:relative;z-index:1}
+.cta-box h2 em{font-style:normal;color:var(--orange-light)}
+.cta-box p{color:rgba(255,255,255,0.6);font-size:.9rem;margin-bottom:2rem;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.65;position:relative;z-index:1}
+.cta-checks{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:2rem;position:relative;z-index:1}
+.cta-check{display:inline-flex;align-items:center;gap:.35rem;padding:.38rem .85rem;border-radius:50px;background:rgba(255,255,255,0.07);font-size:.73rem;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.1)}
+.cta-check::before{content:'✓';color:var(--orange-light);font-weight:700;font-size:.68rem}
+.cta-btns{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;position:relative;z-index:1}
+.cta-btns .btn-enroll{padding:.8rem 2.2rem;font-size:.95rem;border-radius:10px}
+.cta-btns .btn-ghost{padding:.78rem 1.8rem;font-size:.9rem;border-radius:10px;border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.8)}
+.cta-btns .btn-ghost:hover{border-color:var(--orange-light);color:var(--orange-light)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg-card);border-top:1px solid var(--border);padding:2rem}
+.footer-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-left{display:flex;align-items:center;gap:.6rem}
+.footer-copy{font-size:.76rem;color:var(--text-muted)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.76rem;color:var(--text-secondary);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--orange)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-visual{order:-1}.hero-sub{margin:0 auto 2rem}
+  .hero-cta{justify-content:center}.hero-stats{justify-content:center}
+  .pathway-track::before{display:none}
+  .jp-header{flex-direction:column}.jp-body{grid-template-columns:1fr}
+  .jp-col{border-right:none;border-bottom:1px solid var(--border)}.jp-col:last-child{border-bottom:none}
+  .skills-wrap{grid-template-columns:1fr}
+  .capstone-grid{grid-template-columns:1fr}
+  .transform-grid{grid-template-columns:repeat(2,1fr)}
+  .tools-grid{grid-template-columns:repeat(3,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:680px){
+  .nav-links{display:none}.mobile-toggle{display:block}
+  section{padding:3rem 1.5rem}
+  .why-grid{grid-template-columns:1fr}
+  .transform-grid{grid-template-columns:1fr}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+  .pathway-track{flex-wrap:wrap;gap:1rem}
+  .pathway-step{flex:none;width:calc(50% - .5rem)}
+  .hero-stats{flex-wrap:wrap;gap:1.2rem}
+  .cta-btns{flex-direction:column;align-items:center}
+  .footer-inner{flex-direction:column;text-align:center}
+  .quote-box{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="42" height="42" viewBox="0 150 955 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="url(#nav1)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M477.546 168.932C633.402 168.932 709.638 238.108 712.834 376.067C716.031 514.01 666.136 618.313 477.546 618.313C288.973 618.313 237.164 528.095 238.429 376.067C239.711 224.04 321.707 168.932 477.546 168.932Z" fill="url(#nav2)"/>
+        <path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+        <path d="M493.477 333.881H460.795C456.99 333.881 453.906 336.961 453.906 340.761C453.906 344.561 456.99 347.641 460.795 347.641H493.477C497.282 347.641 500.366 344.561 500.366 340.761C500.366 336.961 497.282 333.881 493.477 333.881Z" fill="#EF7F1A"/>
+        <path d="M493.477 353.486H460.795C456.99 353.486 453.906 356.567 453.906 360.366C453.906 364.166 456.99 367.246 460.795 367.246H493.477C497.282 367.246 500.366 364.166 500.366 360.366C500.366 356.567 497.282 353.486 493.477 353.486Z" fill="#EF7F1A"/>
+        <defs>
+          <radialGradient id="nav1" cx="0" cy="0" r="1" gradientTransform="matrix(124 4 -1.3 118 464 115)" gradientUnits="userSpaceOnUse"><stop stop-color="#EBE3D6"/><stop offset="1" stop-color="#D1D0CC"/></radialGradient>
+          <radialGradient id="nav2" cx="0" cy="0" r="1" gradientTransform="matrix(-2.8 312 -384 2.2 475 375)" gradientUnits="userSpaceOnUse"><stop stop-color="#7A6A48"/><stop offset=".66" stop-color="#412C23"/><stop offset="1" stop-color="#412C23"/></radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Moksh<span>Path</span></span>
+      <span class="nav-logo-tag">Next Gen AI Builder</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#why">Why This Course</a>
+    <a href="#journey">Curriculum</a>
+    <a href="#capstone">Capstone</a>
+    <a href="#transform">Outcomes</a>
+    <a href="#tools">Tools</a>
+  </div>
+  <button class="btn-enroll" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+  <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span>Final-Year Engineering · Placement Ready</div>
+      <h1>Next Gen <em>AI Builder</em>:<br>Agentic AI Career<br>Accelerator</h1>
+      <p class="hero-sub">Go from "I've heard of ChatGPT" to shipping production-grade AI agents — RAG pipelines, multi-agent systems, FastAPI deployment, MLflow tracking — with a GitHub portfolio that impresses any recruiter.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Weeks</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">Assignments</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Mini-Projects</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">1</div><div class="hero-stat-label">Capstone</div></div>
+      </div>
+      <div class="hero-cta">
+        <button class="btn-enroll" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">Explore Curriculum</button>
+        <button class="btn-ghost" onclick="document.getElementById('capstone').scrollIntoView({behavior:'smooth'})">See Capstone Projects</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="react-card">
+        <div class="rc-header">
+          <div class="rc-dot" style="background:#FF5F57"></div>
+          <div class="rc-dot" style="background:#FEBC2E"></div>
+          <div class="rc-dot" style="background:#28C840"></div>
+          <div class="rc-title">insurance_claims_agent.py · ReAct Loop</div>
+        </div>
+        <div class="rc-body">
+          <div class="rc-step thought">
+            <span class="rc-badge">Thought</span>
+            <span class="rc-text">Claim #2847 mentions vehicle collision. I need to retrieve the relevant comprehensive coverage policy section first.</span>
+          </div>
+          <div class="rc-arrow">↓</div>
+          <div class="rc-step action">
+            <span class="rc-badge">Action</span>
+            <span class="rc-text">policy_lookup("comprehensive coverage collision INR 5 lakh limit")</span>
+          </div>
+          <div class="rc-arrow">↓</div>
+          <div class="rc-step observe">
+            <span class="rc-badge">Observe</span>
+            <span class="rc-text">Retrieved: Clause 4.2 — collision coverage applies when third-party fault is established within 30 days.</span>
+          </div>
+          <div class="rc-arrow">↓</div>
+          <div class="rc-step result">
+            <span class="rc-badge">Result</span>
+            <span class="rc-text">Decision: APPROVED · Reason: Clause 4.2 satisfied · Confidence: 0.94</span>
+          </div>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-metric">task_completion: <span>90%</span></span>
+          <span class="rc-metric">avg_tool_calls: <span>2.3</span></span>
+          <span class="rc-metric">latency: <span>2.8s</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">⚡ Why This Course</div>
+      <h2 class="section-title">Not Another AI Tutorial</h2>
+      <p class="section-sub">Most AI courses teach you to call ChatGPT. This one teaches you to build, evaluate, deploy, and defend agentic AI systems that run in production.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">🤖</div>
+        <h4>Agentic AI — The #1 Skill in 2025</h4>
+        <p>LLMs, RAG, ReAct agents, LangGraph multi-agent systems. The exact stack every serious AI company is hiring for right now.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🏗️</div>
+        <h4>End-to-End Systems, Not Notebooks</h4>
+        <p>Every project is deployable — FastAPI endpoint, Streamlit UI, MLflow experiment tracking, GitHub repo. Not an isolated code cell.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🧪</div>
+        <h4>Formally Evaluated & Measured</h4>
+        <p>DeepEval faithfulness, RAGAS metrics, SHAP explanations, fairness audits. You don't just build — you measure and prove it works.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🛡️</div>
+        <h4>Responsible AI Built Into Every Week</h4>
+        <p>PII masking, prompt injection defence, toxicity filtering, audit logging, model cards. Safety is not optional — it's core to every Week 3 project.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🎯</div>
+        <h4>Interview-First Architecture</h4>
+        <p>Every assignment has a suggested STAR-AI answer. Recruiters ask "why LangGraph not LangChain?" — you have a real, tested answer from your own code.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🌍</div>
+        <h4>7 Real Industry Sectors</h4>
+        <p>Finance, Healthcare, Manufacturing, LegalTech, Retail, EdTech, Logistics. Real business scenarios with realistic data noise and context.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEK JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">📅 Curriculum</div>
+      <h2 class="section-title">Your 4-Week Learning Arc</h2>
+      <p class="section-sub">Click each week to explore assignments, core skills, daily topics, and exactly what you'll be able to build and demo by the end.</p>
+    </div>
+
+    <div class="pathway-track fade-in" id="weekTrack">
+      <div class="pathway-step active" data-week="1" onclick="switchWeek(1)">
+        <div class="pathway-num">🧠</div>
+        <div class="pathway-week">Week 1</div>
+        <div class="pathway-name">GenAI Foundations</div>
+        <div class="pathway-count">3 assignments · RAG notebook</div>
+      </div>
+      <div class="pathway-step" data-week="2" onclick="switchWeek(2)">
+        <div class="pathway-num">⚡</div>
+        <div class="pathway-week">Week 2</div>
+        <div class="pathway-name">Agentic AI Design</div>
+        <div class="pathway-count">3 assignments · 1 mini-project</div>
+      </div>
+      <div class="pathway-step" data-week="3" onclick="switchWeek(3)">
+        <div class="pathway-num">🔗</div>
+        <div class="pathway-week">Week 3</div>
+        <div class="pathway-name">Advanced Agentic AI</div>
+        <div class="pathway-count">3 assignments · 1 mini-project</div>
+      </div>
+      <div class="pathway-step" data-week="4" onclick="switchWeek(4)">
+        <div class="pathway-num">🚀</div>
+        <div class="pathway-week">Week 4</div>
+        <div class="pathway-name">Deploy &amp; Impress</div>
+        <div class="pathway-count">2 exercises · Full capstone</div>
+      </div>
+    </div>
+
+    <div class="journey-panels">
+
+      <!-- WEEK 1 -->
+      <div class="journey-panel active" id="panel-1">
+        <div class="jp-card">
+          <div class="jp-header">
+            <div>
+              <div class="jp-week-tag w1-tag">Week 1 · GenAI Foundations</div>
+              <div class="jp-title">Python · Prompt Engineering · LLM APIs · RAG · Vector Databases</div>
+              <div class="jp-subtitle">Industries: Finance · Healthcare · Retail &nbsp;|&nbsp; 15–20 hrs total</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 1 You Can…</div>
+              <div class="jp-outcome-title">Build AI-powered apps</div>
+              <ul class="jp-outcome-list">
+                <li>Build a full RAG pipeline from scratch</li>
+                <li>Call OpenAI / Claude APIs from Python</li>
+                <li>Engineer 5-component prompts with safety constraints</li>
+                <li>Extract structured JSON with 94%+ field accuracy</li>
+                <li>3 notebooks committed to GitHub with READMEs</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w1-dot"></span>Assignments</div>
+              <div class="assign-item w1-item">
+                <div class="assign-sector">🏦 Finance</div>
+                <div class="assign-name">Financial Q&amp;A Bot — RAG over a 150-page Annual Report</div>
+                <div class="assign-meta">⏱ 4–5 hrs · 10 cited Q&amp;As · faithfulness evaluation</div>
+              </div>
+              <div class="assign-item w1-item">
+                <div class="assign-sector">🏥 Healthcare</div>
+                <div class="assign-name">Patient Discharge Summaries — Prompt Engineering with Safety Constraints</div>
+                <div class="assign-meta">⏱ 3–4 hrs · weak vs strong prompt comparison</div>
+              </div>
+              <div class="assign-item w1-item">
+                <div class="assign-sector">🛒 Retail</div>
+                <div class="assign-name">E-Commerce Product Intelligence — Structured JSON Extraction</div>
+                <div class="assign-meta">⏱ 3–4 hrs · 6-field extraction · batch API loop</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w1-dot"></span>Core Skills</div>
+              <span class="skill-tag">LangChain loaders</span><span class="skill-tag">ChromaDB vectors</span>
+              <span class="skill-tag">HuggingFace embeddings</span><span class="skill-tag">Retrieval chains</span>
+              <span class="skill-tag">Zero/few-shot prompts</span><span class="skill-tag">Chain-of-thought</span>
+              <span class="skill-tag">JSON schema prompts</span><span class="skill-tag">Faithfulness eval</span>
+              <span class="skill-tag">DeepEval basics</span><span class="skill-tag">API rate-limit retry</span>
+              <span class="skill-tag">Chunking strategies</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w1-dot"></span>Daily Topics</div>
+              <div class="day-row"><div class="day-label">Day 1–2</div><div class="day-text">AI Landscape: ML vs GenAI vs Agentic AI. LLM internals: tokens, context windows, temperature. Google Colab + GitHub setup</div></div>
+              <div class="day-row"><div class="day-label">Day 2–3</div><div class="day-text">Prompt Engineering: zero-shot, few-shot, chain-of-thought. Role + Task + Context + Constraints + Format. Iterative refinement</div></div>
+              <div class="day-row"><div class="day-label">Day 3–4</div><div class="day-text">RAG Fundamentals: document loading, chunking, embeddings, ChromaDB vector store, similarity search, retrieval chains</div></div>
+              <div class="day-row"><div class="day-label">Day 4–5</div><div class="day-text">Evaluation &amp; storytelling: measuring RAG quality. Writing clean notebooks. GitHub commit discipline and README best practices</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 2 -->
+      <div class="journey-panel" id="panel-2">
+        <div class="jp-card">
+          <div class="jp-header">
+            <div>
+              <div class="jp-week-tag w2-tag">Week 2 · Agentic AI Design</div>
+              <div class="jp-title">ReAct Agents · LangChain · Tool Use · LangGraph Intro</div>
+              <div class="jp-subtitle">Industries: Insurance · LegalTech · E-Commerce &nbsp;|&nbsp; 15–20 hrs total</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 2 You Can…</div>
+              <div class="jp-outcome-title">Build &amp; deploy single agents</div>
+              <ul class="jp-outcome-list">
+                <li>Build a LangChain agent with 3+ custom tools</li>
+                <li>Explain the ReAct loop on a whiteboard</li>
+                <li>Add human-in-the-loop checkpoints</li>
+                <li>Measure: task completion, tool efficiency, latency</li>
+                <li>Deploy your first Streamlit chatbot interface</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w2-dot"></span>Assignments</div>
+              <div class="assign-item w2-item">
+                <div class="assign-sector">🏢 Insurance</div>
+                <div class="assign-name">Claims Agent — Policy RAG + Eligibility Checker + HITL Gate for ₹5L+</div>
+                <div class="assign-meta">⏱ 4–5 hrs · 3 tools · 10 test claims · ReAct traces</div>
+              </div>
+              <div class="assign-item w2-item">
+                <div class="assign-sector">⚖️ LegalTech</div>
+                <div class="assign-name">Legal Research Agent — Case Law Discovery, DeepEval Faithfulness ≥ 0.85</div>
+                <div class="assign-meta">⏱ 4–5 hrs · 8 questions · 2 documented failure cases</div>
+              </div>
+              <div class="assign-item w2-item">
+                <div class="assign-sector">🛒 E-Commerce · Mini-Project</div>
+                <div class="assign-name">Customer Support Agent — End-to-End with Streamlit UI + Prompt Injection Guard</div>
+                <div class="assign-meta">⏱ 5–6 hrs · 5-turn conversation memory</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w2-dot"></span>Core Skills</div>
+              <span class="skill-tag">ReAct framework</span><span class="skill-tag">LangChain AgentExecutor</span>
+              <span class="skill-tag">Custom tool definitions</span><span class="skill-tag">DuckDuckGo search tool</span>
+              <span class="skill-tag">ConversationMemory</span><span class="skill-tag">Agentic RAG</span>
+              <span class="skill-tag">LangGraph intro</span><span class="skill-tag">HITL checkpoints</span>
+              <span class="skill-tag">DeepEval scores</span><span class="skill-tag">Streamlit deploy</span>
+              <span class="skill-tag">Tool error handling</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w2-dot"></span>Daily Topics</div>
+              <div class="day-row"><div class="day-label">Day 1</div><div class="day-text">From LLMs to Agents: limitations of single calls, the ReAct loop (Thought → Action → Observation), agent vs chain</div></div>
+              <div class="day-row"><div class="day-label">Day 2</div><div class="day-text">LangChain Agents: agent executor, tool definitions, DuckDuckGo, Python REPL, custom tool creation</div></div>
+              <div class="day-row"><div class="day-label">Day 3</div><div class="day-text">Agent Memory: ConversationBufferMemory, ConversationSummaryMemory. Agentic RAG: agent decides when to retrieve</div></div>
+              <div class="day-row"><div class="day-label">Day 4</div><div class="day-text">LangGraph Introduction: stateful agents, conditional edges, human-in-the-loop checkpoints</div></div>
+              <div class="day-row"><div class="day-label">Day 5</div><div class="day-text">Agent evaluation: task completion rate, tool call efficiency, latency. Structuring agent projects for GitHub</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 3 -->
+      <div class="journey-panel" id="panel-3">
+        <div class="jp-card">
+          <div class="jp-header">
+            <div>
+              <div class="jp-week-tag w3-tag">Week 3 · Advanced Agentic AI</div>
+              <div class="jp-title">Multi-Agent Systems · Memory · Evaluation · Safety · LangGraph</div>
+              <div class="jp-subtitle">Industries: Healthcare · Logistics · Manufacturing · E-Commerce &nbsp;|&nbsp; 15–20 hrs total</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 3 You Can…</div>
+              <div class="jp-outcome-title">Top 5% of graduates</div>
+              <ul class="jp-outcome-list">
+                <li>Design coordinator-worker multi-agent systems</li>
+                <li>Build PII masking + audit logging into any agent</li>
+                <li>Defend against 5 prompt injection variants</li>
+                <li>Implement LangGraph stateful agent graphs</li>
+                <li>Run formal DeepEval + RAGAS evaluations</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w3-dot"></span>Assignments</div>
+              <div class="assign-item w3-item">
+                <div class="assign-sector">🏥 Healthcare</div>
+                <div class="assign-name">NL-to-SQL Intelligence System — PII Masking + Audit Log + HITL Gate (&gt;100 patients)</div>
+                <div class="assign-meta">⏱ 4–5 hrs · 10 queries · PII detection rate measured</div>
+              </div>
+              <div class="assign-item w3-item">
+                <div class="assign-sector">🚚 Logistics · Advanced</div>
+                <div class="assign-name">Supply Chain Disruption — 4-Agent LangGraph with Shared State Management</div>
+                <div class="assign-meta">⏱ 5–6 hrs · 3 disruption scenarios · agent handoff traces</div>
+              </div>
+              <div class="assign-item w3-item">
+                <div class="assign-sector">🛒 E-Commerce · Mini-Project</div>
+                <div class="assign-name">Responsible AI Agent — 3 Safety Layers + Adversarial Testing + Streamlit</div>
+                <div class="assign-meta">⏱ 5–6 hrs · injection / PII / toxicity layers tested</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w3-dot"></span>Core Skills</div>
+              <span class="skill-tag">Multi-agent architecture</span><span class="skill-tag">LangGraph state graphs</span>
+              <span class="skill-tag">Coordinator-worker pattern</span><span class="skill-tag">ChromaDB long-term memory</span>
+              <span class="skill-tag">Cross-agent memory sharing</span><span class="skill-tag">RAGAS metrics</span>
+              <span class="skill-tag">PII detection + masking</span><span class="skill-tag">Prompt injection defence</span>
+              <span class="skill-tag">Toxicity filtering</span><span class="skill-tag">Audit logging</span>
+              <span class="skill-tag">NL-to-SQL safety layer</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w3-dot"></span>Daily Topics</div>
+              <div class="day-row"><div class="day-label">Day 1</div><div class="day-text">Multi-Agent Architecture: coordinator-worker pattern, message passing, shared state. LangGraph: nodes, edges, state</div></div>
+              <div class="day-row"><div class="day-label">Day 2</div><div class="day-text">Advanced Memory: ChromaDB as long-term store, cross-agent memory sharing, memory summarisation</div></div>
+              <div class="day-row"><div class="day-label">Day 3</div><div class="day-text">Agent Evaluation: DeepEval framework, RAGAS metrics, task completion benchmarks, latency and cost tracking</div></div>
+              <div class="day-row"><div class="day-label">Day 4</div><div class="day-text">Responsible AI: PII detection and masking, prompt injection patterns and defences, audit logging, HITL patterns</div></div>
+              <div class="day-row"><div class="day-label">Day 5</div><div class="day-text">Production patterns: agent observability, error recovery strategies, structuring multi-agent GitHub repos</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 4 -->
+      <div class="journey-panel" id="panel-4">
+        <div class="jp-card">
+          <div class="jp-header">
+            <div>
+              <div class="jp-week-tag w4-tag">Week 4 · Deploy &amp; Impress</div>
+              <div class="jp-title">FastAPI · MLflow · Monitoring · Ethics · Portfolio · Capstone</div>
+              <div class="jp-subtitle">All Sectors · Capstone Completion · Interview Preparation &nbsp;|&nbsp; 15–20 hrs total</div>
+            </div>
+            <div class="jp-outcome-box">
+              <div class="jp-outcome-label">By End of Week 4 You Can…</div>
+              <div class="jp-outcome-title">AI Engineer, not notebook user</div>
+              <ul class="jp-outcome-list">
+                <li>Deploy agent as FastAPI with /health + /predict</li>
+                <li>Track 6+ experiments in MLflow, register best run</li>
+                <li>Write a model card covering fairness + ethics</li>
+                <li>Demo capstone live in under 5 minutes cold-start</li>
+                <li>Answer all 12 AI interview questions without notes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp-body">
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w4-dot"></span>Exercises &amp; Capstone</div>
+              <div class="assign-item w4-item">
+                <div class="assign-sector">🏢 Insurance / MLOps</div>
+                <div class="assign-name">Deploy Claims Agent — Notebook → FastAPI with Pydantic Validation + Latency Logging</div>
+                <div class="assign-meta">⏱ 4–5 hrs · target &lt;5s avg response · test suite</div>
+              </div>
+              <div class="assign-item w4-item">
+                <div class="assign-sector">🔬 MLOps · Cross-Industry</div>
+                <div class="assign-name">MLflow Experiment Tracking — 6 Configurations Logged, Best Run Registered</div>
+                <div class="assign-meta">⏱ 3–4 hrs · temperature / chunk / k variants</div>
+              </div>
+              <div class="assign-item w4-item">
+                <div class="assign-sector">🎯 All Sectors</div>
+                <div class="assign-name">Choose 1 of 4 Capstone Projects — Your Interview Centrepiece</div>
+                <div class="assign-meta">⏱ 5–6 days · deployed API · model card · 10+ tests</div>
+              </div>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w4-dot"></span>Core Skills</div>
+              <span class="skill-tag">FastAPI endpoints</span><span class="skill-tag">Pydantic validation</span>
+              <span class="skill-tag">Agent serialisation</span><span class="skill-tag">MLflow logging</span>
+              <span class="skill-tag">Model registry</span><span class="skill-tag">Run comparison UI</span>
+              <span class="skill-tag">Prompt drift detection</span><span class="skill-tag">Response monitoring</span>
+              <span class="skill-tag">Model card writing</span><span class="skill-tag">STAR-AI story</span>
+              <span class="skill-tag">Live demo preparation</span>
+            </div>
+            <div class="jp-col">
+              <div class="jp-col-label"><span class="col-dot w4-dot"></span>Daily Topics</div>
+              <div class="day-row"><div class="day-label">Day 1</div><div class="day-text">FastAPI: endpoints, request/response models with Pydantic, loading serialised agents, async handling</div></div>
+              <div class="day-row"><div class="day-label">Day 2</div><div class="day-text">MLflow: logging agent runs, parameters, metrics. Model registry for agent versions. Comparing runs in UI</div></div>
+              <div class="day-row"><div class="day-label">Day 3</div><div class="day-text">Capstone integration session — peer review, instructor check-in, end-to-end testing</div></div>
+              <div class="day-row"><div class="day-label">Day 4</div><div class="day-text">Monitoring: detecting prompt drift, tracking response quality metrics, alerting on degradation</div></div>
+              <div class="day-row"><div class="day-label">Day 5</div><div class="day-text">Portfolio polish: GitHub README writing, model card creation, mock interview with STAR-AI framework</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /journey-panels -->
+  </div>
+</section>
+
+<!-- SKILLS EVOLUTION -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">📈 Skill Growth</div>
+      <h2 class="section-title">How You Level Up</h2>
+      <p class="section-sub">From calling an API to designing multi-agent systems with safety layers, formal evaluation, and production deployment.</p>
+    </div>
+    <div class="skills-wrap">
+      <div class="evo-block fade-in">
+        <div style="margin-bottom:1.5rem">
+          <div class="evo-head" style="color:var(--text-muted)"><span class="evo-dot" style="background:var(--border)"></span>Before the Course</div>
+          <div class="evo-item" style="opacity:.5"><span class="evo-icon">😐</span><span>Can write Python functions and basic loops</span></div>
+          <div class="evo-item" style="opacity:.5"><span class="evo-icon">😐</span><span>Uses ChatGPT in a browser tab, can't call it from code</span></div>
+          <div class="evo-item" style="opacity:.5"><span class="evo-icon">😐</span><span>No real AI projects in a portfolio</span></div>
+          <div class="evo-item" style="opacity:.5"><span class="evo-icon">😐</span><span>Can't explain what RAG, agents, or LangGraph means</span></div>
+        </div>
+        <div>
+          <div class="evo-head" style="color:var(--orange)"><span class="evo-dot" style="background:var(--orange)"></span>After 4 Weeks</div>
+          <div class="evo-item after"><span class="evo-icon">🤖</span><span>Builds multi-agent LangGraph systems with coordinator-worker patterns</span></div>
+          <div class="evo-item after"><span class="evo-icon">📊</span><span>Measures agents with DeepEval faithfulness, RAGAS, task completion metrics</span></div>
+          <div class="evo-item after"><span class="evo-icon">🛡️</span><span>Implements PII masking, prompt injection defence, and audit logging</span></div>
+          <div class="evo-item after"><span class="evo-icon">🚀</span><span>Deploys agents as FastAPI APIs with Pydantic validation and latency logging</span></div>
+          <div class="evo-item after"><span class="evo-icon">🧪</span><span>Tracks experiments in MLflow, registers best model, writes model cards with ethics</span></div>
+        </div>
+      </div>
+      <div class="skill-bars fade-in" id="skillChart">
+        <div class="sb-title">Skill Level Progression by Week</div>
+        <div class="sb-row">
+          <div class="sb-header"><span class="sb-name">LLM APIs &amp; Prompt Engineering</span><span class="sb-pct">Week 1</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:88%;background:linear-gradient(90deg,var(--w1),#FF9F50)"></div></div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-header"><span class="sb-name">RAG Pipelines &amp; Vector DBs</span><span class="sb-pct">Week 1</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:83%;background:linear-gradient(90deg,var(--w1),#FF9F50)"></div></div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-header"><span class="sb-name">Single Agents (ReAct + LangChain)</span><span class="sb-pct">Week 2</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:86%;background:linear-gradient(90deg,var(--w2),#C39BD3)"></div></div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-header"><span class="sb-name">Multi-Agent Systems (LangGraph)</span><span class="sb-pct">Week 3</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:76%;background:linear-gradient(90deg,var(--w3),#81C784)"></div></div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-header"><span class="sb-name">Responsible AI &amp; Safety Layers</span><span class="sb-pct">Week 3</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:79%;background:linear-gradient(90deg,var(--w3),#81C784)"></div></div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-header"><span class="sb-name">FastAPI Deployment</span><span class="sb-pct">Week 4</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:73%;background:linear-gradient(90deg,var(--w4),#64B5F6)"></div></div>
+        </div>
+        <div class="sb-row">
+          <div class="sb-header"><span class="sb-name">MLflow Experiment Tracking</span><span class="sb-pct">Week 4</span></div>
+          <div class="sb-track"><div class="sb-fill" style="--w:70%;background:linear-gradient(90deg,var(--w4),#64B5F6)"></div></div>
+        </div>
+        <div class="leg-row">
+          <div class="leg-item"><div class="leg-dot" style="background:var(--w1)"></div>Week 1</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--w2)"></div>Week 2</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--w3)"></div>Week 3</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--w4)"></div>Week 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE DIAGRAM -->
+<section id="pipeline">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">🔧 What You Will Build</div>
+      <h2 class="section-title">A Complete AI Engineer Workflow</h2>
+      <p class="section-sub">By Week 4 you will have built and connected every stage of a production agentic AI system — from raw documents to a live REST API.</p>
+    </div>
+    <div class="pipeline-scroll fade-in">
+      <div class="pipeline-row">
+        <div class="pipe-node">
+          <div class="pipe-box">
+            <div class="pipe-icon">📄</div>
+            <div class="pipe-label">Data / Docs</div>
+            <div class="pipe-sub">PDFs · APIs · DBs</div>
+          </div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-node">
+          <div class="pipe-box">
+            <div class="pipe-icon">🧩</div>
+            <div class="pipe-label">RAG Pipeline</div>
+            <div class="pipe-sub">Chunk · Embed · Retrieve</div>
+          </div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-node">
+          <div class="pipe-box">
+            <div class="pipe-icon">🤖</div>
+            <div class="pipe-label">Agent Layer</div>
+            <div class="pipe-sub">ReAct · Tools · Memory</div>
+          </div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-node">
+          <div class="pipe-box">
+            <div class="pipe-icon">🛡️</div>
+            <div class="pipe-label">Safety Layer</div>
+            <div class="pipe-sub">PII · Injection · Audit</div>
+          </div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-node">
+          <div class="pipe-box">
+            <div class="pipe-icon">⚡</div>
+            <div class="pipe-label">FastAPI</div>
+            <div class="pipe-sub">REST · Pydantic · Latency</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSTONE -->
+<section id="capstone">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">🏆 Capstone Projects</div>
+      <h2 class="section-title">Your Interview Centrepiece</h2>
+      <p class="section-sub">Choose one end-to-end system combining ML + Agentic AI + FastAPI + MLflow — deployed, evaluated, documented. This is what you open in every interview.</p>
+    </div>
+    <div class="capstone-grid">
+      <div class="cap-card fade-in">
+        <div class="cap-stripe"></div>
+        <div class="cap-body">
+          <div class="cap-head">
+            <div class="cap-icon">🏭</div>
+            <div>
+              <div class="cap-tag">Capstone A · Manufacturing · Intermediate</div>
+              <div class="cap-name">Predictive Maintenance + Agentic Alert System</div>
+            </div>
+          </div>
+          <p class="cap-desc">XGBoost failure predictor + Isolation Forest anomaly detection + LangChain alert agent that retrieves the maintenance manual using RAG, identifies the fault, and drafts a work order — all triggered by a FastAPI sensor endpoint in under 10 seconds.</p>
+          <div class="cap-outcome">
+            <div class="cap-outcome-label">What You Tell Recruiters</div>
+            "When the model detects a critical sensor reading, the agent retrieves the relevant maintenance manual section using RAG, identifies the likely fault, and drafts a work order — all in under 10 seconds. I tracked 18 experiments in MLflow. I can show you the live API right now."
+          </div>
+          <div class="cap-tags">
+            <span class="cap-chip">XGBoost</span><span class="cap-chip">SHAP</span><span class="cap-chip">LangChain</span><span class="cap-chip">FastAPI</span><span class="cap-chip">MLflow</span><span class="cap-chip">Recall ≥88%</span>
+          </div>
+        </div>
+      </div>
+      <div class="cap-card fade-in">
+        <div class="cap-stripe"></div>
+        <div class="cap-body">
+          <div class="cap-head">
+            <div class="cap-icon">🏦</div>
+            <div>
+              <div class="cap-tag">Capstone B · FinTech · Intermediate-Advanced</div>
+              <div class="cap-name">AI Credit Intelligence Engine with Fairness Audit</div>
+            </div>
+          </div>
+          <p class="cap-desc">Explainable XGBoost credit scoring + Fairlearn demographic parity audit + LangGraph decision-explanation agent + FastAPI endpoint + full model card. Includes a SHAP dashboard and applicant-facing plain-English explanations.</p>
+          <div class="cap-outcome">
+            <div class="cap-outcome-label">What You Tell Recruiters</div>
+            "I found initial bias toward higher-income applicants and fixed it by capping one feature — bringing demographic parity to within 3 percentage points. The model card documents all limitations. The agent explains exactly which 3 factors drove the decision."
+          </div>
+          <div class="cap-tags">
+            <span class="cap-chip">XGBoost</span><span class="cap-chip">SHAP</span><span class="cap-chip">Fairlearn</span><span class="cap-chip">LangGraph</span><span class="cap-chip">FastAPI</span><span class="cap-chip">AUC ≥ 0.85</span>
+          </div>
+        </div>
+      </div>
+      <div class="cap-card fade-in">
+        <div class="cap-stripe"></div>
+        <div class="cap-body">
+          <div class="cap-head">
+            <div class="cap-icon">🛒</div>
+            <div>
+              <div class="cap-tag">Capstone C · Retail · Intermediate</div>
+              <div class="cap-name">Retail Intelligence Suite — Segmentation, Forecasting, Recommendations</div>
+            </div>
+          </div>
+          <p class="cap-desc">RFM + K-Means segmentation + LSTM 28-day demand forecaster + collaborative filtering recommendation engine + LangChain analyst agent + Streamlit dashboard. Beats moving-average baseline on promotional weeks.</p>
+          <div class="cap-outcome">
+            <div class="cap-outcome-label">What You Tell Recruiters</div>
+            "My demand LSTM had 22% lower MAPE than a moving average on promotional weeks — it learned that promotions cause a spike followed by a demand dip. The analyst agent answers 'which segment should get the next promotion?' from the live model."
+          </div>
+          <div class="cap-tags">
+            <span class="cap-chip">LSTM</span><span class="cap-chip">K-Means</span><span class="cap-chip">LangChain</span><span class="cap-chip">Streamlit</span><span class="cap-chip">MAPE ≤ 18%</span>
+          </div>
+        </div>
+      </div>
+      <div class="cap-card fade-in">
+        <div class="cap-stripe"></div>
+        <div class="cap-body">
+          <div class="cap-head">
+            <div class="cap-icon">🏥</div>
+            <div>
+              <div class="cap-tag">Capstone D · MedTech · Advanced</div>
+              <div class="cap-name">Medical AI Research Analyst — Multi-Modal + Multi-Agent</div>
+            </div>
+          </div>
+          <p class="cap-desc">EfficientNetB0 chest X-ray classifier + Grad-CAM visualisations + 3-agent LangGraph system (Literature Retriever · Evidence Synthesiser · Report Generator) + multi-model FastAPI + mandatory ethics disclaimer section in README.</p>
+          <div class="cap-outcome">
+            <div class="cap-outcome-label">What You Tell Recruiters</div>
+            "I found 3 X-ray cases where the model was confident and wrong — I included those in my README because that's what responsible AI deployment looks like. Both components carry explicit disclaimers that they are decision-support tools, not replacements for clinical judgment."
+          </div>
+          <div class="cap-tags">
+            <span class="cap-chip">CNN</span><span class="cap-chip">Grad-CAM</span><span class="cap-chip">LangGraph</span><span class="cap-chip">FastAPI</span><span class="cap-chip">AUC ≥ 0.88</span><span class="cap-chip">Ethics doc</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section id="transform">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">🎓 Final Outcome</div>
+      <h2 class="section-title">After 4 Weeks, You Are Different</h2>
+      <p class="section-sub">Not someone who knows AI. An AI engineer who ships, measures, deploys, and explains real production systems.</p>
+    </div>
+    <div class="transform-grid">
+      <div class="t-card fade-in">
+        <div class="t-icon">🗂️</div>
+        <h4>GitHub Portfolio That Proves It</h4>
+        <p>Multi-agent systems, FastAPI endpoints, RAG pipelines, safety layers, SHAP explanations, MLflow logs. Recruiters form an impression in 30 seconds — yours is unmistakable.</p>
+      </div>
+      <div class="t-card fade-in">
+        <div class="t-icon">📐</div>
+        <h4>Measured, Evaluated AI</h4>
+        <p>DeepEval faithfulness, RAGAS metrics, demographic parity audits, task completion rates. You don't claim your agent works — you prove it with specific numbers.</p>
+      </div>
+      <div class="t-card fade-in">
+        <div class="t-icon">🛡️</div>
+        <h4>Safety-Aware Engineering</h4>
+        <p>PII masking, prompt injection defence, toxicity filters, audit logging, model cards. You understand why these matter in regulated industries — and can demonstrate each one live.</p>
+      </div>
+      <div class="t-card fade-in">
+        <div class="t-icon">⚙️</div>
+        <h4>Production-Grade Deployment</h4>
+        <p>FastAPI with Pydantic validation. MLflow experiment tracking. Endpoints with health checks and latency logging. The habits that separate AI engineers from notebook users.</p>
+      </div>
+      <div class="t-card fade-in">
+        <div class="t-icon">💬</div>
+        <h4>12 Interview Questions Answered Cold</h4>
+        <p>What is RAG? Why LangGraph? How do you prevent hallucination? What is demographic parity? You answer from your own tested, deployed projects — not memorised theory.</p>
+      </div>
+      <div class="t-card fade-in">
+        <div class="t-icon">🎯</div>
+        <h4>Live Demo in Under 5 Minutes</h4>
+        <p>Your FastAPI server starts. You show a normal query, then an adversarial attack caught by your safety layer. That 3-minute demo leaves an impression that a résumé never can.</p>
+      </div>
+    </div>
+    <div class="quote-box fade-in">
+      <div class="quote-before">Instead of: "Yes, I've done some AI projects in college."</div>
+      <div class="quote-after">"Yes — here is my GitHub. Let me show you the one I'm most proud of."</div>
+      <div class="quote-label">The STAR-AI answer that gets you to the next round</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">🛠️ Tools &amp; Setup</div>
+      <h2 class="section-title">Everything You Need — All Free</h2>
+      <p class="section-sub">No paid software required. Full stack installs in under 30 minutes. Google Colab provides free GPU access for every notebook.</p>
+    </div>
+    <div class="tools-grid fade-in">
+      <div class="tool-card"><div class="tool-icon">🐍</div><div class="tool-name">Python 3.10+</div><div class="tool-desc">Core language</div></div>
+      <div class="tool-card"><div class="tool-icon">☁️</div><div class="tool-name">Google Colab</div><div class="tool-desc">Free GPU notebooks</div></div>
+      <div class="tool-card"><div class="tool-icon">🔗</div><div class="tool-name">LangChain</div><div class="tool-desc">Agent framework</div></div>
+      <div class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">LangGraph</div><div class="tool-desc">Stateful multi-agents</div></div>
+      <div class="tool-card"><div class="tool-icon">🤖</div><div class="tool-name">OpenAI / Claude</div><div class="tool-desc">LLM APIs</div></div>
+      <div class="tool-card"><div class="tool-icon">🗃️</div><div class="tool-name">ChromaDB / FAISS</div><div class="tool-desc">Vector databases</div></div>
+      <div class="tool-card"><div class="tool-icon">🤗</div><div class="tool-name">HuggingFace</div><div class="tool-desc">NLP models + embeddings</div></div>
+      <div class="tool-card"><div class="tool-icon">🌲</div><div class="tool-name">XGBoost</div><div class="tool-desc">Gradient boosting ML</div></div>
+      <div class="tool-card"><div class="tool-icon">⚡</div><div class="tool-name">FastAPI</div><div class="tool-desc">Agent deployment</div></div>
+      <div class="tool-card"><div class="tool-icon">📈</div><div class="tool-name">MLflow</div><div class="tool-desc">Experiment tracking</div></div>
+      <div class="tool-card"><div class="tool-icon">🎛️</div><div class="tool-name">Streamlit</div><div class="tool-desc">Demo dashboards</div></div>
+      <div class="tool-card"><div class="tool-icon">🧪</div><div class="tool-name">DeepEval</div><div class="tool-desc">Agent evaluation</div></div>
+      <div class="tool-card"><div class="tool-icon">⚖️</div><div class="tool-name">Fairlearn</div><div class="tool-desc">Fairness audits</div></div>
+      <div class="tool-card"><div class="tool-icon">🔍</div><div class="tool-name">SHAP</div><div class="tool-desc">Model explainability</div></div>
+      <div class="tool-card"><div class="tool-icon">🐙</div><div class="tool-name">GitHub</div><div class="tool-desc">Portfolio hosting</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-box fade-in">
+    <h2>Ready to Become a <em>Next Gen AI Builder</em>?</h2>
+    <p>4 weeks. 15 assignments. A production-deployed capstone you can demo live. Interview prep built in. For every engineering branch — no prior AI experience needed.</p>
+    <div class="cta-checks">
+      <span class="cta-check">4 Weeks Intensive</span>
+      <span class="cta-check">LLMs + RAG + Agents</span>
+      <span class="cta-check">Responsible AI Built-In</span>
+      <span class="cta-check">FastAPI Deployment</span>
+      <span class="cta-check">MLflow Tracking</span>
+      <span class="cta-check">GitHub Portfolio</span>
+      <span class="cta-check">All Engineering Branches</span>
+      <span class="cta-check">No Prior AI Needed</span>
+    </div>
+    <div class="cta-btns">
+      <button class="btn-enroll">Enroll Now</button>
+      <button class="btn-ghost" onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">View Full Curriculum</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div style="width:32px;height:32px;overflow:hidden">
+        <svg width="32" height="32" viewBox="0 150 955 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M475.7 57.6211C652.854 57.6211 759.123 184.726 759.123 355.488C759.123 526.249 699.228 703.848 475.7 703.848C252.154 703.848 192.26 526.249 192.26 355.488C192.26 184.726 298.545 57.6211 475.7 57.6211Z" fill="#D1D0CC"/>
+          <path d="M493.477 314.275H460.795C456.99 314.275 453.906 317.356 453.906 321.155C453.906 324.955 456.99 328.035 460.795 328.035H493.477C497.282 328.035 500.366 324.955 500.366 321.155C500.366 317.356 497.282 314.275 493.477 314.275Z" fill="#EF7F1A"/>
+        </svg>
+      </div>
+      <span style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--navy)">Moksh<span style="color:var(--orange)">Path</span></span>
+      <span class="footer-copy">· Next Gen AI Builder: Agentic AI Career Accelerator</span>
+    </div>
+    <div class="footer-links">
+      <a href="#why">Why This Course</a>
+      <a href="#journey">Curriculum</a>
+      <a href="#capstone">Capstone</a>
+      <a href="#tools">Tools</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Week switcher
+function switchWeek(w) {
+  document.querySelectorAll('.pathway-step').forEach((el,i) => {
+    el.classList.toggle('active', i+1===w);
+  });
+  document.querySelectorAll('.journey-panel').forEach((el,i) => {
+    el.classList.toggle('active', i+1===w);
+  });
+}
+
+// Scroll fade-in
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.id === 'skillChart') animateBars();
+    }
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+// Skill bar animation
+const chartIO = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) { animateBars(); chartIO.disconnect(); }
+}, {threshold: 0.2});
+const sc = document.getElementById('skillChart');
+if (sc) chartIO.observe(sc);
+function animateBars() {
+  document.querySelectorAll('.sb-fill').forEach(b => b.classList.add('go'));
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+// Mobile toggle
+document.querySelector('.mobile-toggle').addEventListener('click', () => {
+  const nl = document.querySelector('.nav-links');
+  nl.style.display = nl.style.display === 'flex' ? 'none' : 'flex';
+  nl.style.flexDirection = 'column';
+  nl.style.position = 'absolute';
+  nl.style.top = '64px';
+  nl.style.left = '0';
+  nl.style.right = '0';
+  nl.style.background = 'var(--bg-card)';
+  nl.style.padding = '1.2rem 2rem';
+  nl.style.gap = '.8rem';
+  nl.style.borderBottom = '1px solid var(--border)';
+  nl.style.boxShadow = 'var(--shadow-md)';
+  nl.style.zIndex = '99';
+});
+</script>
+</body>
+</html>
